@@ -1,0 +1,33 @@
+spring:
+  application:
+    # 应用名称
+    name: test
+  cloud:
+    nacos:
+      discovery:
+        # 服务注册地址
+        server-addr: 101.200.141.21:8848
+      config:
+        # 配置中心地址
+        server-addr: 101.200.141.21:8848
+        # 配置文件格式
+        file-extension: yml
+        # 共享配置
+        shared-configs:
+          - common-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+          - datasource-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+    sentinel:
+      # 取消控制台懒加载
+      eager: true
+      transport:
+        # 控制台地址
+        dashboard: 101.200.141.21:8718
+      # nacos配置持久化
+      datasource:
+        ds1:
+          nacos:
+            server-addr: ruoyi-nacos:8848
+            dataId: sentinel-ruoyi-gateway
+            groupId: DEFAULT_GROUP
+            data-type: json
+            rule-type: gw-flow
