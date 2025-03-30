@@ -1,7 +1,7 @@
 spring:
   application:
     # 应用名称
-    name: gateway
+    name: test
   cloud:
     nacos:
       discovery:
@@ -15,6 +15,7 @@ spring:
         # 共享配置
         shared-configs:
           - common-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+          - datasource-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
     sentinel:
       # 取消控制台懒加载
       eager: true

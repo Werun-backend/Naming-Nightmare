@@ -6,10 +6,10 @@ spring:
     nacos:
       discovery:
         # 服务注册地址
-        server-addr: localhost:8848
+        server-addr: 101.200.141.21:8848
       config:
         # 配置中心地址
-        server-addr: localhost:8848
+        server-addr: 101.200.141.21:8848
         # 配置文件格式
         file-extension: yml
         # 共享配置
@@ -21,7 +21,7 @@ spring:
       eager: true
       transport:
         # 控制台地址
-        dashboard: localhost:8718
+        dashboard: 101.200.141.21:8718
       # nacos配置持久化
       datasource:
         ds1:
@@ -31,3 +31,16 @@ spring:
             groupId: DEFAULT_GROUP
             data-type: json
             rule-type: gw-flow
+#logging:
+#  level:
+#    org.mybatis: DEBUG
+#    com.werun.user.mapper: TRACE
+
+# mybatis配置
+mybatis:
+  # 搜索指定包别名
+  typeAliasesPackage: com.werun.user
+  # 配置mapper的扫描，找到所有的mapper.xml映射文件
+  mapperLocations: classpath:mapper/**/*.xml
+  configuration:
+   mapUnderscoreToCamelCase: true

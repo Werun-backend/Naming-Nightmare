@@ -2,6 +2,8 @@ package com.werun.user.server.iml;
 
 import com.werun.common.core.constant.CacheConstants;
 import com.werun.common.core.exception.ServiceException;
+import com.werun.common.core.request.Result;
+import com.werun.common.core.utils.StringUtils;
 import com.werun.user.domain.User;
 import com.werun.user.utils.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,12 +38,14 @@ public class PasswordService {
 
     public void validate(User user, String password){
         String email = user.getEmail();
-        Integer retryCount;
-        try{
-            retryCount = Integer.valueOf(stringRedisTemplate.opsForValue().get(getCacheKey(email)));
-        }catch (NullPointerException e){
+        Integer retryCount ;
+        if(!stringRedisTemplate.hasKey(getCacheKey(email))){
             retryCount=0;
         }
+        else {
+            retryCount = Integer.valueOf(stringRedisTemplate.opsForValue().get(getCacheKey(email)));
+        }
+
         if(retryCount>maxRetryCount){
            throw new ServiceException(String.format("密码输入错误%s次，帐户锁定%s分钟", maxRetryCount, lockTime));
         }

@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>user</artifactId>
+    <artifactId>test</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -31,11 +31,11 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
 
-<!--        &lt;!&ndash; SpringCloud Alibaba Sentinel &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>com.alibaba.cloud</groupId>-->
-<!--            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>-->
-<!--        </dependency>-->
+        <!--        &lt;!&ndash; SpringCloud Alibaba Sentinel &ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.alibaba.cloud</groupId>-->
+        <!--            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>-->
+        <!--        </dependency>-->
 
         <!-- SpringBoot Web -->
         <dependency>
@@ -89,4 +89,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

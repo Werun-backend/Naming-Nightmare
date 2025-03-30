@@ -1,5 +1,6 @@
 package com.werun.gateway.filter;
 
+import com.werun.common.core.constant.CacheConstants;
 import com.werun.common.core.constant.SecurityConstants;
 import com.werun.common.core.utils.JwtUtils;
 import com.werun.common.core.utils.ServletUtils;
@@ -51,13 +52,14 @@ public class AuthFilter implements GlobalFilter, Ordered {
             return unauthorizedResponse(exchange, "令牌已过期或验证不正确！");
         }
         String userkey = JwtUtils.getUserKey(claims);
-        boolean isLogin = Boolean.TRUE.equals(stringRedisTemplate.hasKey(userkey));
+        boolean isLogin = Boolean.TRUE.equals(stringRedisTemplate.hasKey(CacheConstants.LOGIN_TOKEN_KEY+userkey));
         if(!isLogin){
             return unauthorizedResponse(exchange, "登录状态已过期");
         }
         String userid = JwtUtils.getUserId(claims);
         String username = JwtUtils.getUserName(claims);
-        if (StringUtils.isEmpty(userid) || StringUtils.isEmpty(username))
+        String email = JwtUtils.getEmail(claims);
+        if (StringUtils.isEmpty(userid))
         {
             return unauthorizedResponse(exchange, "令牌验证失败");
         }
@@ -65,6 +67,7 @@ public class AuthFilter implements GlobalFilter, Ordered {
         addHeader(requestBuilder, SecurityConstants.USER_KEY, userkey);
         addHeader(requestBuilder, SecurityConstants.DETAILS_USER_ID, userid);
         addHeader(requestBuilder, SecurityConstants.DETAILS_USERNAME, username);
+        addHeader(requestBuilder,SecurityConstants.DETAILS_EMAIL,email);
 
         // 内部请求来源参数清除
         removeHeader(requestBuilder, SecurityConstants.FROM_SOURCE);

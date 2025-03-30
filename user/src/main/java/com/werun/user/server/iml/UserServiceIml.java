@@ -11,6 +11,7 @@ import com.werun.user.domain.User;
 import com.werun.user.mapper.UserMapper;
 import com.werun.user.server.UserService;
 import com.werun.user.utils.EmailUtil;
+import com.werun.user.utils.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -44,5 +45,29 @@ public class UserServiceIml implements UserService {
         loginUser.setUserid(userResult.getUserId());
         loginUser.setEmail(userResult.getEmail());
         return loginUser;
+    }
+
+    /**
+     * 注册
+     */
+    public void register(String email, String password)
+    {
+        // 用户名或密码为空 错误
+        if (StringUtils.isAnyBlank(email, password))
+        {
+            throw new ServiceException("用户/密码必须填写");
+        }
+
+
+        // 注册用户信息
+        User newUser = new User();
+        newUser.setEmail(email);
+        newUser.setPassword(SecurityUtils.encryptPassword(password));
+        //判断用户是否存在
+        User user = userMapper.selectUserByEmail(email);
+        if(user != null){
+            throw new ServiceException("用户已存在");
+        }
+        userMapper.insertUser(newUser);
     }
 }

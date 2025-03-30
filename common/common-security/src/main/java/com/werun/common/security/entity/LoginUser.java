@@ -1,6 +1,7 @@
 package com.werun.common.security.entity;
 
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 
 /**
@@ -11,6 +12,7 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Schema(description = "登录接口返回")
 public class LoginUser {
 
     /**
@@ -40,5 +42,6 @@ public class LoginUser {
     /**
      * 过期时间
      */
+    @Schema(description = "过期时间，单位分钟")
     private Long expireTime;
 }

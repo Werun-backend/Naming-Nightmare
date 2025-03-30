@@ -99,6 +99,9 @@ public class JwtUtils {
     {
         return getValue(claims, SecurityConstants.DETAILS_USERNAME);
     }
+    public static String getEmail(Claims claims){
+        return getValue(claims,SecurityConstants.DETAILS_EMAIL);
+    }
 
     /**
      * 根据身份信息获取键值

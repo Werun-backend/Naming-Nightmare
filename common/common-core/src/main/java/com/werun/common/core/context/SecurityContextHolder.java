@@ -44,8 +44,8 @@ public class SecurityContextHolder {
     }
 
     public static Long getUserId()
-    {
-        return get(SecurityConstants.DETAILS_USER_ID, Long.class);
+    {   Map<String,Object> map = getLocalMap();
+        return Long.valueOf((String) map.get(SecurityConstants.DETAILS_USER_ID));
     }
 
     public static void setUserId(String account)
@@ -62,7 +62,12 @@ public class SecurityContextHolder {
     {
         set(SecurityConstants.DETAILS_USERNAME, username);
     }
-
+    public static void setEmail(String email){
+        set(SecurityConstants.DETAILS_EMAIL, email);
+    }
+    public static String getEmail(){
+        return get(SecurityConstants.DETAILS_EMAIL);
+    }
     public static String getUserKey()
     {
         return get(SecurityConstants.USER_KEY);

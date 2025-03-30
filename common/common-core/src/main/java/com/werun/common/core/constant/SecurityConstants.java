@@ -46,4 +46,5 @@ public class SecurityConstants
      * 角色权限
      */
     public static final String ROLE_PERMISSION = "role_permission";
+    public static final String DETAILS_EMAIL = "email";
 }

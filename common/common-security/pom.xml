@@ -38,6 +38,10 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.werun</groupId>
+            <artifactId>common-swagger</artifactId>
+        </dependency>
 
     </dependencies>
 

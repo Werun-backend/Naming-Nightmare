@@ -50,6 +50,7 @@ public class TokenService {
         map.put(SecurityConstants.USER_KEY,token);
         map.put(SecurityConstants.DETAILS_USER_ID,userId);
         map.put(SecurityConstants.DETAILS_USERNAME,userName);
+        map.put(SecurityConstants.DETAILS_EMAIL,loginUser.getEmail());
 
         //返回接口信息
         Map<String,Object> rspMap = new HashMap<>();
@@ -96,5 +97,13 @@ public class TokenService {
     private String getTokenKey(String token)
     {
         return ACCESS_TOKEN + token;
+    }
+
+    public void deleteUserCache(String token) {
+        if (StringUtils.isNotEmpty(token))
+        {
+            String userkey = JwtUtils.getUserKey(token);
+            stringRedisTemplate.delete(getTokenKey(userkey));
+        }
     }
 }
