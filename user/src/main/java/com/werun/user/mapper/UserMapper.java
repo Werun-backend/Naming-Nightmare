@@ -11,7 +11,7 @@ public interface UserMapper {
      * @param password 加密后的密码
      * @return 用户信息
      */
-    public  User selectUserByEmailAndPassword(@Param("email") String email, @Param("password") String password);
+    public User selectUserByEmailAndPassword(@Param("email") String email, @Param("password") String password);
 
     /**
      * 插入新用户
