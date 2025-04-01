@@ -11,12 +11,13 @@ public class Posts {
     // private Date updatedAt;
     private boolean deleteStatus;
     private Long labelId;
+    private Long numberOfComments;
 
 
     public Posts() {
     }
 
-    public Posts(Long id, String title, String content, Long authorId, LocalDateTime createdAt, boolean deleteStatus, Long labelId) {
+    public Posts(Long id, String title, String content, Long authorId, LocalDateTime createdAt, boolean deleteStatus, Long labelId,Long numberOfComments) {
         this.id = id;
         this.title = title;
         this.content = content;
@@ -25,6 +26,7 @@ public class Posts {
         // this.updatedAt = updatedAt;
         this.deleteStatus = deleteStatus;
         this.labelId = labelId;
+        this.numberOfComments = numberOfComments;
     }
 
     /**
@@ -41,6 +43,22 @@ public class Posts {
      */
     public void setId(Long id) {
         this.id = id;
+    }
+
+    /**
+     * 获取
+     * @return id
+     */
+    public Long getNumberOfComments() {
+        return numberOfComments;
+    }
+
+    /**
+     * 设置
+     * @param numberOfComments
+     */
+    public void setNumberOfComments(Long numberOfComments) {
+        this.numberOfComments = numberOfComments;
     }
 
     /**

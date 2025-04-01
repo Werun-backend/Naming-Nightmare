@@ -1,5 +1,8 @@
 package com.werun.posts.DTO;
 
+/**
+ * 帖子数据传输对象
+ */
 public class PostDTO {
     private String title;
     private String content;
