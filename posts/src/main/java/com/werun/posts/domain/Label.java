@@ -1,51 +1,51 @@
 package com.werun.posts.domain;
 
 public class Label {
-    private Long id;
-    private String labelContext;
+    private Long LabelId;
+    private String labelContent;
 
 
     public Label() {
     }
 
-    public Label(Long id, String labelContext) {
-        this.id = id;
-        this.labelContext = labelContext;
+    public Label(Long LabelId, String labelContent) {
+        this.LabelId = LabelId;
+        this.labelContent = labelContent;
     }
 
     /**
      * 获取
-     * @return id
+     * @return LabelId
      */
-    public Long getId() {
-        return id;
+    public Long getLabelId() {
+        return LabelId;
     }
 
     /**
      * 设置
-     * @param id
+     * @param LabelId
      */
-    public void setId(Long id) {
-        this.id = id;
+    public void setLabelId(Long LabelId) {
+        this.LabelId = LabelId;
     }
 
     /**
      * 获取
-     * @return labelContext
+     * @return labelContent
      */
-    public String getLabelContext() {
-        return labelContext;
+    public String getLabelContent() {
+        return labelContent;
     }
 
     /**
      * 设置
-     * @param labelContext
+     * @param labelContent
      */
-    public void setLabelContext(String labelContext) {
-        this.labelContext = labelContext;
+    public void setLabelContent(String labelContent) {
+        this.labelContent = labelContent;
     }
 
     public String toString() {
-        return "Label{id = " + id + ", labelContext = " + labelContext + "}";
+        return "Label{LabelId = " + LabelId + ", labelContent = " + labelContent + "}";
     }
 }

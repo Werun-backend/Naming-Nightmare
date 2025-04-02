@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.werun.posts.mapper.PostsMapper">
+
+    <select id="selectPostByPostId" resultType="com.werun.posts.domain.Posts">
+        SELECT *
+        FROM posts
+        WHERE post_id = #{postId}
+    </select>
+
+    <select id="selectPostByUserId" resultType="com.werun.posts.domain.Posts">
+        SELECT *
+        FROM posts
+        WHERE author_id = #{userId}
+    </select>
+
+</mapper>

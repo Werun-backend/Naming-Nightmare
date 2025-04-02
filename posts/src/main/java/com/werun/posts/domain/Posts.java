@@ -3,7 +3,7 @@ package com.werun.posts.domain;
 import java.time.LocalDateTime;
 
 public class Posts {
-    private Long id;
+    private Long postId;
     private String title;
     private String content;
     private Long authorId;
@@ -17,13 +17,12 @@ public class Posts {
     public Posts() {
     }
 
-    public Posts(Long id, String title, String content, Long authorId, LocalDateTime createdAt, boolean deleteStatus, Long labelId,Long numberOfComments) {
-        this.id = id;
+    public Posts(Long postId, String title, String content, Long authorId, LocalDateTime createdAt, boolean deleteStatus, Long labelId, Long numberOfComments) {
+        this.postId = postId;
         this.title = title;
         this.content = content;
         this.authorId = authorId;
         this.createdAt = createdAt;
-        // this.updatedAt = updatedAt;
         this.deleteStatus = deleteStatus;
         this.labelId = labelId;
         this.numberOfComments = numberOfComments;
@@ -31,34 +30,18 @@ public class Posts {
 
     /**
      * 获取
-     * @return id
+     * @return postId
      */
-    public Long getId() {
-        return id;
+    public Long getPostId() {
+        return postId;
     }
 
     /**
      * 设置
-     * @param id
+     * @param postId
      */
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    /**
-     * 获取
-     * @return id
-     */
-    public Long getNumberOfComments() {
-        return numberOfComments;
-    }
-
-    /**
-     * 设置
-     * @param numberOfComments
-     */
-    public void setNumberOfComments(Long numberOfComments) {
-        this.numberOfComments = numberOfComments;
+    public void setPostId(Long postId) {
+        this.postId = postId;
     }
 
     /**
@@ -95,7 +78,7 @@ public class Posts {
 
     /**
      * 获取
-     * @return author
+     * @return authorId
      */
     public Long getAuthorId() {
         return authorId;
@@ -103,10 +86,10 @@ public class Posts {
 
     /**
      * 设置
-     * @param author
+     * @param authorId
      */
-    public void setAuthorId(Long author) {
-        this.authorId = author;
+    public void setAuthorId(Long authorId) {
+        this.authorId = authorId;
     }
 
     /**
@@ -125,25 +108,9 @@ public class Posts {
         this.createdAt = createdAt;
     }
 
-//    /**
-//     * 获取
-//     * @return updatedAt
-//     */
-//    public Date getUpdatedAt() {
-//        return updatedAt;
-//    }
-//
-//    /**
-//     * 设置
-//     * @param updatedAt
-//     */
-//    public void setUpdatedAt(Date updatedAt) {
-//        this.updatedAt = updatedAt;
-//    }
-
     /**
      * 获取
-     * @return status
+     * @return deleteStatus
      */
     public boolean isDeleteStatus() {
         return deleteStatus;
@@ -151,10 +118,10 @@ public class Posts {
 
     /**
      * 设置
-     * @param status
+     * @param deleteStatus
      */
-    public void setDeleteStatus(boolean status) {
-        this.deleteStatus = status;
+    public void setDeleteStatus(boolean deleteStatus) {
+        this.deleteStatus = deleteStatus;
     }
 
     /**
@@ -173,4 +140,23 @@ public class Posts {
         this.labelId = labelId;
     }
 
+    /**
+     * 获取
+     * @return numberOfComments
+     */
+    public Long getNumberOfComments() {
+        return numberOfComments;
+    }
+
+    /**
+     * 设置
+     * @param numberOfComments
+     */
+    public void setNumberOfComments(Long numberOfComments) {
+        this.numberOfComments = numberOfComments;
+    }
+
+    public String toString() {
+        return "Posts{postId = " + postId + ", title = " + title + ", content = " + content + ", authorId = " + authorId + ", createdAt = " + createdAt + ", deleteStatus = " + deleteStatus + ", labelId = " + labelId + ", numberOfComments = " + numberOfComments + "}";
+    }
 }

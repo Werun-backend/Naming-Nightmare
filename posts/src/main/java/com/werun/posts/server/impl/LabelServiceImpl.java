@@ -9,8 +9,12 @@ import com.werun.posts.domain.Label;
 import com.werun.posts.mapper.LabelMapper;
 import com.werun.posts.response.BaseResponse;
 import com.werun.posts.server.ILabelService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
+@Slf4j
 public class LabelServiceImpl extends ServiceImpl<LabelMapper, Label> implements ILabelService {
     @Autowired
     public LabelMapper labelMapper;
@@ -25,7 +29,7 @@ public class LabelServiceImpl extends ServiceImpl<LabelMapper, Label> implements
     public BaseResponse createLabel(String labelContext) {
         //1. 添加标签内容
         Label label = new Label();
-        label.setLabelContext(labelContext);
+        label.setLabelContent(labelContext);
         //2. 放入库中
         labelMapper.insert(label);
         return BaseResponse.success("成功创建标签！");

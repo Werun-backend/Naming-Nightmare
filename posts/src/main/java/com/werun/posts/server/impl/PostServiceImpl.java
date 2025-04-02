@@ -12,10 +12,15 @@ import com.werun.posts.mapper.PostsMapper;
 import com.werun.posts.response.BaseResponse;
 import com.werun.posts.server.IPostService;
 import com.werun.posts.utils.SecurityUtils;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
+@Service
+@Slf4j
 public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements IPostService {
     @Autowired
     public PostsMapper postsMapper;
@@ -47,7 +52,7 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
             post.setLabelId(postDTO.getLabelId());
 
         //2. 放入库中
-        postsMapper.insertPost(post);
+        postsMapper.insert(post);
         return BaseResponse.success("成功创建帖子！");
     }
 
@@ -96,23 +101,29 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
      * 编辑帖子
      *
      * @param postId
-     * @param postDTO
+     * @param typeName
+     * @param newParam
      * @return
      */
     @Override
-    public BaseResponse updatePost(Long postId,PostDTO postDTO){
+    public BaseResponse updatePost(Long postId,String typeName,String newParam){
         //1. 查询到原贴
         Posts post = postsMapper.selectPostByPostId(postId);
 
         //2. 编辑帖子
-        post.setTitle(postDTO.getTitle());
-        post.setContent(postDTO.getContent());
-        post.setLabelId(postDTO.getLabelId());
-        post.setCreatedAt(LocalDateTime.now());
+        if (typeName.equals("title")) {
+            post.setTitle(newParam);
+        }
+        if (typeName.equals("content")) {
+            post.setContent(newParam);
+        }
+        if (typeName.equals("label_id")) {
+            post.setLabelId(Long.valueOf(newParam));
+        }
         postsMapper.updateById(post);
 
         //3. 提示编辑成功
-        return BaseResponse.success("update successfully!");
+        return BaseResponse.success(post,"update successfully!");
     }
 
     /**
@@ -128,7 +139,7 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
 
         //2. 生成视图对象
         PostVO postVO = new PostVO();
-        postVO.setPostId(post.getId());
+        postVO.setPostId(post.getPostId());
         postVO.setTitle(post.getTitle());
         postVO.setAuthorId(post.getAuthorId());
         postVO.setContent(post.getContent());

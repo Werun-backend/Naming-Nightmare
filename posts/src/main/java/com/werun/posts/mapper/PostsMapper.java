@@ -5,13 +5,6 @@ import com.werun.posts.domain.Posts;
 import org.apache.ibatis.annotations.Param;
 
 public interface PostsMapper extends BaseMapper<Posts> {
-    /**
-     * 插入新用户
-     *
-     * @param post 帖子对象
-     * @return 影响的行数
-     */
-    public int insertPost(Posts post);
 
     /**
      * 根据帖子Id查询帖子

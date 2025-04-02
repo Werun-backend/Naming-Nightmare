@@ -9,6 +9,7 @@ import com.werun.posts.response.BaseResponse;
 public interface IPostService extends IService<Posts> {
     /**
      * 创建帖子
+     *
      * @param postDTO
      * @return
      */
@@ -43,5 +44,5 @@ public interface IPostService extends IService<Posts> {
      * @param postId
      * @return
      */
-    public BaseResponse updatePost(Long postId,PostDTO postDTO);
+    public BaseResponse updatePost(Long postId,String typeName,String newParam);
 }
