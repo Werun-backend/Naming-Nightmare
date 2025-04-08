@@ -13,6 +13,7 @@ public class TestController {
         LoginUser user = new LoginUser();
         user.setEmail(SecurityContextHolder.getEmail());
         user.setUserid(SecurityContextHolder.getUserId());
+        System.out.println("test");
         return Result.ok(user);
     }
 }
