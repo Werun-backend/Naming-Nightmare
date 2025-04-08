@@ -13,6 +13,8 @@
         <module>gateway</module>
         <module>user</module>
         <module>test</module>
+        <module>post</module>
+        <module>posts</module>
     </modules>
 
     <properties>
