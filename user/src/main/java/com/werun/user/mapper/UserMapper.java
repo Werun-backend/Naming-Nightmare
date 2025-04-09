@@ -1,5 +1,7 @@
 package com.werun.user.mapper;
 
+import com.werun.user.DTO.UserDTO;
+import com.werun.user.PO.UserPO;
 import com.werun.user.domain.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -11,7 +13,7 @@ public interface UserMapper {
      * @param password 加密后的密码
      * @return 用户信息
      */
-    public  User selectUserByEmailAndPassword(@Param("email") String email, @Param("password") String password);
+    public User selectUserByEmailAndPassword(@Param("email") String email, @Param("password") String password);
 
     /**
      * 插入新用户
@@ -26,4 +28,10 @@ public interface UserMapper {
      * @return 用户信息
      */
     public User selectUserByEmail(String email);
+
+    /**
+     * 编辑用户信息
+     * @param user
+     */
+    void editUserMessage(UserDTO user,Long userId);
 }

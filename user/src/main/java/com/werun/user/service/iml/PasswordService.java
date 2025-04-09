@@ -1,14 +1,11 @@
-package com.werun.user.server.iml;
+package com.werun.user.service.iml;
 
 import com.werun.common.core.constant.CacheConstants;
 import com.werun.common.core.exception.ServiceException;
-import com.werun.common.core.request.Result;
-import com.werun.common.core.utils.StringUtils;
 import com.werun.user.domain.User;
 import com.werun.user.utils.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
 
 import java.util.concurrent.TimeUnit;

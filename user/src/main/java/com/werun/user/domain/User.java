@@ -1,7 +1,6 @@
 package com.werun.user.domain;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-
 import java.io.Serializable;
 
 /**

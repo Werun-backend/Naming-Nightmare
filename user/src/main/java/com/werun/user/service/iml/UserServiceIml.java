@@ -1,15 +1,13 @@
-package com.werun.user.server.iml;
+package com.werun.user.service.iml;
 
-import com.werun.common.core.constant.CacheConstants;
-import com.werun.common.core.constant.Constants;
-import com.werun.common.core.constant.SecurityConstants;
 import com.werun.common.core.exception.ServiceException;
-import com.werun.common.core.request.Result;
 import com.werun.common.core.utils.StringUtils;
 import com.werun.common.security.entity.LoginUser;
+import com.werun.user.DTO.UserDTO;
+import com.werun.user.PO.UserPO;
 import com.werun.user.domain.User;
 import com.werun.user.mapper.UserMapper;
-import com.werun.user.server.UserService;
+import com.werun.user.service.UserService;
 import com.werun.user.utils.EmailUtil;
 import com.werun.user.utils.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,5 +67,15 @@ public class UserServiceIml implements UserService {
             throw new ServiceException("用户已存在");
         }
         userMapper.insertUser(newUser);
+    }
+
+    /**
+     * 编辑个人信息
+     * @param user
+     */
+    @Override
+    public void edit(UserDTO user) {
+        Long userId = SecurityUtils.getUserId();
+        userMapper.editUserMessage(user,userId);
     }
 }
