@@ -33,5 +33,5 @@ public interface UserMapper {
      * 编辑用户信息
      * @param user
      */
-    void editUserMessage(UserDTO user,Long userId);
+    void editUserMessage(@Param("user") UserDTO user,@Param("userId") Long userId);
 }

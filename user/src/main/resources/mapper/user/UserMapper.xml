@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.werun.UserMapper">
+<mapper namespace="com.werun.user.mapper.UserMapper">
 
 <!--    <resultMap id="UserResult" type="com.werun.User">-->
 <!--        <id property="userId" column="user_id"/>-->
@@ -35,20 +35,20 @@
         </trim>
     </insert>
 
-    <update id="editUserMessage" parameterType="com.werun.user.PO.UserPO">
+    <update id="editUserMessage">
         update user
         <set>
-            <if test="nickName != null and nickName != ''">
-                nick_name = #{nickName},
+            <if test="user.nickName != null and user.nickName != ''">
+                nick_name = #{user.nickName},
             </if>
-            <if test="phone != null and phone != ''">
-                phone = #{phone},
+            <if test="user.phone != null and user.phone != ''">
+                phone = #{user.phone},
             </if>
-            <if test="sex != null">
-                sex = #{sex},
+            <if test="user.sex != null">
+                sex = #{user.sex},
             </if>
-            <if test="email != null and email != ''">
-                email = #{email},
+            <if test="user.email != null and user.email != ''">
+                email = #{user.email},
             </if>
         </set>
         where user_id = #{userId}
