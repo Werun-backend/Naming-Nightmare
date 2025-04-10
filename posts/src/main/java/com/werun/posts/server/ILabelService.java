@@ -1,7 +1,7 @@
 package com.werun.posts.server;
 
+import com.werun.common.core.request.Result;
 import com.werun.posts.DTO.PageModel;
-import com.werun.posts.response.BaseResponse;
 
 public interface ILabelService {
     /**
@@ -9,7 +9,7 @@ public interface ILabelService {
      * @param labelContext
      * @return
      */
-    public BaseResponse createLabel(String labelContext);
+    public Result createLabel(String labelContext);
 
     /**
      * 查询所有标签
@@ -17,5 +17,5 @@ public interface ILabelService {
      * @param pageModel
      * @return
      */
-    public BaseResponse readAllLabels(PageModel pageModel);
+    public Result readAllLabels(PageModel pageModel);
 }

@@ -3,6 +3,7 @@ package com.werun.posts.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.werun.posts.domain.Posts;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 public interface PostsMapper extends BaseMapper<Posts> {
 
@@ -12,6 +13,7 @@ public interface PostsMapper extends BaseMapper<Posts> {
      * @param postId
      * @return 帖子信息
      */
+    @Select("SELECT * FROM posts WHERE post_id = #{postId}")
     public Posts selectPostByPostId(@Param("postId") Long postId);
 
     /**
@@ -20,8 +22,10 @@ public interface PostsMapper extends BaseMapper<Posts> {
      * @param userId 用户id
      * @return 帖子信息
      */
+    @Select("SELECT * FROM posts WHERE author_id = #{userId}")
     public Posts selectPostByUserId(@Param("userId") Long userId);
 
+    public int insertPost(@Param("post") Posts post);
 
 
 }

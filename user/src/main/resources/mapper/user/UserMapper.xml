@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.werun.UserMapper">
+<mapper namespace="com.werun.user.mapper.UserMapper">
 
-<!--    <resultMap id="UserResult" type="com.werun.User">-->
+<!--    <resultMap id="UserResult" type="com.werun.user.domain.User">-->
 <!--        <id property="userId" column="user_id"/>-->
 <!--        <result property="password" column="password"/>-->
 <!--        <result property="email" column="email"/>-->
 <!--    </resultMap>-->
 
-    <select id="selectUserByEmailAndPassword" resultType="com.werun.User">
+    <select id="selectUserByEmailAndPassword" resultType="com.werun.user.domain.User">
         SELECT user_id, password, email
         FROM user
         WHERE email = #{email} AND password = #{password}
     </select>
 
-    <select id="selectUserByEmail" resultType="com.werun.User">
+    <select id="selectUserByEmail" resultType="com.werun.user.domain.User">
         SELECT user_id, password, email
         FROM user
         WHERE email = #{email}
     </select>
 
 
-    <insert id="insertUser" parameterType="com.werun.User" useGeneratedKeys="true" keyProperty="userId">
+    <insert id="insertUser" parameterType="com.werun.user.domain.User" useGeneratedKeys="true" keyProperty="userId">
         INSERT INTO user
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="userId != null">user_id,</if>

@@ -4,16 +4,16 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.werun.common.core.context.SecurityContextHolder;
+import com.werun.common.core.request.Result;
 import com.werun.posts.DTO.PageModel;
 import com.werun.posts.DTO.PostDTO;
 import com.werun.posts.VO.PostVO;
 import com.werun.posts.domain.Posts;
 import com.werun.posts.mapper.PostsMapper;
-import com.werun.posts.response.BaseResponse;
 import com.werun.posts.server.IPostService;
 import com.werun.posts.utils.SecurityUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,7 +33,7 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
      * @return
      */
     @Override
-    public BaseResponse createPost(PostDTO postDTO) {
+    public Result createPost(PostDTO postDTO) {
         //1. 完善帖子信息
         Posts post = new Posts();
             //1.1. 获取当前用户信息
@@ -53,7 +53,7 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
 
         //2. 放入库中
         postsMapper.insert(post);
-        return BaseResponse.success("成功创建帖子！");
+        return Result.ok("成功创建帖子！");
     }
 
     /**
@@ -62,19 +62,19 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
      * @return
      */
     @Override
-    public BaseResponse deletePost(Long postId){
+    public Result deletePost(Long postId){
         //1. 校验身份
         Posts post = postsMapper.selectPostByPostId(postId);
         if(!post.getAuthorId().equals(SecurityUtils.getUserId())){
             //1.1. 无删除权限
-            return BaseResponse.error("Delete failed！");
+            return Result.fail("Delete failed！");
         }
 
         //2. 更改状态
         post.setDeleteStatus(true);
 
         //3. 删除成功
-        return BaseResponse.success("Delete successfully！");
+        return Result.ok("Delete successfully！");
     }
 
     /**
@@ -83,18 +83,18 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
      * @return
      */
     @Override
-    public BaseResponse readPostByAuthor(PageModel pageModel){
+    public Result readPostByAuthor(PageModel pageModel){
         //1. 获取用户id
         Long userId = SecurityUtils.getUserId();
 
         //2. 查询帖子
         QueryWrapper<Posts> wrapper = new QueryWrapper<>();
-        wrapper.eq("userId", userId);
+        wrapper.eq("author_id", userId);
         Page<Posts> page = new Page<>(pageModel.getPageNo(), pageModel.getPageSize());
         IPage<Posts> pageList = this.page(page, wrapper);
 
         //3. 返回分页结果
-        return BaseResponse.success(pageList,"query successfully!");
+        return Result.ok(pageList,"query successfully!");
     }
 
     /**
@@ -106,7 +106,7 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
      * @return
      */
     @Override
-    public BaseResponse updatePost(Long postId,String typeName,String newParam){
+    public Result updatePost(Long postId,String typeName,String newParam){
         //1. 查询到原贴
         Posts post = postsMapper.selectPostByPostId(postId);
 
@@ -123,7 +123,7 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
         postsMapper.updateById(post);
 
         //3. 提示编辑成功
-        return BaseResponse.success(post,"update successfully!");
+        return Result.ok(post,"update successfully!");
     }
 
     /**
@@ -133,7 +133,7 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
      * @return
      */
     @Override
-    public BaseResponse readPostByPostId(Long postId){
+    public Result readPostByPostId(Long postId){
         //1. 查询贴子
         Posts post = postsMapper.selectPostByPostId(postId);
 
@@ -148,7 +148,7 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
         postVO.setNumberOfComments(post.getNumberOfComments());
 
         //3. 查询成功
-        return BaseResponse.success(postVO,"query successfully");
+        return Result.ok(postVO,"query successfully");
     }
 }
 

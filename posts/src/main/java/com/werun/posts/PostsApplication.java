@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class PostsApplication {
     public static void main(String[] args) {
         SpringApplication.run(PostsApplication.class, args);
-        System.out.println("(♥◠‿◠)ﾉﾞ  用户启动成功   ლ(´ڡ`ლ)ﾞ  \n" +
+        System.out.println("(♥◠‿◠)ﾉﾞ  帖子启动成功   ლ(´ڡ`ლ)ﾞ  \n" +
                 "  █████   ███   █████                                                     █████                        █████                              █████\n" +
                 "▒▒███   ▒███  ▒▒███                                                     ▒▒███                        ▒▒███                              ▒▒███\n" +
                 " ▒███   ▒███   ▒███   ██████  ████████  █████ ████ ████████              ▒███████   ██████    ██████  ▒███ █████  ██████  ████████    ███████\n" +

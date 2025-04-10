@@ -1,8 +1,11 @@
 package com.werun.posts.domain;
 
+import com.baomidou.mybatisplus.annotation.TableId;
+
 import java.time.LocalDateTime;
 
 public class Posts {
+    @TableId
     private Long postId;
     private String title;
     private String content;

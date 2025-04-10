@@ -1,10 +1,10 @@
 package com.werun.posts.server;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.werun.common.core.request.Result;
 import com.werun.posts.DTO.PageModel;
 import com.werun.posts.DTO.PostDTO;
 import com.werun.posts.domain.Posts;
-import com.werun.posts.response.BaseResponse;
 
 public interface IPostService extends IService<Posts> {
     /**
@@ -13,7 +13,7 @@ public interface IPostService extends IService<Posts> {
      * @param postDTO
      * @return
      */
-    public BaseResponse createPost(PostDTO postDTO);
+    public Result createPost(PostDTO postDTO);
 
     /**
      * 删除帖子（假删除）
@@ -21,7 +21,7 @@ public interface IPostService extends IService<Posts> {
      * @param postId
      * @return
      */
-    public BaseResponse deletePost(Long postId);
+    public Result deletePost(Long postId);
 
     /**
      * 查询个人帖子
@@ -29,14 +29,14 @@ public interface IPostService extends IService<Posts> {
       * @param pageModel
      * @return
      */
-    public BaseResponse readPostByAuthor(PageModel pageModel);
+    public Result readPostByAuthor(PageModel pageModel);
 
     /**
      * 用帖子id查询帖子
      *
      * @return
      */
-    public BaseResponse readPostByPostId(Long postId);
+    public Result readPostByPostId(Long postId);
 
     /**
      * 编辑帖子
@@ -44,5 +44,5 @@ public interface IPostService extends IService<Posts> {
      * @param postId
      * @return
      */
-    public BaseResponse updatePost(Long postId,String typeName,String newParam);
+    public Result updatePost(Long postId,String typeName,String newParam);
 }

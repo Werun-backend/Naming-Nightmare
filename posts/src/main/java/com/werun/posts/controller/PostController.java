@@ -1,8 +1,8 @@
 package com.werun.posts.controller;
 
+import com.werun.common.core.request.Result;
 import com.werun.posts.DTO.PageModel;
 import com.werun.posts.DTO.PostDTO;
-import com.werun.posts.response.BaseResponse;
 import com.werun.posts.server.ILabelService;
 import com.werun.posts.server.IPostService;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
@@ -33,7 +33,7 @@ public class PostController {
      */
     @PostMapping("/createPost")
     @Operation(summary = "创建帖子", description = "创建帖子")
-    public BaseResponse createPost(@RequestBody PostDTO postDTO) {
+    public Result createPost(@RequestBody PostDTO postDTO) {
         return iPostService.createPost(postDTO);
     }
 
@@ -44,7 +44,7 @@ public class PostController {
      */
     @GetMapping("/deletePost")
     @Operation(summary = "删除帖子", description = "删除帖子")
-    public BaseResponse deletePost(@RequestParam Long postId) {
+    public Result deletePost(@RequestParam Long postId) {
         return iPostService.deletePost(postId);
     }
 
@@ -55,7 +55,7 @@ public class PostController {
      */
     @GetMapping("/readPostByAuthor")
     @Operation(summary = "查询个人帖子", description = "查询个人帖子")
-    public BaseResponse readPostByAuthor(@RequestParam(name = "pageNo", defaultValue = "1") Integer pageNo,
+    public Result readPostByAuthor(@RequestParam(name = "pageNo", defaultValue = "1") Integer pageNo,
                                          @RequestParam(name = "pageSize", defaultValue = "5") Integer pageSize) {
         PageModel pageModel = new PageModel();
         pageModel.setPageNo(pageNo);
@@ -70,7 +70,7 @@ public class PostController {
      */
     @GetMapping("/updatePost")
     @Operation(summary = "编辑帖子", description = "编辑帖子")
-    public BaseResponse updatePost(@RequestParam Long postId,@RequestParam String typeName,@RequestParam String newParam) {
+    public Result updatePost(@RequestParam Long postId,@RequestParam String typeName,@RequestParam String newParam) {
         return iPostService.updatePost(postId,typeName,newParam);
     }
 
@@ -81,7 +81,7 @@ public class PostController {
      */
     @GetMapping("/readPostByPostId")
     @Operation(summary = "根据postId查询帖子", description = "根据postId查询帖子")
-    public BaseResponse readPostByPostId(@RequestParam Long postId) {
+    public Result readPostByPostId(@RequestParam Long postId) {
         return iPostService.readPostByPostId(postId);
     }
 
@@ -92,8 +92,8 @@ public class PostController {
      */
     @GetMapping("/createLabel")
     @Operation(summary = "新增标签", description = "新增标签")
-    public BaseResponse createLabel(@RequestParam String labelContext) {
-        return iLabelService.createLabel(labelContext);
+    public Result createLabel(@RequestParam String labelContent) {
+        return iLabelService.createLabel(labelContent);
     }
 
     /**
@@ -103,7 +103,7 @@ public class PostController {
      */
     @GetMapping("/readAllLabels")
     @Operation(summary = "查询所有标签", description = "查询所有标签")
-    public BaseResponse readAllLabels(@RequestParam(name = "pageNo", defaultValue = "1") Integer pageNo,
+    public Result readAllLabels(@RequestParam(name = "pageNo", defaultValue = "1") Integer pageNo,
                                          @RequestParam(name = "pageSize", defaultValue = "5") Integer pageSize) {
         PageModel pageModel = new PageModel();
         pageModel.setPageNo(pageNo);
