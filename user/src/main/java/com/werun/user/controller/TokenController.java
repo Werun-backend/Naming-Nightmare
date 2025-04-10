@@ -6,11 +6,14 @@ import com.werun.common.core.utils.JwtUtils;
 import com.werun.common.core.utils.StringUtils;
 import com.werun.common.security.entity.LoginUser;
 import com.werun.common.security.service.TokenService;
+import com.werun.user.DTO.UserDTO;
+import com.werun.user.PO.UserPO;
 import com.werun.user.request.LoginRequest;
 import com.werun.user.request.RegisterRequest;
 import com.werun.user.response.LoginResponse;
-import com.werun.user.server.UserService;
+import com.werun.user.service.UserService;
 import com.werun.user.utils.SecurityUtils;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,6 +29,7 @@ public class TokenController {
 
     //todo 1.login
     @PostMapping("login")
+    @Operation(summary = "登录", description = "登录")
     public Result<LoginResponse> login(@RequestBody LoginRequest loginRequest) {
         // 用户登录
         LoginUser userInfo = userService.login(loginRequest.getEmail(), loginRequest.getPassword());
@@ -36,6 +40,7 @@ public class TokenController {
     }
     //todo 2.logout
     @DeleteMapping("logout")
+    @Operation(summary = "登出", description = "登出")
     public Result<?> logout(HttpServletRequest request)
     {
         String token = SecurityUtils.getToken(request);
@@ -50,6 +55,7 @@ public class TokenController {
     }
     //todo 3.register
     @PostMapping("register")
+    @Operation(summary = "注册", description = "注册")
     public Result<?> register(@RequestBody RegisterRequest registerBody)
     {
         // 用户注册
@@ -59,6 +65,7 @@ public class TokenController {
     }
     //todo 4.refresh   \
      @PostMapping("refresh")
+     @Operation(summary = "刷新token", description = "刷新token")
         public Result<?> refresh(HttpServletRequest request)
         {
             LoginUser loginUser = tokenService.getLoginUser(SecurityUtils.getToken(request));
@@ -71,5 +78,11 @@ public class TokenController {
             return Result.ok();
         }
     //todo 5.用户编辑自己的信息
+    @PostMapping("edit")
+    @Operation(summary = "编辑个人信息", description = "编辑个人信息")
+    public Result<?> edit(@RequestBody UserDTO user){
+        userService.edit(user);
+        return Result.ok();
+    }
 
 }
