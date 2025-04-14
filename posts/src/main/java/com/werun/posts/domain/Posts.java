@@ -12,23 +12,27 @@ public class Posts {
     private Long authorId;
     private LocalDateTime createdAt;
     // private Date updatedAt;
-    private boolean deleteStatus;
+    private boolean visible;
     private Long labelId;
     private Long numberOfComments;
+    private boolean scheduled;
+    private LocalDateTime scheduledTime;
 
 
     public Posts() {
     }
 
-    public Posts(Long postId, String title, String content, Long authorId, LocalDateTime createdAt, boolean deleteStatus, Long labelId, Long numberOfComments) {
+    public Posts(Long postId, String title, String content, Long authorId, LocalDateTime createdAt, boolean visible, Long labelId, Long numberOfComments, boolean scheduled, LocalDateTime scheduledTime) {
         this.postId = postId;
         this.title = title;
         this.content = content;
         this.authorId = authorId;
         this.createdAt = createdAt;
-        this.deleteStatus = deleteStatus;
+        this.visible = visible;
         this.labelId = labelId;
         this.numberOfComments = numberOfComments;
+        this.scheduled = scheduled;
+        this.scheduledTime = scheduledTime;
     }
 
     /**
@@ -113,18 +117,18 @@ public class Posts {
 
     /**
      * 获取
-     * @return deleteStatus
+     * @return visible
      */
-    public boolean isDeleteStatus() {
-        return deleteStatus;
+    public boolean isVisible() {
+        return visible;
     }
 
     /**
      * 设置
-     * @param deleteStatus
+     * @param visible
      */
-    public void setDeleteStatus(boolean deleteStatus) {
-        this.deleteStatus = deleteStatus;
+    public void setVisible(boolean visible) {
+        this.visible = visible;
     }
 
     /**
@@ -159,7 +163,39 @@ public class Posts {
         this.numberOfComments = numberOfComments;
     }
 
+    /**
+     * 获取
+     * @return scheduled
+     */
+    public boolean isScheduled() {
+        return scheduled;
+    }
+
+    /**
+     * 设置
+     * @param scheduled
+     */
+    public void setScheduled(boolean scheduled) {
+        this.scheduled = scheduled;
+    }
+
+    /**
+     * 获取
+     * @return scheduledTime
+     */
+    public LocalDateTime getScheduledTime() {
+        return scheduledTime;
+    }
+
+    /**
+     * 设置
+     * @param scheduledTime
+     */
+    public void setScheduledTime(LocalDateTime scheduledTime) {
+        this.scheduledTime = scheduledTime;
+    }
+
     public String toString() {
-        return "Posts{postId = " + postId + ", title = " + title + ", content = " + content + ", authorId = " + authorId + ", createdAt = " + createdAt + ", deleteStatus = " + deleteStatus + ", labelId = " + labelId + ", numberOfComments = " + numberOfComments + "}";
+        return "Posts{postId = " + postId + ", title = " + title + ", content = " + content + ", authorId = " + authorId + ", createdAt = " + createdAt + ", visible = " + visible + ", labelId = " + labelId + ", numberOfComments = " + numberOfComments + ", scheduled = " + scheduled + ", scheduledTime = " + scheduledTime + "}";
     }
 }

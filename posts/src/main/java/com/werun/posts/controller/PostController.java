@@ -3,8 +3,8 @@ package com.werun.posts.controller;
 import com.werun.common.core.request.Result;
 import com.werun.posts.DTO.PageModel;
 import com.werun.posts.DTO.PostDTO;
-import com.werun.posts.server.ILabelService;
-import com.werun.posts.server.IPostService;
+import com.werun.posts.service.ILabelService;
+import com.werun.posts.service.IPostService;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.info.Info;
@@ -61,6 +61,51 @@ public class PostController {
         pageModel.setPageNo(pageNo);
         pageModel.setPageSize(pageSize);
         return iPostService.readPostByAuthor(pageModel);
+    }
+
+    /**
+     * 用标签查询帖子
+     *
+     * @return
+     */
+    @GetMapping("/readPostByLabel")
+    @Operation(summary = "用标签查询帖子", description = "用标签查询帖子")
+    public Result readPostByLabel(@RequestParam String LabelContent,@RequestParam(name = "pageNo", defaultValue = "1") Integer pageNo,
+                                         @RequestParam(name = "pageSize", defaultValue = "5") Integer pageSize) {
+        PageModel pageModel = new PageModel();
+        pageModel.setPageNo(pageNo);
+        pageModel.setPageSize(pageSize);
+        return iPostService.readPostByLabel(LabelContent,pageModel);
+    }
+
+    /**
+     * 用帖子内容查询帖子
+     *
+     * @return
+     */
+    @GetMapping("/readPostByContent")
+    @Operation(summary = "用帖子内容查询帖子", description = "用帖子内容查询帖子")
+    public Result readPostByContent(@RequestParam String PostContent,@RequestParam(name = "pageNo", defaultValue = "1") Integer pageNo,
+                                         @RequestParam(name = "pageSize", defaultValue = "5") Integer pageSize) {
+        PageModel pageModel = new PageModel();
+        pageModel.setPageNo(pageNo);
+        pageModel.setPageSize(pageSize);
+        return iPostService.readPostByContent(PostContent,pageModel);
+    }
+
+    /**
+     * 推送
+     *
+     * @return
+     */
+    @GetMapping("/push")
+    @Operation(summary = "推送", description = "推送")
+    public Result push(@RequestParam(name = "pageNo", defaultValue = "1") Integer pageNo,
+                                         @RequestParam(name = "pageSize", defaultValue = "5") Integer pageSize) {
+        PageModel pageModel = new PageModel();
+        pageModel.setPageNo(pageNo);
+        pageModel.setPageSize(pageSize);
+        return iPostService.push(pageModel);
     }
 
     /**

@@ -1,4 +1,4 @@
-package com.werun.posts.server;
+package com.werun.posts.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.werun.common.core.request.Result;
@@ -39,10 +39,36 @@ public interface IPostService extends IService<Posts> {
     public Result readPostByPostId(Long postId);
 
     /**
+     * 用标签查询帖子
+     *
+     * @param LabelContent
+     * @return
+     */
+    public Result readPostByLabel(String LabelContent,PageModel pageModel);
+
+    /**
+     * 用帖子内容查询帖子
+     *
+     * @param PostContent
+     * @param pageModel
+     * @return
+     */
+    public Result readPostByContent(String PostContent,PageModel pageModel);
+
+
+    /**
      * 编辑帖子
      *
      * @param postId
      * @return
      */
     public Result updatePost(Long postId,String typeName,String newParam);
+
+    /**
+     * 推送
+     *
+     * @param pageModel
+     * @return
+     */
+    public Result push(PageModel pageModel);
 }

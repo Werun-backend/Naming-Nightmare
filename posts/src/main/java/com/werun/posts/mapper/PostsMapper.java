@@ -2,9 +2,12 @@ package com.werun.posts.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.werun.posts.domain.Posts;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface PostsMapper extends BaseMapper<Posts> {
 
     /**
@@ -24,8 +27,4 @@ public interface PostsMapper extends BaseMapper<Posts> {
      */
     @Select("SELECT * FROM posts WHERE author_id = #{userId}")
     public Posts selectPostByUserId(@Param("userId") Long userId);
-
-    public int insertPost(@Param("post") Posts post);
-
-
 }

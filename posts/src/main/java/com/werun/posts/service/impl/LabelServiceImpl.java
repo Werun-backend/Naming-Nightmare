@@ -1,4 +1,4 @@
-package com.werun.posts.server.impl;
+package com.werun.posts.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -8,7 +8,7 @@ import com.werun.common.core.request.Result;
 import com.werun.posts.DTO.PageModel;
 import com.werun.posts.domain.Label;
 import com.werun.posts.mapper.LabelMapper;
-import com.werun.posts.server.ILabelService;
+import com.werun.posts.service.ILabelService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

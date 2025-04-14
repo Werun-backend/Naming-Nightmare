@@ -1,4 +1,4 @@
-package com.werun.posts.server;
+package com.werun.posts.service;
 
 import com.werun.common.core.request.Result;
 import com.werun.posts.DTO.PageModel;
