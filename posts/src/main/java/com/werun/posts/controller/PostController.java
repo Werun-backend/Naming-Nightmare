@@ -11,6 +11,7 @@ import io.swagger.v3.oas.annotations.info.Info;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+
 @OpenAPIDefinition(
         info = @Info(
                 title = "Post Service",
@@ -31,11 +32,26 @@ public class PostController {
      *
      * @return
      */
-    @PostMapping("/createPost")
+    @PostMapping(value = "/createPost")
     @Operation(summary = "创建帖子", description = "创建帖子")
     public Result createPost(@RequestBody PostDTO postDTO) {
         return iPostService.createPost(postDTO);
     }
+
+
+//    /**
+//     * 上传图片
+//     *
+//     * @param picture
+//     * @return
+//     * @throws IOException
+//     */
+//    @GetMapping("/uploadPicture")
+//    @Operation(summary = "上传图片", description = "上传图片")
+//    public Result uploadPicture(@RequestParam Long postId,@RequestParam MultipartFile picture) throws IOException {
+//        byte[] pictureData =picture.getBytes();
+//        return iPostService.uploadPicture(postId,pictureData);
+//    }
 
     /**
      * 删除帖子

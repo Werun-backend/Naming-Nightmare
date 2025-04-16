@@ -18,8 +18,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDateTime;
+import java.util.Base64;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -31,7 +33,6 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
 
     @Autowired
     public LabelMapper labelMapper;
-    //实现帖子（post）的增删改查
 
     /**
      * 创建帖子
@@ -43,29 +44,55 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
     public Result createPost(PostDTO postDTO) {
         //1. 完善帖子信息
         Posts post = new Posts();
-        //1.1. 获取当前用户信息
-        post.setAuthorId(SecurityUtils.getUserId());
+            //1.1. 获取当前用户信息
+            post.setAuthorId(SecurityUtils.getUserId());
 
-        //1.2. 获取发布时间
-        if (postDTO.isScheduled()) {
-            post.setCreatedAt(postDTO.getScheduledTime());
-        } else {
-            LocalDateTime now = LocalDateTime.now();
-            post.setCreatedAt(now);
-        }
+            //1.2. 获取发布时间
+            if (postDTO.isScheduled()) {
+                post.setCreatedAt(postDTO.getScheduledTime());
+            } else {
+                LocalDateTime now = LocalDateTime.now();
+                post.setCreatedAt(now);
 
-        //1.3. 默认不可见
+            }
+
+        //1.3. 默认可见
         post.setVisible(true);
 
-        //1.4. 获取前端传来的信息
-        post.setTitle(postDTO.getTitle());
-        post.setContent(postDTO.getContent());
-        post.setLabelId(postDTO.getLabelId());
+
+            //1.4. 获取前端传来的信息
+            post.setTitle(postDTO.getTitle());
+            post.setContent(postDTO.getContent());
+            post.setLabelId(postDTO.getLabelId());
+
 
         //2. 放入库中
         postsMapper.insert(post);
         return Result.ok("成功创建帖子！");
     }
+
+
+//    /**
+//     * 为帖子添加图片
+//     *
+//     * @param picture
+//     * @return
+//     */
+//    @Override
+//    public Result uploadPicture(Long postId,byte[] picture){
+//        //1. 校验身份
+//        Posts post = postsMapper.selectPostByPostId(postId);
+//        if (!post.getAuthorId().equals(SecurityUtils.getUserId())) {
+//            //1.1. 无上传权限
+//            return Result.fail("upload failed！");
+//        }
+//        //2. 上传图像
+//        post.setPicture(picture);
+//        postsMapper.updateById(post);
+//        return Result.ok("upload successfully!");
+//    }
+
+
 
     /**
      * 删除帖子
@@ -80,6 +107,12 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
             //1.1. 无删除权限
             return Result.fail("Delete failed！");
         }
+
+        LocalDateTime now = LocalDateTime.now();
+        if(now.isBefore(post.getCreatedAt())){
+            return Result.fail("未找到该帖子！");
+        }
+
 
         //2. 更改状态
         post.setVisible(false);
@@ -100,7 +133,9 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
 
         //2. 查询帖子
         QueryWrapper<Posts> wrapper = new QueryWrapper<>();
+        wrapper.eq("visible", true);
         wrapper.eq("author_id", userId);
+        wrapper.lt("created_at",LocalDateTime.now());
         Page<Posts> page = new Page<>(pageModel.getPageNo(), pageModel.getPageSize());
         IPage<Posts> postPage = this.page(page, wrapper);
 
@@ -114,6 +149,7 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
             vo.setCreatedAt(post.getCreatedAt());
             vo.setLabelId(post.getLabelId());
             vo.setNumberOfComments(post.getNumberOfComments());
+//            vo.setPictureBase64("data:image/jpeg;base64,"+ Base64.getEncoder().encodeToString(post.getPicture()));
             return vo;
         }).collect(Collectors.toList());
 
@@ -143,6 +179,7 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
         QueryWrapper<Posts> wrapper = new QueryWrapper<>();
         wrapper.eq("visible", true);
         wrapper.eq("label_id", labelId);
+        wrapper.lt("created_at",LocalDateTime.now());
         Page<Posts> page = new Page<>(pageModel.getPageNo(), pageModel.getPageSize());
         IPage<Posts> postPage = this.page(page, wrapper);
 
@@ -156,6 +193,7 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
             vo.setCreatedAt(post.getCreatedAt());
             vo.setLabelId(post.getLabelId());
             vo.setNumberOfComments(post.getNumberOfComments());
+//            vo.setPictureBase64("data:image/jpeg;base64,"+ Base64.getEncoder().encodeToString(post.getPicture()));
             return vo;
         }).collect(Collectors.toList());
 
@@ -182,6 +220,7 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
         QueryWrapper<Posts> wrapper = new QueryWrapper<>();
         wrapper.eq("visible", true);
         wrapper.like("content", PostContent);
+        wrapper.lt("created_at",LocalDateTime.now());
         Page<Posts> page = new Page<>(pageModel.getPageNo(), pageModel.getPageSize());
         IPage<Posts> postPage = this.page(page, wrapper);
 
@@ -195,6 +234,7 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
             vo.setCreatedAt(post.getCreatedAt());
             vo.setLabelId(post.getLabelId());
             vo.setNumberOfComments(post.getNumberOfComments());
+//            vo.setPictureBase64("data:image/jpeg;base64,"+ Base64.getEncoder().encodeToString(post.getPicture()));
             return vo;
         }).collect(Collectors.toList());
 
@@ -254,6 +294,10 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
         if (!post.isVisible()) {
             return Result.fail("not found");
         }
+        LocalDateTime now = LocalDateTime.now();
+        if(now.isBefore(post.getCreatedAt())){
+            return Result.fail("未找到该帖子！");
+        }
 
         //2. 生成视图对象
         PostVO postVO = new PostVO();
@@ -264,6 +308,8 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
         postVO.setCreatedAt(post.getCreatedAt());
         postVO.setLabelId(post.getLabelId());
         postVO.setNumberOfComments(post.getNumberOfComments());
+//        postVO.setPictureBase64("data:image/jpeg;base64,"+ Base64.getEncoder().encodeToString(post.getPicture()));
+
 
         //3. 查询成功
         return Result.ok(postVO, "query successfully");
@@ -283,7 +329,7 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
         //2. 分页展示发表1~5分钟内的所有帖子
         QueryWrapper<Posts> wrapper = new QueryWrapper<>();
         wrapper.eq("visible", true);
-        wrapper.between("create_at", now.plusMinutes(1), now.plusMinutes(5));
+        wrapper.between("created_at", now.minusMinutes(5),now);
         Page<Posts> page = new Page<>(pageModel.getPageNo(), pageModel.getPageSize());
         IPage<Posts> postPage = this.page(page, wrapper);
 
@@ -297,6 +343,7 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
             vo.setCreatedAt(post.getCreatedAt());
             vo.setLabelId(post.getLabelId());
             vo.setNumberOfComments(post.getNumberOfComments());
+//            vo.setPictureBase64("data:image/jpeg;base64,"+ Base64.getEncoder().encodeToString(post.getPicture()));
             return vo;
         }).collect(Collectors.toList());
 

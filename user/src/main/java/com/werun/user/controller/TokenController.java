@@ -8,6 +8,8 @@ import com.werun.common.security.entity.LoginUser;
 import com.werun.common.security.service.TokenService;
 import com.werun.user.DTO.UserDTO;
 import com.werun.user.PO.UserPO;
+import com.werun.user.domain.User;
+import com.werun.user.mapper.UserMapper;
 import com.werun.user.request.LoginRequest;
 import com.werun.user.request.RegisterRequest;
 import com.werun.user.response.LoginResponse;
@@ -16,8 +18,10 @@ import com.werun.user.utils.SecurityUtils;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.util.Map;
 
 @RestController
@@ -26,6 +30,8 @@ public class TokenController {
     private UserService userService;
     @Autowired
     private TokenService tokenService;
+    @Autowired
+    private UserMapper userMapper;
 
     //todo 1.login
     @PostMapping("login")

@@ -20,6 +20,12 @@
         WHERE email = #{email}
     </select>
 
+     <select id="selectUserByUserId" resultType="com.werun.user.domain.User">
+            SELECT *
+            FROM user
+            WHERE user_id = #{userId}
+     </select>
+
 
     <insert id="insertUser" parameterType="com.werun.user.domain.User" useGeneratedKeys="true" keyProperty="userId">
         INSERT INTO user

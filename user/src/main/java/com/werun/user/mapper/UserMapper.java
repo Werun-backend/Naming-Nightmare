@@ -5,7 +5,10 @@ import com.werun.user.PO.UserPO;
 import com.werun.user.domain.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.RequestBody;
 
+@Repository
 public interface UserMapper {
     /**
      * 根据邮箱和密码查询用户
@@ -28,6 +31,13 @@ public interface UserMapper {
      * @return 用户信息
      */
     public User selectUserByEmail(String email);
+
+    /**
+     * 根据用户id查询用户
+     * @param userId 用户邮箱
+     * @return 用户信息
+     */
+    public User selectUserByUserId(Long userId);
 
     /**
      * 编辑用户信息

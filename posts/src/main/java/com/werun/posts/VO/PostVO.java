@@ -13,11 +13,13 @@ public class PostVO {
     private LocalDateTime createdAt;
     private Long numberOfComments;
     private Long labelId;
+    private String pictureBase64;
+
 
     public PostVO() {
     }
 
-    public PostVO(Long postId, String title, Long authorId, String content, LocalDateTime createdAt, Long numberOfComments, Long labelId) {
+    public PostVO(Long postId, String title, Long authorId, String content, LocalDateTime createdAt, Long numberOfComments, Long labelId, String pictureBase64) {
         this.postId = postId;
         this.title = title;
         this.authorId = authorId;
@@ -25,6 +27,7 @@ public class PostVO {
         this.createdAt = createdAt;
         this.numberOfComments = numberOfComments;
         this.labelId = labelId;
+        this.pictureBase64 = pictureBase64;
     }
 
     /**
@@ -139,7 +142,23 @@ public class PostVO {
         this.labelId = labelId;
     }
 
+    /**
+     * 获取
+     * @return pictureBase64
+     */
+    public String getPictureBase64() {
+        return pictureBase64;
+    }
+
+    /**
+     * 设置
+     * @param pictureBase64
+     */
+    public void setPictureBase64(String pictureBase64) {
+        this.pictureBase64 = pictureBase64;
+    }
+
     public String toString() {
-        return "PostVO{postId = " + postId + ", title = " + title + ", authorId = " + authorId + ", content = " + content + ", createdAt = " + createdAt + ", numberOfComments = " + numberOfComments + ", labelId = " + labelId + "}";
+        return "PostVO{postId = " + postId + ", title = " + title + ", authorId = " + authorId + ", content = " + content + ", createdAt = " + createdAt + ", numberOfComments = " + numberOfComments + ", labelId = " + labelId + ", pictureBase64 = " + pictureBase64 + "}";
     }
 }

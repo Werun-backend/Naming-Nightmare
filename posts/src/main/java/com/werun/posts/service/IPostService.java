@@ -5,6 +5,7 @@ import com.werun.common.core.request.Result;
 import com.werun.posts.DTO.PageModel;
 import com.werun.posts.DTO.PostDTO;
 import com.werun.posts.domain.Posts;
+import org.springframework.web.multipart.MultipartFile;
 
 public interface IPostService extends IService<Posts> {
     /**
@@ -14,6 +15,13 @@ public interface IPostService extends IService<Posts> {
      * @return
      */
     public Result createPost(PostDTO postDTO);
+//
+//    /**
+//     * 上传图片
+//     * @param picture
+//     * @return
+//     */
+//    public Result uploadPicture(Long postId,byte[] picture);
 
     /**
      * 删除帖子（假删除）
