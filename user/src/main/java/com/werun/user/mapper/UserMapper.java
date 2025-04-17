@@ -1,10 +1,10 @@
 package com.werun.user.mapper;
 
+import com.werun.common.core.domain.UserPO;
 import com.werun.user.DTO.UserDTO;
-import com.werun.user.PO.UserPO;
 import com.werun.user.domain.User;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -44,4 +44,12 @@ public interface UserMapper {
      * @param user
      */
     void editUserMessage(@Param("user") UserDTO user,@Param("userId") Long userId);
+
+    /**
+     * 根据用户id查询用户信息
+     * @param userId 用户id
+     * @return 用户信息
+     */
+    @Select("select * from user where user_id = #{userId}")
+    UserPO selectUserMessage(Long userId);
 }

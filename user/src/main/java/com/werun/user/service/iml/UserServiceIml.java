@@ -1,10 +1,10 @@
 package com.werun.user.service.iml;
 
+import com.werun.common.core.domain.UserPO;
 import com.werun.common.core.exception.ServiceException;
 import com.werun.common.core.utils.StringUtils;
 import com.werun.common.security.entity.LoginUser;
 import com.werun.user.DTO.UserDTO;
-import com.werun.user.PO.UserPO;
 import com.werun.user.domain.User;
 import com.werun.user.mapper.UserMapper;
 import com.werun.user.service.UserService;
@@ -77,5 +77,11 @@ public class UserServiceIml implements UserService {
     public void edit(UserDTO user) {
         Long userId = SecurityUtils.getUserId();
         userMapper.editUserMessage(user,userId);
+    }
+
+    @Override
+    public UserPO selectUserMessage(Long userId) {
+        UserPO userPO = userMapper.selectUserMessage(userId);
+        return userPO;
     }
 }

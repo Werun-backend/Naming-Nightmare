@@ -14,6 +14,7 @@
         <module>user</module>
         <module>test</module>
         <module>posts</module>
+        <module>comments</module>
     </modules>
 
     <properties>
@@ -46,6 +47,8 @@
         <logback.version>1.2.13</logback.version>
         <spring-framework.version>5.3.39</spring-framework.version>
         <bootsratp.version>3.1.8</bootsratp.version>
+        <openfeign.version>4.2.1</openfeign.version>
+        <loadbalancer.version>4.1.3</loadbalancer.version>
     </properties>
 
     <!-- 依赖声明 -->
@@ -191,11 +194,29 @@
             <artifactId>common-swagger</artifactId>
             <version>${werun.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.werun</groupId>
+            <artifactId>common-api</artifactId>
+            <version>${werun.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bootstrap</artifactId>
             <version>${bootsratp.version}</version>
+        </dependency>
+
+        <!-- SpringCloud Openfeign -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <version>${openfeign.version}</version>
+        </dependency>
+
+        <!-- SpringCloud Loadbalancer -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+            <version>${loadbalancer.version}</version>
         </dependency>
 
 

@@ -1,15 +1,13 @@
 package com.werun.user.controller;
 
 
+import com.werun.common.core.domain.UserPO;
 import com.werun.common.core.request.Result;
 import com.werun.common.core.utils.JwtUtils;
 import com.werun.common.core.utils.StringUtils;
 import com.werun.common.security.entity.LoginUser;
 import com.werun.common.security.service.TokenService;
 import com.werun.user.DTO.UserDTO;
-import com.werun.user.PO.UserPO;
-import com.werun.user.domain.User;
-import com.werun.user.mapper.UserMapper;
 import com.werun.user.request.LoginRequest;
 import com.werun.user.request.RegisterRequest;
 import com.werun.user.response.LoginResponse;
@@ -89,6 +87,13 @@ public class TokenController {
     public Result<?> edit(@RequestBody UserDTO user){
         userService.edit(user);
         return Result.ok();
+    }
+
+    @GetMapping("selectUserMessage")
+    @Operation(summary = "查询个人信息", description = "查询个人信息")
+    public Result<UserPO> selectUserMessage(@RequestParam Long userId){
+        UserPO userPO = userService.selectUserMessage(userId);
+        return Result.ok(userPO);
     }
 
 }

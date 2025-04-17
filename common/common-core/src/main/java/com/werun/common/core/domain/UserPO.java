@@ -1,4 +1,4 @@
-package com.werun.user.PO;
+package com.werun.common.core.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
