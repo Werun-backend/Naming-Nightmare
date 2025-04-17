@@ -8,6 +8,7 @@ import com.werun.common.core.utils.StringUtils;
 import com.werun.common.security.entity.LoginUser;
 import com.werun.common.security.service.TokenService;
 import com.werun.user.DTO.UserDTO;
+import com.werun.user.mapper.UserMapper;
 import com.werun.user.request.LoginRequest;
 import com.werun.user.request.RegisterRequest;
 import com.werun.user.response.LoginResponse;
