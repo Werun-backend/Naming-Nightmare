@@ -9,12 +9,11 @@ import com.werun.common.core.domain.UserPO;
 import com.werun.common.core.request.Result;
 import com.werun.common.openFeign.UserFeignClient;
 import lombok.extern.slf4j.Slf4j;
+import org.aspectj.weaver.ast.Var;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 @Service
 @Slf4j
@@ -29,13 +28,14 @@ public class CommentsServiceImpl implements CommentsService {
     public void replyPost(Long postId, String content) {
         Long userId = SecurityUtils.getUserId();
         Integer status = 0;
-        commentsMapper.replyPost(postId,userId,content,status);
+        Date createTime = new Date();
+        commentsMapper.replyPost(postId,userId,content,status,createTime);
     }
 
     @Override
     public void likePost(Long commentId) {
         Integer parentId = commentsMapper.getParentId(commentId);
-        if (parentId == null) {
+        if (parentId == 0) {
             Integer like = commentsMapper.getLikeMount(commentId);
             Integer likes = like + 1;
             commentsMapper.likePost(commentId,likes);
@@ -49,7 +49,8 @@ public class CommentsServiceImpl implements CommentsService {
     public void replyComment(Long postId, Integer parentId, String content) {
         Long userId = SecurityUtils.getUserId();
         Integer status = 0;
-        commentsMapper.ReplyComment(postId, parentId, userId, content, status);
+        Date createTime = new Date();
+        commentsMapper.ReplyComment(postId, parentId, userId, content, status, createTime);
         /**
         Long commentId = Long.valueOf(parentId);
         Long parentUserId = commentsMapper.selectParentUserByCommentId(commentId);
@@ -61,8 +62,64 @@ public class CommentsServiceImpl implements CommentsService {
 
     @Override
     public List<CommentsVO> selectComments(Long postId) {
-        List<CommentsPO> commentList = commentsMapper.selectAllComments(postId);
+        boolean result = commentsMapper.selectPostStatus(postId);
+        if (result) {
+            List<CommentsPO> commentList = commentsMapper.selectAllComments(postId);
+            List<CommentsVO> commentsVOS = getCommentsVOByCommentsPO(commentList);
+            return commentsVOS;
+        }else {
+            log.info("帖子已被删除");
+            return null;
+        }
 
+    }
+
+    @Override
+    public List<CommentsVO> selectByLike(Long postId) {
+        boolean result = commentsMapper.selectPostStatus(postId);
+        if (result) {
+            List<CommentsPO> commentList = commentsMapper.selectByLike(postId);
+            List<CommentsVO> commentsVOS = getCommentsVOByCommentsPO(commentList);
+            return commentsVOS;
+        }else {
+            log.info("帖子已被删除");
+            return null;
+        }
+
+    }
+
+    @Override
+    public List<CommentsVO> selectByTime(Long postId) {
+        boolean result = commentsMapper.selectPostStatus(postId);
+        if (result) {
+            List<CommentsPO> commentList = commentsMapper.selectByTime(postId);
+            List<CommentsVO> commentsVOS = getCommentsVOByCommentsPO(commentList);
+            return commentsVOS;
+        }else {
+            log.info("帖子已被删除");
+            return null;
+        }
+    }
+
+    @Override
+    public void deleteComment(Long commentId) {
+        //当前用户id
+        Long userId1 = SecurityUtils.getUserId();
+        //该评论归属用户id
+        Long userId2 = commentsMapper.getUserIdByCommentId(commentId);
+        //评论所属帖子的发表用户id
+        Long postId = commentsMapper.getPostId(commentId);
+        Long userId3 = commentsMapper.getUserIdByPostId(postId);
+        if (userId1.equals(userId2) || userId1.equals(userId3)) {
+            Integer status = 1;
+            commentsMapper.deleteComment(commentId, status);
+        }else {
+            throw new RuntimeException("权限不足");
+        }
+
+    }
+
+    public List<CommentsVO> getCommentsVOByCommentsPO(List<CommentsPO> commentList) {
         List<CommentsVO> commentsVOS = new ArrayList<>();
         for (int i = 0; i < commentList.size(); i++) {
             CommentsVO commentsVO = new CommentsVO();
@@ -78,6 +135,7 @@ public class CommentsServiceImpl implements CommentsService {
 
             Integer parentId = commentList.get(i).getParentId();
             if (parentId == 0) {
+                commentsVOS.add(commentsVO);
                 continue;
             }
             Long commentId = Long.valueOf(parentId);
@@ -100,24 +158,5 @@ public class CommentsServiceImpl implements CommentsService {
         }
         return commentsVOS;
     }
-
-    @Override
-    public void deleteComment(Long commentId) {
-        //当前用户id
-        Long userId1 = SecurityUtils.getUserId();
-        //该评论归属用户id
-        Long userId2 = commentsMapper.getUserIdByCommentId(commentId);
-        //评论所属帖子的发表用户id
-        Long postId = commentsMapper.getPostId(commentId);
-        Long userId3 = commentsMapper.getUserIdByPostId(postId);
-        if (userId1.equals(userId2) || userId1.equals(userId3)) {
-            Integer status = 1;
-            commentsMapper.deleteComment(commentId, status);
-        }else {
-            throw new RuntimeException("权限不足");
-        }
-
-    }
-
 
 }

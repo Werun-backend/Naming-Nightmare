@@ -14,4 +14,8 @@ public interface CommentsService {
     void deleteComment(Long commentId);
 
     List<CommentsVO> selectComments(Long postId);
+
+    List<CommentsVO> selectByLike(Long postId);
+
+    List<CommentsVO> selectByTime(Long postId);
 }

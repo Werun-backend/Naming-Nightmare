@@ -34,10 +34,6 @@ public class CommentsPO {
      */
     private LocalDateTime createTime;
     /**
-     * 更新时间
-     */
-    private LocalDateTime updateTime;
-    /**
      * 帖子id
      */
     private Long postId;
@@ -45,7 +41,6 @@ public class CommentsPO {
      * 用户id
      */
     private Long userId;
-
     /**
      * 状态码(0:未删除,1:已删除)
      */
