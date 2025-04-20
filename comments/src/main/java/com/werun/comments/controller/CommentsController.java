@@ -95,6 +95,7 @@ public class CommentsController {
     @GetMapping("/selectByTime")
     @Operation(summary = "根据发表时间排序", description = "根据发表时间排序")
     public Result<?> selectByTime(@RequestParam Long postId) {
+
         List<CommentsVO> commentsVOS = commentsService.selectByTime(postId);
         return Result.ok(commentsVOS);
     }
