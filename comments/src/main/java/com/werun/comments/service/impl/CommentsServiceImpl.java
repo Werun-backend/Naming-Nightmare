@@ -33,7 +33,7 @@ public class CommentsServiceImpl implements CommentsService {
     }
 
     @Override
-    public void likePost(Long commentId) {
+    public void likeComment(Long commentId) {
         Integer parentId = commentsMapper.getParentId(commentId);
         if (parentId == 0) {
             Integer like = commentsMapper.getLikeMount(commentId);

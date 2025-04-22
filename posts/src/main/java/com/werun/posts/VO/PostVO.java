@@ -13,11 +13,13 @@ public class PostVO {
     private LocalDateTime createdAt;
     private Long numberOfComments;
     private Long labelId;
+    private Long numberOfLikes;
+
 
     public PostVO() {
     }
 
-    public PostVO(Long postId, String title, Long authorId, String content, LocalDateTime createdAt, Long numberOfComments, Long labelId) {
+    public PostVO(Long postId, String title, Long authorId, String content, LocalDateTime createdAt, Long numberOfComments, Long labelId, Long numberOfLikes) {
         this.postId = postId;
         this.title = title;
         this.authorId = authorId;
@@ -25,6 +27,7 @@ public class PostVO {
         this.createdAt = createdAt;
         this.numberOfComments = numberOfComments;
         this.labelId = labelId;
+        this.numberOfLikes = numberOfLikes;
     }
 
     /**
@@ -139,7 +142,23 @@ public class PostVO {
         this.labelId = labelId;
     }
 
+    /**
+     * 获取
+     * @return numberOfLikes
+     */
+    public Long getNumberOfLikes() {
+        return numberOfLikes;
+    }
+
+    /**
+     * 设置
+     * @param numberOfLikes
+     */
+    public void setNumberOfLikes(Long numberOfLikes) {
+        this.numberOfLikes = numberOfLikes;
+    }
+
     public String toString() {
-        return "PostVO{postId = " + postId + ", title = " + title + ", authorId = " + authorId + ", content = " + content + ", createdAt = " + createdAt + ", numberOfComments = " + numberOfComments + ", labelId = " + labelId + "}";
+        return "PostVO{postId = " + postId + ", title = " + title + ", authorId = " + authorId + ", content = " + content + ", createdAt = " + createdAt + ", numberOfComments = " + numberOfComments + ", labelId = " + labelId + ", numberOfLikes = " + numberOfLikes + "}";
     }
 }

@@ -201,4 +201,15 @@ public class PostController {
         pageModel.setPageSize(pageSize);
         return iLabelService.readAllLabels(pageModel);
     }
-}
+
+//    /**
+//     * 给帖子点赞
+//     * @param postId
+//     * @return
+//     */
+//    @PostMapping("/like")
+//    @Operation(summary = "给帖子点赞", description = "给帖子点赞")
+//    public Result<?> likePost(@RequestParam Long postId) {
+//        return iPostService.likePost(postId);
+//    }
+ }

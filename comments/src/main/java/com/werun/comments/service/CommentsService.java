@@ -7,7 +7,7 @@ import java.util.List;
 public interface CommentsService {
     void replyPost(Long postId, String content);
 
-    void likePost(Long commentId);
+    void likeComment(Long commentId);
 
     void replyComment(Long postId, Integer parentId, String content);
 

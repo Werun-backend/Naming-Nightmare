@@ -21,6 +21,7 @@ public class Posts {
     private boolean visible;
     private Long labelId;
     private Long numberOfComments;
+    private Long numberOfLikes;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime scheduledTime;
     private boolean scheduled;

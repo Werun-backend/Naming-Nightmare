@@ -150,6 +150,7 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
             vo.setCreatedAt(post.getCreatedAt());
             vo.setLabelId(post.getLabelId());
             vo.setNumberOfComments(post.getNumberOfComments());
+            vo.setNumberOfLikes(post.getNumberOfLikes());
             return vo;
         }).collect(Collectors.toList());
 
@@ -193,6 +194,7 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
             vo.setCreatedAt(post.getCreatedAt());
             vo.setLabelId(post.getLabelId());
             vo.setNumberOfComments(post.getNumberOfComments());
+            vo.setNumberOfLikes(post.getNumberOfLikes());
 //            vo.setPictureBase64("data:image/jpeg;base64,"+ Base64.getEncoder().encodeToString(post.getPicture()));
             return vo;
         }).collect(Collectors.toList());
@@ -242,6 +244,7 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
             vo.setCreatedAt(post.getCreatedAt());
             vo.setLabelId(post.getLabelId());
             vo.setNumberOfComments(post.getNumberOfComments());
+            vo.setNumberOfLikes(post.getNumberOfLikes());
 //            vo.setPictureBase64("data:image/jpeg;base64,"+ Base64.getEncoder().encodeToString(post.getPicture()));
             return vo;
         }).collect(Collectors.toList());
@@ -316,6 +319,7 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
         postVO.setCreatedAt(post.getCreatedAt());
         postVO.setLabelId(post.getLabelId());
         postVO.setNumberOfComments(post.getNumberOfComments());
+        postVO.setNumberOfLikes(post.getNumberOfLikes());
 //        postVO.setPictureBase64("data:image/jpeg;base64,"+ Base64.getEncoder().encodeToString(post.getPicture()));
 
 
@@ -338,6 +342,7 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
         QueryWrapper<Posts> wrapper = new QueryWrapper<>();
         wrapper.eq("visible", true);
         wrapper.between("created_at", now.minusMinutes(5),now);
+//        wrapper.orderByDesc("number_of_likes");
         Page<Posts> page = new Page<>(pageModel.getPageNo(), pageModel.getPageSize());
         IPage<Posts> postPage = this.page(page, wrapper);
 
@@ -351,6 +356,7 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
             vo.setCreatedAt(post.getCreatedAt());
             vo.setLabelId(post.getLabelId());
             vo.setNumberOfComments(post.getNumberOfComments());
+            vo.setNumberOfLikes(post.getNumberOfLikes());
 //            vo.setPictureBase64("data:image/jpeg;base64,"+ Base64.getEncoder().encodeToString(post.getPicture()));
             return vo;
         }).collect(Collectors.toList());
@@ -365,6 +371,16 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
 
         return Result.ok(voPage, "query successfully!");
     }
+
+//    @Override
+//    public Result likePost(Long postId) {
+//        Posts post = postsMapper.selectPostByPostId(postId);
+//        if (post == null) {
+//            return Result.fail("not found post！");
+//        }else {
+//            postsMapper.incrementLikes(postId);
+//            return Result.ok("like successfully！");
+//        }}
 
 }
 

@@ -79,4 +79,11 @@ public interface IPostService extends IService<Posts> {
      * @return
      */
     public Result push(PageModel pageModel);
+
+//    /**
+//     * 给帖子点赞
+//     *
+//     * @param postId
+//     */
+//    public Result likePost(Long postId);
 }

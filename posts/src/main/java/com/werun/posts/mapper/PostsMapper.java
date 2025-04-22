@@ -5,6 +5,7 @@ import com.werun.posts.domain.Posts;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -27,4 +28,14 @@ public interface PostsMapper extends BaseMapper<Posts> {
      */
     @Select("SELECT * FROM posts WHERE author_id = #{userId}")
     public Posts selectPostByUserId(@Param("userId") Long userId);
+
+    /**
+     * 点赞：将帖子点赞数加一
+     *
+     * @param postId 帖子ID
+     * @return 受影响的行数
+     */
+    @Update("UPDATE posts SET number_of_likes = number_of_likes + 1 WHERE post_id = #{postId}")
+    int incrementLikes(@Param("postId") Long postId);
+
 }
