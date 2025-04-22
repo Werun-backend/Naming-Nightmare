@@ -16,6 +16,10 @@ import com.werun.user.service.UserService;
 import com.werun.user.utils.SecurityUtils;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -40,17 +44,16 @@ public class TokenController {
         LoginUser userInfo = userService.login(loginRequest.getEmail(), loginRequest.getPassword());
         // 获取登录token
         Map<String, Object> token = tokenService.createToken(userInfo);
-        LoginResponse loginResponse = new LoginResponse((String) token.get("access_token"),token.get("expires_in").toString());
+        LoginResponse loginResponse = new LoginResponse((String) token.get("access_token"), token.get("expires_in").toString());
         return Result.ok(loginResponse);
     }
+
     //todo 2.logout
     @DeleteMapping("logout")
     @Operation(summary = "登出", description = "登出")
-    public Result<?> logout(HttpServletRequest request)
-    {
+    public Result<?> logout(HttpServletRequest request) {
         String token = SecurityUtils.getToken(request);
-        if (StringUtils.isNotEmpty(token))
-        {
+        if (StringUtils.isNotEmpty(token)) {
             String username = JwtUtils.getUserName(token);
             // 删除用户缓存记录
             tokenService.deleteUserCache(token);
@@ -58,43 +61,71 @@ public class TokenController {
         }
         return Result.ok();
     }
+
     //todo 3.register
     @PostMapping("register")
     @Operation(summary = "注册", description = "注册")
-    public Result<?> register(@RequestBody RegisterRequest registerBody)
-    {
+    public Result<?> register(@RequestBody RegisterRequest registerBody) {
         // 用户注册
         userService.register(registerBody.getEmail(), registerBody.getPassword());
 
         return Result.ok();
     }
+
     //todo 4.refresh   \
-     @PostMapping("refresh")
-     @Operation(summary = "刷新token", description = "刷新token")
-        public Result<?> refresh(HttpServletRequest request)
-        {
-            LoginUser loginUser = tokenService.getLoginUser(SecurityUtils.getToken(request));
-            if (StringUtils.isNotNull(loginUser))
-            {
-                // 刷新令牌有效期
-                tokenService.refreshToken(loginUser);
-                return Result.ok();
-            }
+    @PostMapping("refresh")
+    @Operation(summary = "刷新token", description = "刷新token")
+    public Result<?> refresh(HttpServletRequest request) {
+        LoginUser loginUser = tokenService.getLoginUser(SecurityUtils.getToken(request));
+        if (StringUtils.isNotNull(loginUser)) {
+            // 刷新令牌有效期
+            tokenService.refreshToken(loginUser);
             return Result.ok();
         }
+        return Result.ok();
+    }
+
     //todo 5.用户编辑自己的信息
     @PostMapping("edit")
     @Operation(summary = "编辑个人信息", description = "编辑个人信息")
-    public Result<?> edit(@RequestBody UserDTO user){
+    public Result<?> edit(@RequestBody UserDTO user) {
         userService.edit(user);
         return Result.ok();
     }
 
     @GetMapping("selectUserMessage")
     @Operation(summary = "查询个人信息", description = "查询个人信息")
-    public Result<UserPO> selectUserMessage(@RequestParam Long userId){
+    public Result<UserPO> selectUserMessage(@RequestParam Long userId) {
         UserPO userPO = userService.selectUserMessage(userId);
         return Result.ok(userPO);
     }
 
+    @PostMapping("uploadAvatar")
+    @Operation(summary = "上传头像", description = "上传头像")
+    public Result<?> uploadAvatar(@RequestParam MultipartFile picture) throws IOException {
+        //插入图片
+        Long userId = SecurityUtils.getUserId();
+        byte[] pictureData = picture.getBytes();
+        userMapper.uploadAvatar(pictureData,userId);
+        return Result.ok("upload successfully!");
+    }
+
+    /**
+     * 头像展示
+     *
+     * @param userId
+     * @return
+     */
+    @GetMapping("/postPicture")
+    @Operation(summary = "预览头像", description = "根据ID获取头像")
+    public ResponseEntity<byte[]> previewPicture(@RequestParam Long userId) {
+        UserPO userPO = userMapper.selectUserMessage(userId);
+        if (userPO == null || userPO.getAvatar() == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.IMAGE_JPEG);
+        return new ResponseEntity<>(userPO.getAvatar(), headers, HttpStatus.OK);
+    }
 }

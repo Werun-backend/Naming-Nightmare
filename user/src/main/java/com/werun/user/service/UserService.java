@@ -12,4 +12,6 @@ public interface UserService {
     void edit(UserDTO user);
 
     UserPO selectUserMessage(Long userId);
+
+
 }

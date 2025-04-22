@@ -17,6 +17,6 @@ public interface LabelMapper extends BaseMapper<Label> {
      * @return
      */
     @Select("Select * From label Where label_content Like #{LabelContent}")
-    public Label selectLabelContentByContent(@Param("label_content") String LabelContent);
+    public Label selectLabelContentByContent(String LabelContent);
 
 }

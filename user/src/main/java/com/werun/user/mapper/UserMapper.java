@@ -34,10 +34,17 @@ public interface UserMapper {
 
     /**
      * 根据用户id查询用户
-     * @param userId 用户邮箱
+     * @param userId
      * @return 用户信息
      */
-    public User selectUserByUserId(Long userId);
+    public UserDTO selectUserByUserId(Long userId);
+
+    /**
+     * 插入头像
+     * @param avatar
+     * @param userId
+     */
+    void uploadAvatar(@Param("avatar") byte[] avatar,@Param("userId") Long userId);
 
     /**
      * 编辑用户信息

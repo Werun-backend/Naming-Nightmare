@@ -15,7 +15,7 @@ public class Posts {
     private Long postId;
     private String title;
     private String content;
-//    private byte[] picture;
+    private byte[] picture;
     private Long authorId;
     private LocalDateTime createdAt;
     private boolean visible;

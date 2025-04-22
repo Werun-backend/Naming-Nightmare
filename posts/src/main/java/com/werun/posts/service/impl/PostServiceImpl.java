@@ -14,6 +14,7 @@ import com.werun.posts.mapper.LabelMapper;
 import com.werun.posts.mapper.PostsMapper;
 import com.werun.posts.service.IPostService;
 import com.werun.posts.utils.SecurityUtils;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -72,25 +73,25 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
     }
 
 
-//    /**
-//     * 为帖子添加图片
-//     *
-//     * @param picture
-//     * @return
-//     */
-//    @Override
-//    public Result uploadPicture(Long postId,byte[] picture){
-//        //1. 校验身份
-//        Posts post = postsMapper.selectPostByPostId(postId);
-//        if (!post.getAuthorId().equals(SecurityUtils.getUserId())) {
-//            //1.1. 无上传权限
-//            return Result.fail("upload failed！");
-//        }
-//        //2. 上传图像
-//        post.setPicture(picture);
-//        postsMapper.updateById(post);
-//        return Result.ok("upload successfully!");
-//    }
+    /**
+     * 为帖子添加图片
+     *
+     * @param picture
+     * @return
+     */
+    @Override
+    public Result uploadPicture(Long postId,byte[] picture){
+        //1. 校验身份
+        Posts post = postsMapper.selectPostByPostId(postId);
+        if (!post.getAuthorId().equals(SecurityUtils.getUserId())) {
+            //1.1. 无上传权限
+            return Result.fail("upload failed！");
+        }
+        //2. 上传图像
+        post.setPicture(picture);
+        postsMapper.updateById(post);
+        return Result.ok("upload successfully!");
+    }
 
 
 
@@ -149,7 +150,6 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
             vo.setCreatedAt(post.getCreatedAt());
             vo.setLabelId(post.getLabelId());
             vo.setNumberOfComments(post.getNumberOfComments());
-//            vo.setPictureBase64("data:image/jpeg;base64,"+ Base64.getEncoder().encodeToString(post.getPicture()));
             return vo;
         }).collect(Collectors.toList());
 
@@ -204,6 +204,14 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
         voPage.setTotal(postPage.getTotal());
         voPage.setPages(postPage.getPages());
         voPage.setRecords(voList);
+
+        System.out.println("当前页: " + pageModel.getPageNo());
+        System.out.println("每页数量: " + pageModel.getPageSize());
+        System.out.println("总条数: " + postPage.getTotal());
+        System.out.println("返回条数: " + voList.size());
+        System.out.println("分页对象是否为空：" + (postPage == null));
+        System.out.println("分页结果是否有记录：" + postPage.getRecords().size());
+
 
         return Result.ok(voPage, "query successfully!");
     }
@@ -326,7 +334,7 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
         //1. 获取当前时间
         LocalDateTime now = LocalDateTime.now();
 
-        //2. 分页展示发表1~5分钟内的所有帖子
+        //2. 分页展示发表5分钟内的所有帖子
         QueryWrapper<Posts> wrapper = new QueryWrapper<>();
         wrapper.eq("visible", true);
         wrapper.between("created_at", now.minusMinutes(5),now);

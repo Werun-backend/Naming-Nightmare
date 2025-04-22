@@ -36,4 +36,9 @@ public class UserPO {
      * 邮箱
      */
     private String email;
+
+    /**
+     * 头像
+     */
+    private byte[] avatar;
 }

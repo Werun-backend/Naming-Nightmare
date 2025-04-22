@@ -32,4 +32,5 @@ public class UserDTO {
      * 邮箱
      */
     private String email;
+
 }

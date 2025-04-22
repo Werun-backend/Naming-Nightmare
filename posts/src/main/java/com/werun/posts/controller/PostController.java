@@ -3,13 +3,22 @@ package com.werun.posts.controller;
 import com.werun.common.core.request.Result;
 import com.werun.posts.DTO.PageModel;
 import com.werun.posts.DTO.PostDTO;
+import com.werun.posts.domain.Posts;
+import com.werun.posts.mapper.PostsMapper;
 import com.werun.posts.service.ILabelService;
 import com.werun.posts.service.IPostService;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.info.Info;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 
 @OpenAPIDefinition(
@@ -26,6 +35,8 @@ public class PostController {
     public IPostService iPostService;
     @Autowired
     public ILabelService iLabelService;
+    @Autowired
+    public PostsMapper postsMapper;
 
     /**
      * 创建帖子
@@ -39,19 +50,38 @@ public class PostController {
     }
 
 
-//    /**
-//     * 上传图片
-//     *
-//     * @param picture
-//     * @return
-//     * @throws IOException
-//     */
-//    @GetMapping("/uploadPicture")
-//    @Operation(summary = "上传图片", description = "上传图片")
-//    public Result uploadPicture(@RequestParam Long postId,@RequestParam MultipartFile picture) throws IOException {
-//        byte[] pictureData =picture.getBytes();
-//        return iPostService.uploadPicture(postId,pictureData);
-//    }
+    /**
+     * 上传图片
+     *
+     * @param picture
+     * @return
+     * @throws IOException
+     */
+    @PostMapping("/uploadPicture")
+    @Operation(summary = "上传图片", description = "上传图片")
+    public Result uploadPicture(@RequestParam Long postId,@RequestParam MultipartFile picture) throws IOException {
+        byte[] pictureData =picture.getBytes();
+        return iPostService.uploadPicture(postId,pictureData);
+    }
+
+    /**
+     * 图片展示
+     *
+     * @param postId
+     * @return
+     */
+    @GetMapping("/postPicture")
+    @Operation(summary = "预览帖子图片", description = "根据帖子ID获取图片")
+    public ResponseEntity<byte[]> previewPicture(@RequestParam Long postId) {
+        Posts post = postsMapper.selectPostByPostId(postId);
+        if (post == null || post.getPicture() == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.IMAGE_JPEG);
+        return new ResponseEntity<>(post.getPicture(), headers, HttpStatus.OK);
+    }
 
     /**
      * 删除帖子
