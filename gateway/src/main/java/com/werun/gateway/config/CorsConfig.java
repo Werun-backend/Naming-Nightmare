@@ -1,58 +1,58 @@
 package com.werun.gateway.config;
 
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
-import javax.servlet.*;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.server.reactive.ServerHttpRequest;
+import org.springframework.http.server.reactive.ServerHttpResponse;
+import org.springframework.web.cors.reactive.CorsUtils;
+import org.springframework.web.server.ServerWebExchange;
+import org.springframework.web.server.WebFilter;
+import org.springframework.web.server.WebFilterChain;
+import reactor.core.publisher.Mono;
+
+
 
 
 /**
  * 配置跨域
  */
 @Configuration
-public class CorsConfig {
-    @Bean
-    public FilterRegistrationBean<CorsFilter> corsFilter() {
-        FilterRegistrationBean<CorsFilter> registrationBean = new FilterRegistrationBean<>();
-        registrationBean.setFilter(new CorsFilter());
-        registrationBean.addUrlPatterns("/*"); // 指定过滤器作用的路径
-        return registrationBean;
-    }
+public class CorsConfig implements WebFilter {
 
-    public static class CorsFilter implements Filter {
-        @Override
-        public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-            HttpServletRequest req = (HttpServletRequest) request;
-            HttpServletResponse res = (HttpServletResponse) response;
+    private static final String ALL = "*";
 
-            // 设置允许的来源
-            res.setHeader("Access-Control-Allow-Origin", "*");
-            // 设置允许的请求方法
-            res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-            // 设置允许的请求头
-            res.setHeader("Access-Control-Allow-Headers", "*");
-            // 设置是否允许发送Cookie
-//            res.setHeader("Access-Control-Allow-Credentials", "true");
+    private static final String MAX_AGE = "18000L";
 
-            // 如果是OPTIONS请求，则直接返回
-            if ("OPTIONS".equalsIgnoreCase(req.getMethod())) {
-                res.setStatus(HttpServletResponse.SC_OK);
-                return;
-            }
-
-            chain.doFilter(request, response);
+    @Override
+    public Mono<Void> filter(ServerWebExchange ctx, WebFilterChain chain) {
+        ServerHttpRequest request = ctx.getRequest();
+        String path = request.getPath().value();
+        ServerHttpResponse response = ctx.getResponse();
+        if ("/favicon.ico".equals(path)) {
+            response.setStatusCode(HttpStatus.OK);
+            return Mono.empty();
         }
-
-        @Override
-        public void init(FilterConfig filterConfig) throws ServletException {
+        if (!CorsUtils.isCorsRequest(request)) {
+            return chain.filter(ctx);
         }
-
-        @Override
-        public void destroy() {
+        HttpHeaders requestHeaders = request.getHeaders();
+        HttpMethod requestMethod = requestHeaders.getAccessControlRequestMethod();
+        HttpHeaders headers = response.getHeaders();
+        headers.add(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, requestHeaders.getOrigin());
+        headers.addAll(HttpHeaders.ACCESS_CONTROL_ALLOW_HEADERS, requestHeaders.getAccessControlRequestHeaders());
+        if (requestMethod != null) {
+            headers.add(HttpHeaders.ACCESS_CONTROL_ALLOW_METHODS, requestMethod.name());
         }
+        headers.add(HttpHeaders.ACCESS_CONTROL_ALLOW_CREDENTIALS, "true");
+        headers.add(HttpHeaders.ACCESS_CONTROL_EXPOSE_HEADERS, ALL);
+        headers.add(HttpHeaders.ACCESS_CONTROL_MAX_AGE, MAX_AGE);
+        if (request.getMethod() == HttpMethod.OPTIONS) {
+            response.setStatusCode(HttpStatus.OK);
+            return Mono.empty();
+        }
+        return chain.filter(ctx);
     }
 }
