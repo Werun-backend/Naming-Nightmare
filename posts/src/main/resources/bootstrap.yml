@@ -9,5 +9,5 @@ spring:
     name: posts
   profiles:
     # 环境配置
-    active: local
+    active: dev
 

@@ -1,0 +1,803 @@
+2025-04-24 13:09:48,431 INFO Starting Nacos v2.4.3 using Java 1.8.0_402 on e185a81eb2d6 with PID 1 (/home/nacos/target/nacos-server.jar started by root in /home/nacos)
+
+2025-04-24 13:09:48,437 INFO The following 1 profile is active: "standalone"
+
+2025-04-24 13:09:48,580 INFO Load Nacos package exclude filter success, package prefix com.alibaba.nacos.config.server, filter com.alibaba.nacos.config.server.filter.ConfigEnabledFilter
+
+2025-04-24 13:09:48,581 INFO Load Nacos package exclude filter success, package prefix com.alibaba.nacos.naming, filter com.alibaba.nacos.naming.config.NamingEnabledFilter
+
+2025-04-24 13:09:48,582 INFO Load Nacos package exclude filter success, package prefix com.alibaba.nacos.istio, filter com.alibaba.nacos.istio.config.IstioEnabledFilter
+
+2025-04-24 13:09:48,731 INFO Skip @SpringBootApplication annotation for class com.alibaba.nacos.config.server.Config to avoid duplicate scan
+
+2025-04-24 13:09:48,820 INFO Skip @SpringBootApplication annotation for class com.alibaba.nacos.naming.NamingApp to avoid duplicate scan
+
+2025-04-24 13:09:48,829 INFO Skip @SpringBootApplication annotation for class com.alibaba.nacos.cmdb.CmdbApp to avoid duplicate scan
+
+2025-04-24 13:09:48,839 WARN Istio module disabled because set nacos.extension.naming.istio.enabled as false
+
+2025-04-24 13:09:48,840 WARN Istio module disabled because set nacos.extension.naming.istio.enabled as false
+
+2025-04-24 13:09:48,840 WARN Istio module disabled because set nacos.extension.naming.istio.enabled as false
+
+2025-04-24 13:09:48,841 WARN Istio module disabled because set nacos.extension.naming.istio.enabled as false
+
+2025-04-24 13:09:48,841 WARN Istio module disabled because set nacos.extension.naming.istio.enabled as false
+
+2025-04-24 13:09:48,841 WARN Istio module disabled because set nacos.extension.naming.istio.enabled as false
+
+2025-04-24 13:09:48,841 WARN Istio module disabled because set nacos.extension.naming.istio.enabled as false
+
+2025-04-24 13:09:48,842 WARN Istio module disabled because set nacos.extension.naming.istio.enabled as false
+
+2025-04-24 13:09:48,842 WARN Istio module disabled because set nacos.extension.naming.istio.enabled as false
+
+2025-04-24 13:09:48,843 WARN Istio module disabled because set nacos.extension.naming.istio.enabled as false
+
+2025-04-24 13:09:48,843 WARN Istio module disabled because set nacos.extension.naming.istio.enabled as false
+
+2025-04-24 13:09:48,843 WARN Istio module disabled because set nacos.extension.naming.istio.enabled as false
+
+2025-04-24 13:09:48,843 WARN Istio module disabled because set nacos.extension.naming.istio.enabled as false
+
+2025-04-24 13:09:48,844 WARN Istio module disabled because set nacos.extension.naming.istio.enabled as false
+
+2025-04-24 13:09:48,844 WARN Istio module disabled because set nacos.extension.naming.istio.enabled as false
+
+2025-04-24 13:09:48,844 WARN Istio module disabled because set nacos.extension.naming.istio.enabled as false
+
+2025-04-24 13:09:48,845 WARN Istio module disabled because set nacos.extension.naming.istio.enabled as false
+
+2025-04-24 13:09:48,845 WARN Istio module disabled because set nacos.extension.naming.istio.enabled as false
+
+2025-04-24 13:09:48,845 WARN Istio module disabled because set nacos.extension.naming.istio.enabled as false
+
+2025-04-24 13:09:48,846 WARN Istio module disabled because set nacos.extension.naming.istio.enabled as false
+
+2025-04-24 13:09:48,846 WARN Istio module disabled because set nacos.extension.naming.istio.enabled as false
+
+2025-04-24 13:09:48,846 WARN Istio module disabled because set nacos.extension.naming.istio.enabled as false
+
+2025-04-24 13:09:48,847 WARN Istio module disabled because set nacos.extension.naming.istio.enabled as false
+
+2025-04-24 13:09:48,847 WARN Istio module disabled because set nacos.extension.naming.istio.enabled as false
+
+2025-04-24 13:09:48,847 WARN Istio module disabled because set nacos.extension.naming.istio.enabled as false
+
+2025-04-24 13:09:48,848 INFO Skip @SpringBootApplication annotation for class com.alibaba.nacos.istio.IstioApp to avoid duplicate scan
+
+2025-04-24 13:09:48,848 WARN Istio module disabled because set nacos.extension.naming.istio.enabled as false
+
+2025-04-24 13:09:48,849 WARN Istio module disabled because set nacos.extension.naming.istio.enabled as false
+
+2025-04-24 13:09:48,849 WARN Istio module disabled because set nacos.extension.naming.istio.enabled as false
+
+2025-04-24 13:09:48,849 WARN Istio module disabled because set nacos.extension.naming.istio.enabled as false
+
+2025-04-24 13:09:48,850 WARN Istio module disabled because set nacos.extension.naming.istio.enabled as false
+
+2025-04-24 13:09:48,850 WARN Istio module disabled because set nacos.extension.naming.istio.enabled as false
+
+2025-04-24 13:09:48,850 WARN Istio module disabled because set nacos.extension.naming.istio.enabled as false
+
+2025-04-24 13:09:48,851 WARN Istio module disabled because set nacos.extension.naming.istio.enabled as false
+
+2025-04-24 13:09:48,851 WARN Istio module disabled because set nacos.extension.naming.istio.enabled as false
+
+2025-04-24 13:09:48,851 WARN Istio module disabled because set nacos.extension.naming.istio.enabled as false
+
+2025-04-24 13:09:48,851 WARN Istio module disabled because set nacos.extension.naming.istio.enabled as false
+
+2025-04-24 13:09:49,133 INFO Skip @SpringBootApplication annotation for class com.alibaba.nacos.prometheus.PrometheusApp to avoid duplicate scan
+
+2025-04-24 13:09:50,738 INFO Tomcat initialized with port(s): 8848 (http)
+
+2025-04-24 13:09:50,757 INFO Starting service [Tomcat]
+
+2025-04-24 13:09:50,758 INFO Starting Servlet engine: [Apache Tomcat/9.0.93]
+
+2025-04-24 13:09:50,889 INFO Initializing Spring embedded WebApplicationContext
+
+2025-04-24 13:09:50,889 INFO Root WebApplicationContext: initialization completed in 2390 ms
+
+2025-04-24 13:09:51,210 INFO Nacos-related cluster resource initialization
+
+2025-04-24 13:09:51,215 INFO Load com.alibaba.nacos.core.ability.RemoteAbilityInitializer for ServerAbilityInitializer
+
+2025-04-24 13:09:51,216 INFO Load com.alibaba.nacos.naming.ability.NamingAbilityInitializer for ServerAbilityInitializer
+
+2025-04-24 13:09:51,222 INFO The cluster resource is initialized
+
+2025-04-24 13:09:51,854 INFO HikariPool-1 - Starting...
+
+2025-04-24 13:09:52,491 INFO HikariPool-1 - Start completed.
+
+2025-04-24 13:09:52,611 INFO [MapperManager] Load Mapper(class com.alibaba.nacos.plugin.datasource.impl.mysql.ConfigInfoAggrMapperByMySql) datasource(mysql) tableName(config_info_aggr) successfully.
+
+2025-04-24 13:09:52,611 INFO [MapperManager] Load Mapper(class com.alibaba.nacos.plugin.datasource.impl.mysql.ConfigInfoBetaMapperByMySql) datasource(mysql) tableName(config_info_beta) successfully.
+
+2025-04-24 13:09:52,612 INFO [MapperManager] Load Mapper(class com.alibaba.nacos.plugin.datasource.impl.mysql.ConfigInfoMapperByMySql) datasource(mysql) tableName(config_info) successfully.
+
+2025-04-24 13:09:52,612 INFO [MapperManager] Load Mapper(class com.alibaba.nacos.plugin.datasource.impl.mysql.ConfigInfoTagMapperByMySql) datasource(mysql) tableName(config_info_tag) successfully.
+
+2025-04-24 13:09:52,612 INFO [MapperManager] Load Mapper(class com.alibaba.nacos.plugin.datasource.impl.mysql.ConfigTagsRelationMapperByMySql) datasource(mysql) tableName(config_tags_relation) successfully.
+
+2025-04-24 13:09:52,612 INFO [MapperManager] Load Mapper(class com.alibaba.nacos.plugin.datasource.impl.mysql.HistoryConfigInfoMapperByMySql) datasource(mysql) tableName(his_config_info) successfully.
+
+2025-04-24 13:09:52,612 INFO [MapperManager] Load Mapper(class com.alibaba.nacos.plugin.datasource.impl.mysql.TenantInfoMapperByMySql) datasource(mysql) tableName(tenant_info) successfully.
+
+2025-04-24 13:09:52,613 INFO [MapperManager] Load Mapper(class com.alibaba.nacos.plugin.datasource.impl.mysql.TenantCapacityMapperByMySql) datasource(mysql) tableName(tenant_capacity) successfully.
+
+2025-04-24 13:09:52,613 INFO [MapperManager] Load Mapper(class com.alibaba.nacos.plugin.datasource.impl.mysql.GroupCapacityMapperByMysql) datasource(mysql) tableName(group_capacity) successfully.
+
+2025-04-24 13:09:52,613 INFO [MapperManager] Load Mapper(class com.alibaba.nacos.plugin.datasource.impl.derby.ConfigInfoAggrMapperByDerby) datasource(derby) tableName(config_info_aggr) successfully.
+
+2025-04-24 13:09:52,613 INFO [MapperManager] Load Mapper(class com.alibaba.nacos.plugin.datasource.impl.derby.ConfigInfoBetaMapperByDerby) datasource(derby) tableName(config_info_beta) successfully.
+
+2025-04-24 13:09:52,613 INFO [MapperManager] Load Mapper(class com.alibaba.nacos.plugin.datasource.impl.derby.ConfigInfoMapperByDerby) datasource(derby) tableName(config_info) successfully.
+
+2025-04-24 13:09:52,613 INFO [MapperManager] Load Mapper(class com.alibaba.nacos.plugin.datasource.impl.derby.ConfigInfoTagMapperByDerby) datasource(derby) tableName(config_info_tag) successfully.
+
+2025-04-24 13:09:52,614 INFO [MapperManager] Load Mapper(class com.alibaba.nacos.plugin.datasource.impl.derby.ConfigInfoTagsRelationMapperByDerby) datasource(derby) tableName(config_tags_relation) successfully.
+
+2025-04-24 13:09:52,614 INFO [MapperManager] Load Mapper(class com.alibaba.nacos.plugin.datasource.impl.derby.HistoryConfigInfoMapperByDerby) datasource(derby) tableName(his_config_info) successfully.
+
+2025-04-24 13:09:52,614 INFO [MapperManager] Load Mapper(class com.alibaba.nacos.plugin.datasource.impl.derby.TenantInfoMapperByDerby) datasource(derby) tableName(tenant_info) successfully.
+
+2025-04-24 13:09:52,614 INFO [MapperManager] Load Mapper(class com.alibaba.nacos.plugin.datasource.impl.derby.TenantCapacityMapperByDerby) datasource(derby) tableName(tenant_capacity) successfully.
+
+2025-04-24 13:09:52,614 INFO [MapperManager] Load Mapper(class com.alibaba.nacos.plugin.datasource.impl.derby.GroupCapacityMapperByDerby) datasource(derby) tableName(group_capacity) successfully.
+
+2025-04-24 13:09:54,298 INFO Get historyConfigCleaner config from env, activeHistoryConfigCleaner{ activeHistoryConfigCleaner=nacos}
+
+2025-04-24 13:09:54,787 INFO Ready to get current node abilities...
+
+2025-04-24 13:09:54,789 INFO Ready to initialize current node abilities, support modes: [SDK_CLIENT, CLUSTER_CLIENT, SERVER]
+
+2025-04-24 13:09:54,790 INFO Initialize current abilities finish...
+
+2025-04-24 13:09:54,791 INFO Ready to get current node abilities...
+
+2025-04-24 13:09:54,791 INFO Ready to initialize current node abilities, support modes: [SDK_CLIENT]
+
+2025-04-24 13:09:54,791 INFO Initialize current abilities finish...
+
+2025-04-24 13:09:54,792 INFO [AbilityControlManager] Successfully initialize AbilityControlManager
+
+2025-04-24 13:09:56,186 INFO Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3c0bbc9f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1317b708, org.springframework.security.web.context.SecurityContextPersistenceFilter@27df0f3d, org.springframework.security.web.header.HeaderWriterFilter@692e028d, org.springframework.security.web.csrf.CsrfFilter@55e2fe3c, org.springframework.security.web.authentication.logout.LogoutFilter@70c0a3d5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@44550792, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@474c9131, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6438a7fe, org.springframework.security.web.session.SessionManagementFilter@43e1692f, org.springframework.security.web.access.ExceptionTranslationFilter@39c385d6]
+
+2025-04-24 13:09:56,452 INFO Adding welcome page: class path resource [static/index.html]
+
+2025-04-24 13:09:56,963 INFO Exposing 14 endpoint(s) beneath base path '/actuator'
+
+2025-04-24 13:09:56,977 WARN You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+
+2025-04-24 13:09:56,978 INFO Will not secure Ant [pattern='/**']
+
+2025-04-24 13:09:56,978 WARN You are asking Spring Security to ignore Mvc [pattern='/prometheus']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+
+2025-04-24 13:09:56,979 INFO Will not secure Mvc [pattern='/prometheus']
+
+2025-04-24 13:09:56,979 WARN You are asking Spring Security to ignore Mvc [pattern='/prometheus/namespaceId/{namespaceId}']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+
+2025-04-24 13:09:56,980 INFO Will not secure Mvc [pattern='/prometheus/namespaceId/{namespaceId}']
+
+2025-04-24 13:09:56,980 WARN You are asking Spring Security to ignore Mvc [pattern='/prometheus/namespaceId/{namespaceId}/service/{service}']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+
+2025-04-24 13:09:56,980 INFO Will not secure Mvc [pattern='/prometheus/namespaceId/{namespaceId}/service/{service}']
+
+2025-04-24 13:09:57,033 INFO Tomcat started on port(s): 8848 (http) with context path '/nacos'
+
+2025-04-24 13:09:57,049 INFO No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+
+2025-04-24 13:09:57,085 INFO Started Nacos in 9.653 seconds (JVM running for 10.257)
+
+2025-04-24 13:09:57,086 INFO Nacos started successfully in stand alone mode. use external storage
+
+2025-04-24 13:10:09,117 INFO Get ParamCheck config from env, ParamCheckConfig{paramCheckEnabled=trueactiveParamChecker=default}
+
+2025-04-24 13:10:18,207 INFO Get Push config from env, PushConfig{pushTaskDelay=500, pushTaskTimeout=5000, pushTaskRetryDelay=1000}
+
+2025-04-24 13:19:52,668 INFO [capacityManagement] start correct usage
+
+2025-04-24 13:19:52,817 INFO [capacityManagement] end correct usage, cost: 0.146047451s
+
+2025-04-24 13:19:54,278 WARN clearHistoryConfig get scheduled
+
+2025-04-24 13:19:54,280 WARN clearHistoryConfig is enable in current context, try to run cleaner
+
+2025-04-24 13:19:54,283 WARN clearConfigHistory, getBeforeStamp:2025-03-25 13:19:54.0, pageSize:1000
+
+2025-04-24 13:19:54,410 WARN history config cleaner successfully
+
+2025-04-24 13:29:52,788 INFO [capacityManagement] start correct usage
+
+2025-04-24 13:29:52,935 INFO [capacityManagement] end correct usage, cost: 0.145325208s
+
+2025-04-24 13:29:54,381 WARN clearHistoryConfig get scheduled
+
+2025-04-24 13:29:54,382 WARN clearHistoryConfig is enable in current context, try to run cleaner
+
+2025-04-24 13:29:54,383 WARN clearConfigHistory, getBeforeStamp:2025-03-25 13:29:54.0, pageSize:1000
+
+2025-04-24 13:29:54,526 WARN history config cleaner successfully
+
+2025-04-24 13:39:52,905 INFO [capacityManagement] start correct usage
+
+2025-04-24 13:39:53,047 INFO [capacityManagement] end correct usage, cost: 0.138933559s
+
+2025-04-24 13:39:54,496 WARN clearHistoryConfig get scheduled
+
+2025-04-24 13:39:54,497 WARN clearHistoryConfig is enable in current context, try to run cleaner
+
+2025-04-24 13:39:54,497 WARN clearConfigHistory, getBeforeStamp:2025-03-25 13:39:54.0, pageSize:1000
+
+2025-04-24 13:39:54,601 WARN history config cleaner successfully
+
+2025-04-24 13:49:53,012 INFO [capacityManagement] start correct usage
+
+2025-04-24 13:49:53,151 INFO [capacityManagement] end correct usage, cost: 0.137854982s
+
+2025-04-24 13:49:54,567 WARN clearHistoryConfig get scheduled
+
+2025-04-24 13:49:54,568 WARN clearHistoryConfig is enable in current context, try to run cleaner
+
+2025-04-24 13:49:54,569 WARN clearConfigHistory, getBeforeStamp:2025-03-25 13:49:54.0, pageSize:1000
+
+2025-04-24 13:49:54,671 WARN history config cleaner successfully
+
+2025-04-24 13:59:53,113 INFO [capacityManagement] start correct usage
+
+2025-04-24 13:59:53,279 INFO [capacityManagement] end correct usage, cost: 0.164426045s
+
+2025-04-24 13:59:54,634 WARN clearHistoryConfig get scheduled
+
+2025-04-24 13:59:54,636 WARN clearHistoryConfig is enable in current context, try to run cleaner
+
+2025-04-24 13:59:54,638 WARN clearConfigHistory, getBeforeStamp:2025-03-25 13:59:54.0, pageSize:1000
+
+2025-04-24 13:59:54,711 WARN history config cleaner successfully
+
+2025-04-24 14:09:53,251 INFO [capacityManagement] start correct usage
+
+2025-04-24 14:09:53,426 INFO [capacityManagement] end correct usage, cost: 0.174486224s
+
+2025-04-24 14:09:54,683 WARN clearHistoryConfig get scheduled
+
+2025-04-24 14:09:54,683 WARN clearHistoryConfig is enable in current context, try to run cleaner
+
+2025-04-24 14:09:54,684 WARN clearConfigHistory, getBeforeStamp:2025-03-25 14:09:54.0, pageSize:1000
+
+2025-04-24 14:09:54,876 WARN history config cleaner successfully
+
+2025-04-24 18:18:15,246 WARN HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@193fca9e (Communications link failure
+
+The last packet successfully received from the server was 14,323,759 milliseconds ago. The last packet sent successfully to the server was 14,323,797 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2025-04-24 18:18:15,247 WARN HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@4cff676b (Communications link failure
+
+The last packet successfully received from the server was 14,323,598 milliseconds ago. The last packet sent successfully to the server was 14,323,646 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2025-04-24 18:18:15,252 WARN HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@6a5e398f (Communications link failure
+
+The last packet successfully received from the server was 14,631,323 milliseconds ago. The last packet sent successfully to the server was 14,631,379 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2025-04-24 18:18:27,135 INFO [capacityManagement] start correct usage
+
+2025-04-24 18:18:27,483 INFO [capacityManagement] end correct usage, cost: 0.344138421s
+
+2025-04-24 18:18:28,585 WARN clearHistoryConfig get scheduled
+
+2025-04-24 18:18:28,586 WARN clearHistoryConfig is enable in current context, try to run cleaner
+
+2025-04-24 18:18:28,587 WARN clearConfigHistory, getBeforeStamp:2025-03-25 18:18:28.0, pageSize:1000
+
+2025-04-24 18:18:28,701 WARN history config cleaner successfully
+
+2025-04-24 18:21:22,515 WARN HikariPool-1 - Connection com.mysql.cj.jdbc.ConnectionImpl@678552b6 marked as broken because of SQLSTATE(08S01), ErrorCode(0)
+
+com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 3,007 milliseconds ago. The last packet sent successfully to the server was 3,007 milliseconds ago.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64)
+	at com.mysql.cj.jdbc.StatementImpl.executeQuery(StatementImpl.java:1201)
+	at com.zaxxer.hikari.pool.ProxyStatement.executeQuery(ProxyStatement.java:111)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.executeQuery(HikariProxyStatement.java)
+	at org.springframework.jdbc.core.JdbcTemplate$1QueryStatementCallback.doInStatement(JdbcTemplate.java:453)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:383)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:466)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:476)
+	at org.springframework.jdbc.core.JdbcTemplate.queryForObject(JdbcTemplate.java:509)
+	at org.springframework.jdbc.core.JdbcTemplate.queryForMap(JdbcTemplate.java:503)
+	at com.alibaba.nacos.persistence.datasource.ExternalDataSourceServiceImpl$CheckDbHealthTask.run(ExternalDataSourceServiceImpl.java:286)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 3,007 milliseconds ago. The last packet sent successfully to the server was 3,007 milliseconds ago.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:104)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:149)
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:165)
+	at com.mysql.cj.protocol.a.NativeProtocol.readMessage(NativeProtocol.java:582)
+	at com.mysql.cj.protocol.a.NativeProtocol.checkErrorMessage(NativeProtocol.java:762)
+	at com.mysql.cj.protocol.a.NativeProtocol.sendCommand(NativeProtocol.java:701)
+	at com.mysql.cj.protocol.a.NativeProtocol.sendQueryPacket(NativeProtocol.java:1050)
+	at com.mysql.cj.protocol.a.NativeProtocol.sendQueryString(NativeProtocol.java:997)
+	at com.mysql.cj.NativeSession.execSQL(NativeSession.java:658)
+	at com.mysql.cj.jdbc.StatementImpl.executeQuery(StatementImpl.java:1171)
+	... 16 common frames omitted
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+	at java.net.SocketInputStream.read(SocketInputStream.java:171)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at com.mysql.cj.protocol.ReadAheadInputStream.fill(ReadAheadInputStream.java:107)
+	at com.mysql.cj.protocol.ReadAheadInputStream.readFromUnderlyingStreamIfNecessary(ReadAheadInputStream.java:150)
+	at com.mysql.cj.protocol.ReadAheadInputStream.read(ReadAheadInputStream.java:180)
+	at java.io.FilterInputStream.read(FilterInputStream.java:133)
+	at com.mysql.cj.protocol.FullReadInputStream.readFully(FullReadInputStream.java:64)
+	at com.mysql.cj.protocol.a.SimplePacketReader.readHeaderLocal(SimplePacketReader.java:81)
+	at com.mysql.cj.protocol.a.SimplePacketReader.readHeader(SimplePacketReader.java:63)
+	at com.mysql.cj.protocol.a.SimplePacketReader.readHeader(SimplePacketReader.java:45)
+	at com.mysql.cj.protocol.a.TimeTrackingPacketReader.readHeader(TimeTrackingPacketReader.java:52)
+	at com.mysql.cj.protocol.a.TimeTrackingPacketReader.readHeader(TimeTrackingPacketReader.java:41)
+	at com.mysql.cj.protocol.a.MultiPacketReader.readHeader(MultiPacketReader.java:54)
+	at com.mysql.cj.protocol.a.MultiPacketReader.readHeader(MultiPacketReader.java:44)
+	at com.mysql.cj.protocol.a.NativeProtocol.readMessage(NativeProtocol.java:576)
+	... 22 common frames omitted
+2025-04-24 18:21:25,614 WARN Error while extracting database name
+
+org.springframework.jdbc.support.MetaDataAccessException: Could not get Connection for extracting meta-data; nested exception is org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 3000ms.
+	at org.springframework.jdbc.support.JdbcUtils.extractDatabaseMetaData(JdbcUtils.java:363)
+	at org.springframework.jdbc.support.SQLErrorCodesFactory.resolveErrorCodes(SQLErrorCodesFactory.java:236)
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.lambda$setDataSource$0(SQLErrorCodeSQLExceptionTranslator.java:138)
+	at org.springframework.util.function.SingletonSupplier.get(SingletonSupplier.java:97)
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.setDataSource(SQLErrorCodeSQLExceptionTranslator.java:139)
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.<init>(SQLErrorCodeSQLExceptionTranslator.java:100)
+	at org.springframework.jdbc.support.JdbcAccessor.getExceptionTranslator(JdbcAccessor.java:136)
+	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1575)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:398)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:466)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:476)
+	at org.springframework.jdbc.core.JdbcTemplate.queryForObject(JdbcTemplate.java:509)
+	at org.springframework.jdbc.core.JdbcTemplate.queryForMap(JdbcTemplate.java:503)
+	at com.alibaba.nacos.persistence.datasource.ExternalDataSourceServiceImpl$CheckDbHealthTask.run(ExternalDataSourceServiceImpl.java:286)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 3000ms.
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:84)
+	at org.springframework.jdbc.support.JdbcUtils.extractDatabaseMetaData(JdbcUtils.java:337)
+	... 20 common frames omitted
+Caused by: java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 3000ms.
+	at com.zaxxer.hikari.pool.HikariPool.createTimeoutException(HikariPool.java:689)
+	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:196)
+	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:161)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:128)
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:160)
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:118)
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:81)
+	... 21 common frames omitted
+2025-04-24 18:28:27,458 INFO [capacityManagement] start correct usage
+
+2025-04-24 18:28:27,613 INFO [capacityManagement] end correct usage, cost: 0.154412248s
+
+2025-04-24 18:28:28,675 WARN clearHistoryConfig get scheduled
+
+2025-04-24 18:28:28,675 WARN clearHistoryConfig is enable in current context, try to run cleaner
+
+2025-04-24 18:28:28,675 WARN clearConfigHistory, getBeforeStamp:2025-03-25 18:28:28.0, pageSize:1000
+
+2025-04-24 18:28:28,790 WARN history config cleaner successfully
+
+2025-04-24 18:38:27,578 INFO [capacityManagement] start correct usage
+
+2025-04-24 18:38:27,817 INFO [capacityManagement] end correct usage, cost: 0.238137716s
+
+2025-04-24 18:38:28,756 WARN clearHistoryConfig get scheduled
+
+2025-04-24 18:38:28,756 WARN clearHistoryConfig is enable in current context, try to run cleaner
+
+2025-04-24 18:38:28,757 WARN clearConfigHistory, getBeforeStamp:2025-03-25 18:38:28.0, pageSize:1000
+
+2025-04-24 18:38:28,913 WARN history config cleaner successfully
+
+2025-04-24 18:48:27,778 INFO [capacityManagement] start correct usage
+
+2025-04-24 18:48:27,903 INFO [capacityManagement] end correct usage, cost: 0.124236599s
+
+2025-04-24 18:48:28,874 WARN clearHistoryConfig get scheduled
+
+2025-04-24 18:48:28,875 WARN clearHistoryConfig is enable in current context, try to run cleaner
+
+2025-04-24 18:48:28,875 WARN clearConfigHistory, getBeforeStamp:2025-03-25 18:48:28.0, pageSize:1000
+
+2025-04-24 18:48:28,965 WARN history config cleaner successfully
+
+2025-04-24 18:58:27,853 INFO [capacityManagement] start correct usage
+
+2025-04-24 18:58:27,987 INFO [capacityManagement] end correct usage, cost: 0.132139334s
+
+2025-04-24 18:58:28,914 WARN clearHistoryConfig get scheduled
+
+2025-04-24 18:58:28,915 WARN clearHistoryConfig is enable in current context, try to run cleaner
+
+2025-04-24 18:58:28,916 WARN clearConfigHistory, getBeforeStamp:2025-03-25 18:58:28.0, pageSize:1000
+
+2025-04-24 18:58:29,038 WARN history config cleaner successfully
+
+2025-04-24 19:08:27,943 INFO [capacityManagement] start correct usage
+
+2025-04-24 19:08:28,113 INFO [capacityManagement] end correct usage, cost: 0.168039947s
+
+2025-04-24 19:08:28,995 WARN clearHistoryConfig get scheduled
+
+2025-04-24 19:08:28,996 WARN clearHistoryConfig is enable in current context, try to run cleaner
+
+2025-04-24 19:08:28,998 WARN clearConfigHistory, getBeforeStamp:2025-03-25 19:08:28.0, pageSize:1000
+
+2025-04-24 19:08:29,097 WARN history config cleaner successfully
+
+2025-04-24 19:18:28,076 INFO [capacityManagement] start correct usage
+
+2025-04-24 19:18:28,214 INFO [capacityManagement] end correct usage, cost: 0.137717392s
+
+2025-04-24 19:18:29,060 WARN clearHistoryConfig get scheduled
+
+2025-04-24 19:18:29,060 WARN clearHistoryConfig is enable in current context, try to run cleaner
+
+2025-04-24 19:18:29,061 WARN clearConfigHistory, getBeforeStamp:2025-03-25 19:18:29.0, pageSize:1000
+
+2025-04-24 19:18:29,260 WARN history config cleaner successfully
+
+2025-04-24 19:28:28,179 INFO [capacityManagement] start correct usage
+
+2025-04-24 19:28:28,365 INFO [capacityManagement] end correct usage, cost: 0.183650095s
+
+2025-04-24 19:28:29,224 WARN clearHistoryConfig get scheduled
+
+2025-04-24 19:28:29,227 WARN clearHistoryConfig is enable in current context, try to run cleaner
+
+2025-04-24 19:28:29,230 WARN clearConfigHistory, getBeforeStamp:2025-03-25 19:28:29.0, pageSize:1000
+
+2025-04-24 19:28:29,334 WARN history config cleaner successfully
+
+2025-04-24 19:38:28,332 INFO [capacityManagement] start correct usage
+
+2025-04-24 19:38:28,472 INFO [capacityManagement] end correct usage, cost: 0.139260209s
+
+2025-04-24 19:38:29,300 WARN clearHistoryConfig get scheduled
+
+2025-04-24 19:38:29,301 WARN clearHistoryConfig is enable in current context, try to run cleaner
+
+2025-04-24 19:38:29,302 WARN clearConfigHistory, getBeforeStamp:2025-03-25 19:38:29.0, pageSize:1000
+
+2025-04-24 19:38:29,371 WARN history config cleaner successfully
+
+2025-04-24 19:48:28,440 INFO [capacityManagement] start correct usage
+
+2025-04-24 19:48:28,585 INFO [capacityManagement] end correct usage, cost: 0.14367211s
+
+2025-04-24 19:48:29,339 WARN clearHistoryConfig get scheduled
+
+2025-04-24 19:48:29,340 WARN clearHistoryConfig is enable in current context, try to run cleaner
+
+2025-04-24 19:48:29,341 WARN clearConfigHistory, getBeforeStamp:2025-03-25 19:48:29.0, pageSize:1000
+
+2025-04-24 19:48:29,445 WARN history config cleaner successfully
+
+2025-04-24 19:58:28,550 INFO [capacityManagement] start correct usage
+
+2025-04-24 19:58:28,728 INFO [capacityManagement] end correct usage, cost: 0.177498533s
+
+2025-04-24 19:58:29,409 WARN clearHistoryConfig get scheduled
+
+2025-04-24 19:58:29,411 WARN clearHistoryConfig is enable in current context, try to run cleaner
+
+2025-04-24 19:58:29,411 WARN clearConfigHistory, getBeforeStamp:2025-03-25 19:58:29.0, pageSize:1000
+
+2025-04-24 19:58:29,448 WARN history config cleaner successfully
+
+2025-04-24 20:08:28,685 INFO [capacityManagement] start correct usage
+
+2025-04-24 20:08:28,897 INFO [capacityManagement] end correct usage, cost: 0.208787903s
+
+2025-04-24 20:08:29,406 WARN clearHistoryConfig get scheduled
+
+2025-04-24 20:08:29,407 WARN clearHistoryConfig is enable in current context, try to run cleaner
+
+2025-04-24 20:08:29,408 WARN clearConfigHistory, getBeforeStamp:2025-03-25 20:08:29.0, pageSize:1000
+
+2025-04-24 20:08:33,637 WARN HikariPool-1 - Connection com.mysql.cj.jdbc.ConnectionImpl@2810679c marked as broken because of SQLSTATE(08S01), ErrorCode(0)
+
+com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 3,005 milliseconds ago. The last packet sent successfully to the server was 3,005 milliseconds ago.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:912)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1054)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1003)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1312)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:988)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:965)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:648)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:960)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1015)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1025)
+	at com.alibaba.nacos.persistence.repository.extrnal.ExternalStoragePaginationHelperImpl.updateLimit(ExternalStoragePaginationHelperImpl.java:189)
+	at com.alibaba.nacos.config.server.service.repository.extrnal.ExternalHistoryConfigInfoPersistServiceImpl.removeConfigHistory(ExternalHistoryConfigInfoPersistServiceImpl.java:120)
+	at com.alibaba.nacos.config.server.service.repository.extrnal.ExternalHistoryConfigInfoPersistServiceImpl$$FastClassBySpringCGLIB$$46cbab41.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:792)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:762)
+	at org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:64)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:762)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:762)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:707)
+	at com.alibaba.nacos.config.server.service.repository.extrnal.ExternalHistoryConfigInfoPersistServiceImpl$$EnhancerBySpringCGLIB$$c4706e4f.removeConfigHistory(<generated>)
+	at com.alibaba.nacos.config.server.service.dump.DefaultHistoryConfigCleaner.cleanHistoryConfig(DefaultHistoryConfigCleaner.java:46)
+	at com.alibaba.nacos.config.server.service.dump.DumpService$ConfigHistoryClear.run(DumpService.java:210)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 3,005 milliseconds ago. The last packet sent successfully to the server was 3,005 milliseconds ago.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:104)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:149)
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:165)
+	at com.mysql.cj.protocol.a.NativeProtocol.readMessage(NativeProtocol.java:582)
+	at com.mysql.cj.protocol.a.NativeProtocol.checkErrorMessage(NativeProtocol.java:762)
+	at com.mysql.cj.protocol.a.NativeProtocol.sendCommand(NativeProtocol.java:701)
+	at com.mysql.cj.protocol.a.NativeProtocol.sendQueryPacket(NativeProtocol.java:1050)
+	at com.mysql.cj.NativeSession.execSQL(NativeSession.java:660)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:889)
+	... 35 common frames omitted
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+	at java.net.SocketInputStream.read(SocketInputStream.java:171)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at com.mysql.cj.protocol.ReadAheadInputStream.fill(ReadAheadInputStream.java:107)
+	at com.mysql.cj.protocol.ReadAheadInputStream.readFromUnderlyingStreamIfNecessary(ReadAheadInputStream.java:150)
+	at com.mysql.cj.protocol.ReadAheadInputStream.read(ReadAheadInputStream.java:180)
+	at java.io.FilterInputStream.read(FilterInputStream.java:133)
+	at com.mysql.cj.protocol.FullReadInputStream.readFully(FullReadInputStream.java:64)
+	at com.mysql.cj.protocol.a.SimplePacketReader.readHeaderLocal(SimplePacketReader.java:81)
+	at com.mysql.cj.protocol.a.SimplePacketReader.readHeader(SimplePacketReader.java:63)
+	at com.mysql.cj.protocol.a.SimplePacketReader.readHeader(SimplePacketReader.java:45)
+	at com.mysql.cj.protocol.a.TimeTrackingPacketReader.readHeader(TimeTrackingPacketReader.java:52)
+	at com.mysql.cj.protocol.a.TimeTrackingPacketReader.readHeader(TimeTrackingPacketReader.java:41)
+	at com.mysql.cj.protocol.a.MultiPacketReader.readHeader(MultiPacketReader.java:54)
+	at com.mysql.cj.protocol.a.MultiPacketReader.readHeader(MultiPacketReader.java:44)
+	at com.mysql.cj.protocol.a.NativeProtocol.readMessage(NativeProtocol.java:576)
+	... 40 common frames omitted
+2025-04-24 20:08:33,647 ERROR clearConfigHistory error : org.springframework.dao.RecoverableDataAccessException: PreparedStatementCallback; SQL [DELETE FROM his_config_info WHERE gmt_modified < ? LIMIT ?]; Communications link failure
+
+The last packet successfully received from the server was 3,005 milliseconds ago. The last packet sent successfully to the server was 3,005 milliseconds ago.; nested exception is com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 3,005 milliseconds ago. The last packet sent successfully to the server was 3,005 milliseconds ago.
+
+2025-04-24 20:18:28,853 INFO [capacityManagement] start correct usage
+
+2025-04-24 20:18:29,037 INFO [capacityManagement] end correct usage, cost: 0.183211513s
+
+2025-04-24 20:18:33,604 WARN clearHistoryConfig get scheduled
+
+2025-04-24 20:18:33,605 WARN clearHistoryConfig is enable in current context, try to run cleaner
+
+2025-04-24 20:18:33,605 WARN clearConfigHistory, getBeforeStamp:2025-03-25 20:18:33.0, pageSize:1000
+
+2025-04-24 20:18:33,978 WARN history config cleaner successfully
+
+2025-04-24 20:28:28,997 INFO [capacityManagement] start correct usage
+
+2025-04-24 20:28:29,182 INFO [capacityManagement] end correct usage, cost: 0.183662112s
+
+2025-04-24 20:28:33,937 WARN clearHistoryConfig get scheduled
+
+2025-04-24 20:28:33,938 WARN clearHistoryConfig is enable in current context, try to run cleaner
+
+2025-04-24 20:28:33,939 WARN clearConfigHistory, getBeforeStamp:2025-03-25 20:28:33.0, pageSize:1000
+
+2025-04-24 20:28:34,052 WARN history config cleaner successfully
+
+2025-04-24 20:38:29,125 INFO [capacityManagement] start correct usage
+
+2025-04-24 20:38:29,259 INFO [capacityManagement] end correct usage, cost: 0.132715913s
+
+2025-04-24 20:38:33,996 WARN clearHistoryConfig get scheduled
+
+2025-04-24 20:38:33,997 WARN clearHistoryConfig is enable in current context, try to run cleaner
+
+2025-04-24 20:38:33,998 WARN clearConfigHistory, getBeforeStamp:2025-03-25 20:38:33.0, pageSize:1000
+
+2025-04-24 20:38:34,097 WARN history config cleaner successfully
+
+2025-04-24 20:48:29,213 INFO [capacityManagement] start correct usage
+
+2025-04-24 20:48:29,390 INFO [capacityManagement] end correct usage, cost: 0.175616215s
+
+2025-04-24 20:48:34,051 WARN clearHistoryConfig get scheduled
+
+2025-04-24 20:48:34,054 WARN clearHistoryConfig is enable in current context, try to run cleaner
+
+2025-04-24 20:48:34,056 WARN clearConfigHistory, getBeforeStamp:2025-03-25 20:48:34.0, pageSize:1000
+
+2025-04-24 20:48:34,125 WARN history config cleaner successfully
+
+2025-04-24 20:58:29,342 INFO [capacityManagement] start correct usage
+
+2025-04-24 20:58:29,502 INFO [capacityManagement] end correct usage, cost: 0.158672658s
+
+2025-04-24 20:58:34,078 WARN clearHistoryConfig get scheduled
+
+2025-04-24 20:58:34,080 WARN clearHistoryConfig is enable in current context, try to run cleaner
+
+2025-04-24 20:58:34,082 WARN clearConfigHistory, getBeforeStamp:2025-03-25 20:58:34.0, pageSize:1000
+
+2025-04-24 20:58:34,180 WARN history config cleaner successfully
+
+2025-04-24 21:08:29,456 INFO [capacityManagement] start correct usage
+
+2025-04-24 21:08:29,586 INFO [capacityManagement] end correct usage, cost: 0.127894375s
+
+2025-04-24 21:08:34,135 WARN clearHistoryConfig get scheduled
+
+2025-04-24 21:08:34,138 WARN clearHistoryConfig is enable in current context, try to run cleaner
+
+2025-04-24 21:08:34,140 WARN clearConfigHistory, getBeforeStamp:2025-03-25 21:08:34.0, pageSize:1000
+
+2025-04-24 21:08:34,238 WARN history config cleaner successfully
+
+2025-04-24 21:18:29,541 INFO [capacityManagement] start correct usage
+
+2025-04-24 21:18:29,668 INFO [capacityManagement] end correct usage, cost: 0.125029823s
+
+2025-04-24 21:18:34,193 WARN clearHistoryConfig get scheduled
+
+2025-04-24 21:18:34,195 WARN clearHistoryConfig is enable in current context, try to run cleaner
+
+2025-04-24 21:18:34,197 WARN clearConfigHistory, getBeforeStamp:2025-03-25 21:18:34.0, pageSize:1000
+
+2025-04-24 21:18:34,290 WARN history config cleaner successfully
+
+2025-04-24 21:28:29,624 INFO [capacityManagement] start correct usage
+
+2025-04-24 21:28:29,788 INFO [capacityManagement] end correct usage, cost: 0.162676328s
+
+2025-04-24 21:28:34,246 WARN clearHistoryConfig get scheduled
+
+2025-04-24 21:28:34,247 WARN clearHistoryConfig is enable in current context, try to run cleaner
+
+2025-04-24 21:28:34,248 WARN clearConfigHistory, getBeforeStamp:2025-03-25 21:28:34.0, pageSize:1000
+
+2025-04-24 21:28:34,315 WARN history config cleaner successfully
+
+2025-04-24 21:38:29,744 INFO [capacityManagement] start correct usage
+
+2025-04-24 21:38:29,875 INFO [capacityManagement] end correct usage, cost: 0.129155271s
+
+2025-04-24 21:38:34,271 WARN clearHistoryConfig get scheduled
+
+2025-04-24 21:38:34,271 WARN clearHistoryConfig is enable in current context, try to run cleaner
+
+2025-04-24 21:38:34,272 WARN clearConfigHistory, getBeforeStamp:2025-03-25 21:38:34.0, pageSize:1000
+
+2025-04-24 21:38:34,369 WARN history config cleaner successfully
+
+2025-04-24 21:48:29,840 INFO [capacityManagement] start correct usage
+
+2025-04-24 21:48:30,014 INFO [capacityManagement] end correct usage, cost: 0.172909621s
+
+2025-04-24 21:48:34,335 WARN clearHistoryConfig get scheduled
+
+2025-04-24 21:48:34,336 WARN clearHistoryConfig is enable in current context, try to run cleaner
+
+2025-04-24 21:48:34,337 WARN clearConfigHistory, getBeforeStamp:2025-03-25 21:48:34.0, pageSize:1000
+
+2025-04-24 21:48:34,405 WARN history config cleaner successfully
+
+2025-04-24 21:58:29,983 INFO [capacityManagement] start correct usage
+
+2025-04-24 21:58:30,156 INFO [capacityManagement] end correct usage, cost: 0.169884214s
+
+2025-04-24 21:58:34,375 WARN clearHistoryConfig get scheduled
+
+2025-04-24 21:58:34,376 WARN clearHistoryConfig is enable in current context, try to run cleaner
+
+2025-04-24 21:58:34,378 WARN clearConfigHistory, getBeforeStamp:2025-03-25 21:58:34.0, pageSize:1000
+
+2025-04-24 21:58:34,486 WARN history config cleaner successfully
+
+2025-04-24 22:08:30,124 INFO [capacityManagement] start correct usage
+
+2025-04-24 22:08:30,277 INFO [capacityManagement] end correct usage, cost: 0.151053068s
+
+2025-04-24 22:08:34,454 WARN clearHistoryConfig get scheduled
+
+2025-04-24 22:08:34,455 WARN clearHistoryConfig is enable in current context, try to run cleaner
+
+2025-04-24 22:08:34,456 WARN clearConfigHistory, getBeforeStamp:2025-03-25 22:08:34.0, pageSize:1000
+
+2025-04-24 22:08:34,556 WARN history config cleaner successfully
+
+2025-04-24 22:18:30,246 INFO [capacityManagement] start correct usage
+
+2025-04-24 22:18:30,397 INFO [capacityManagement] end correct usage, cost: 0.150688282s
+
+2025-04-24 22:18:34,525 WARN clearHistoryConfig get scheduled
+
+2025-04-24 22:18:34,526 WARN clearHistoryConfig is enable in current context, try to run cleaner
+
+2025-04-24 22:18:34,527 WARN clearConfigHistory, getBeforeStamp:2025-03-25 22:18:34.0, pageSize:1000
+
+2025-04-24 22:18:34,681 WARN history config cleaner successfully
+
+2025-04-24 22:28:30,370 INFO [capacityManagement] start correct usage
+
+2025-04-24 22:28:30,500 INFO [capacityManagement] end correct usage, cost: 0.129655282s
+
+2025-04-24 22:28:34,653 WARN clearHistoryConfig get scheduled
+
+2025-04-24 22:28:34,653 WARN clearHistoryConfig is enable in current context, try to run cleaner
+
+2025-04-24 22:28:34,654 WARN clearConfigHistory, getBeforeStamp:2025-03-25 22:28:34.0, pageSize:1000
+
+2025-04-24 22:28:34,687 WARN history config cleaner successfully
+
+2025-04-24 22:38:30,474 INFO [capacityManagement] start correct usage
+
+2025-04-24 22:38:30,580 INFO [capacityManagement] end correct usage, cost: 0.105494905s
+
+2025-04-24 22:38:34,661 WARN clearHistoryConfig get scheduled
+
+2025-04-24 22:38:34,661 WARN clearHistoryConfig is enable in current context, try to run cleaner
+
+2025-04-24 22:38:34,661 WARN clearConfigHistory, getBeforeStamp:2025-03-25 22:38:34.0, pageSize:1000
+
+2025-04-24 22:38:34,793 WARN history config cleaner successfully
+
+2025-04-24 22:48:30,555 INFO [capacityManagement] start correct usage
+
+2025-04-24 22:48:30,718 INFO [capacityManagement] end correct usage, cost: 0.163223775s
+
+2025-04-24 22:48:34,768 WARN clearHistoryConfig get scheduled
+
+2025-04-24 22:48:34,768 WARN clearHistoryConfig is enable in current context, try to run cleaner
+
+2025-04-24 22:48:34,769 WARN clearConfigHistory, getBeforeStamp:2025-03-25 22:48:34.0, pageSize:1000
+
+2025-04-24 22:48:34,864 WARN history config cleaner successfully
+

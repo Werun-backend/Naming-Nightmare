@@ -1,0 +1,74 @@
+services:
+  wenxin-nacos:
+    container_name: wenxin-nacos
+    image: nacos/nacos-server:v2.4.3
+    build:
+      context: ./nacos
+    environment:
+      - MODE=standalone
+    volumes:
+      - ./nacos/logs/:/home/nacos/logs
+      - ./nacos/conf/application.properties:/home/nacos/conf/application.properties
+    ports:
+      - "8848:8848"
+      - "9848:9848"
+      - "9849:9849"
+  wenxin-redis:
+    container_name: wenxin-redis
+    image: redis
+    build:
+      context: ./redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redis/conf/redis.conf:/home/werun/redis/redis.conf
+      - ./redis/data:/data
+    command: redis-server /home/werun/redis/redis.conf
+  gateway:
+    container_name: gateway
+    build:
+      context: ./modules/gateway
+      dockerfile: dockerfile
+    ports:
+      - "8087:8087"
+    depends_on:
+      - wenxin-nacos
+      - wenxin-redis
+    links:
+      - wenxin-redis
+  comments:
+    container_name: comments
+    build:
+      context: ./modules/comments
+      dockerfile: dockerfile
+    ports:
+      - "8085:8085"
+    depends_on:
+      - wenxin-nacos
+      - wenxin-redis
+    links:
+      - wenxin-redis
+  posts:
+    container_name: posts
+    build:
+      context: ./modules/posts
+      dockerfile: dockerfile
+    ports:
+      - "8089:8089"
+    depends_on:
+      - wenxin-nacos
+      - wenxin-redis
+    links:
+      - wenxin-redis
+  user:
+    container_name: user
+    build:
+      context: ./modules/user
+      dockerfile: dockerfile
+    ports:
+      - "8088:8088"
+    depends_on:
+      - wenxin-nacos
+      - wenxin-redis
+    links:
+      - wenxin-redis

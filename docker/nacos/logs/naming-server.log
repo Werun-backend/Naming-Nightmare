@@ -1,0 +1,58 @@
+2025-04-25 13:10:18,011 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2025-04-25 13:10:18,011 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2025-04-25 13:10:18,012 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2025-04-25 13:10:18,012 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2025-04-25 13:10:18,312 INFO Load instance extension handler []
+
+2025-04-25 13:10:31,145 INFO Client connection 1745557828146_172.20.0.4_44272 disconnect, remove instances and subscribers
+
+2025-04-25 13:10:40,420 INFO Client connection 1745557840366_172.20.0.5_32948 connect
+
+2025-04-25 13:10:40,612 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='comments', ephemeral=true, revision=0}, 1745557840366_172.20.0.5_32948
+
+2025-04-25 13:10:43,614 INFO Client connection 1745557843604_172.20.0.4_56982 connect
+
+2025-04-25 13:10:43,729 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='posts', ephemeral=true, revision=0}, 1745557843604_172.20.0.4_56982
+
+2025-04-25 13:10:46,249 INFO Client connection 1745557842531_172.20.0.7_46494 disconnect, remove instances and subscribers
+
+2025-04-25 13:10:47,855 INFO Client connection 1745557847841_172.20.0.6_38346 connect
+
+2025-04-25 13:10:47,966 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='user', ephemeral=true, revision=0}, 1745557847841_172.20.0.6_38346
+
+2025-04-25 13:14:51,182 INFO Client connection 1745558089000_172.20.0.1_51828 disconnect, remove instances and subscribers
+
+2025-04-25 13:15:26,046 INFO Client connection 1745558126040_172.20.0.1_41708 connect
+
+2025-04-25 13:15:26,163 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='gateway', ephemeral=true, revision=0}, 1745558126040_172.20.0.1_41708
+
+2025-04-25 13:15:34,690 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='gateway', ephemeral=true, revision=1}, 1745558126040_172.20.0.1_41708
+
+2025-04-25 13:15:34,814 INFO Client connection 1745558117696_172.20.0.1_46814 disconnect, remove instances and subscribers
+
+2025-04-25 13:15:34,816 INFO Client connection 1745558126040_172.20.0.1_41708 disconnect, remove instances and subscribers
+
+2025-04-25 13:16:48,091 WARN namespace : public, [DEFAULT_GROUP@@gateway] services are automatically cleaned
+
+2025-04-25 13:17:22,630 INFO Client connection 1745558240541_172.20.0.1_57400 disconnect, remove instances and subscribers
+
+2025-04-25 13:17:44,543 INFO Client connection 1745558264537_172.20.0.1_52826 connect
+
+2025-04-25 13:17:44,659 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='gateway', ephemeral=true, revision=0}, 1745558264537_172.20.0.1_52826
+
+2025-04-25 13:18:37,230 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='gateway', ephemeral=true, revision=1}, 1745558264537_172.20.0.1_52826
+
+2025-04-25 13:18:37,242 INFO Client connection 1745558264537_172.20.0.1_52826 disconnect, remove instances and subscribers
+
+2025-04-25 13:18:37,355 INFO Client connection 1745558256313_172.20.0.1_52824 disconnect, remove instances and subscribers
+
+2025-04-25 13:19:48,077 WARN namespace : public, [DEFAULT_GROUP@@gateway] services are automatically cleaned
+
+2025-04-25 13:20:35,105 INFO Client connection 1745558435096_172.20.0.7_35346 connect
+
+2025-04-25 13:20:35,214 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='gateway', ephemeral=true, revision=0}, 1745558435096_172.20.0.7_35346
+

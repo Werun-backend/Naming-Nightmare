@@ -1,0 +1,154 @@
+2025-04-23 15:23:21,438 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2025-04-23 15:23:21,438 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2025-04-23 15:23:21,438 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2025-04-23 15:23:21,438 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2025-04-23 15:23:21,794 INFO Load instance extension handler []
+
+2025-04-23 15:26:14,876 WARN [NamingServerHttpClientManager] Start destroying HTTP-Client
+
+2025-04-23 15:26:14,891 WARN [NamingServerHttpClientManager] Destruction of the end
+
+2025-04-23 15:26:35,664 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2025-04-23 15:26:35,664 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2025-04-23 15:26:35,665 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2025-04-23 15:26:35,665 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2025-04-23 15:26:36,055 INFO Load instance extension handler []
+
+2025-04-23 15:39:16,398 WARN [NamingServerHttpClientManager] Start destroying HTTP-Client
+
+2025-04-23 15:39:16,411 WARN [NamingServerHttpClientManager] Destruction of the end
+
+2025-04-23 15:54:11,793 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2025-04-23 15:54:11,793 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2025-04-23 15:54:11,795 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2025-04-23 15:54:11,795 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2025-04-23 15:54:12,104 INFO Load instance extension handler []
+
+2025-04-23 16:00:44,161 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2025-04-23 16:00:44,161 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2025-04-23 16:00:44,190 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2025-04-23 16:00:44,190 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2025-04-23 16:00:44,455 INFO Load instance extension handler []
+
+2025-04-23 16:13:08,082 WARN [NamingServerHttpClientManager] Start destroying HTTP-Client
+
+2025-04-23 16:13:08,089 WARN [NamingServerHttpClientManager] Destruction of the end
+
+2025-04-23 16:15:01,323 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2025-04-23 16:15:01,323 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2025-04-23 16:15:01,323 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2025-04-23 16:15:01,323 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2025-04-23 16:15:01,596 INFO Load instance extension handler []
+
+2025-04-23 16:15:52,717 INFO Client connection 1745396152708_172.20.0.3_48432 connect
+
+2025-04-23 16:15:52,833 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='gateway', ephemeral=true, revision=0}, 1745396152708_172.20.0.3_48432
+
+2025-04-23 16:16:26,308 INFO Client connection 1745396183805_172.20.0.4_34056 disconnect, remove instances and subscribers
+
+2025-04-23 16:16:37,898 INFO Client connection 1745396195505_172.20.0.4_53006 disconnect, remove instances and subscribers
+
+2025-04-23 16:21:22,056 INFO Client connection 1745396479712_172.20.0.4_56136 disconnect, remove instances and subscribers
+
+2025-04-23 16:32:02,497 INFO Client connection 1745397122488_172.20.0.4_45824 connect
+
+2025-04-23 16:32:02,606 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='user', ephemeral=true, revision=0}, 1745397122488_172.20.0.4_45824
+
+2025-04-23 16:32:11,784 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='gateway', ephemeral=true, revision=1}, 1745396152708_172.20.0.3_48432
+
+2025-04-23 16:32:11,805 INFO Client connection 1745396152708_172.20.0.3_48432 disconnect, remove instances and subscribers
+
+2025-04-23 16:32:14,215 INFO Client connection 1745396148497_172.20.0.3_48414 disconnect, remove instances and subscribers
+
+2025-04-23 16:32:14,217 INFO Client connection 1745396152492_172.20.0.3_48418 disconnect, remove instances and subscribers
+
+2025-04-23 16:32:26,956 INFO Client connection 1745397146950_172.20.0.3_57900 connect
+
+2025-04-23 16:32:27,067 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='gateway', ephemeral=true, revision=2}, 1745397146950_172.20.0.3_57900
+
+2025-04-23 16:33:06,289 INFO Client connection 1745397186281_172.20.0.6_58826 connect
+
+2025-04-23 16:33:06,397 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='comments', ephemeral=true, revision=0}, 1745397186281_172.20.0.6_58826
+
+2025-04-23 16:34:01,475 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='user', ephemeral=true, revision=1}, 1745397122488_172.20.0.4_45824
+
+2025-04-23 16:34:01,481 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='gateway', ephemeral=true, revision=3}, 1745397146950_172.20.0.3_57900
+
+2025-04-23 16:34:01,488 INFO Client connection 1745397122488_172.20.0.4_45824 disconnect, remove instances and subscribers
+
+2025-04-23 16:34:01,494 INFO Client connection 1745397146950_172.20.0.3_57900 disconnect, remove instances and subscribers
+
+2025-04-23 16:34:01,496 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='comments', ephemeral=true, revision=1}, 1745397186281_172.20.0.6_58826
+
+2025-04-23 16:34:01,506 INFO Client connection 1745397186281_172.20.0.6_58826 disconnect, remove instances and subscribers
+
+2025-04-23 16:34:01,857 INFO Client connection 1745397180497_172.20.0.6_48042 disconnect, remove instances and subscribers
+
+2025-04-23 16:34:01,865 INFO Client connection 1745397117897_172.20.0.4_45818 disconnect, remove instances and subscribers
+
+2025-04-23 16:34:03,901 INFO Client connection 1745397142650_172.20.0.3_53632 disconnect, remove instances and subscribers
+
+2025-04-23 16:34:03,902 INFO Client connection 1745397146737_172.20.0.3_57894 disconnect, remove instances and subscribers
+
+2025-04-23 16:34:04,232 WARN [NamingServerHttpClientManager] Start destroying HTTP-Client
+
+2025-04-23 16:34:04,241 WARN [NamingServerHttpClientManager] Destruction of the end
+
+2025-04-23 20:27:16,376 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2025-04-23 20:27:16,376 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2025-04-23 20:27:16,377 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2025-04-23 20:27:16,377 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2025-04-23 20:27:16,787 INFO Load instance extension handler []
+
+2025-04-23 20:27:44,120 INFO Client connection 1745411264107_172.20.0.4_58048 connect
+
+2025-04-23 20:27:44,244 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='gateway', ephemeral=true, revision=0}, 1745411264107_172.20.0.4_58048
+
+2025-04-23 20:27:52,381 INFO Client connection 1745411272335_172.20.0.5_59530 connect
+
+2025-04-23 20:27:52,497 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='posts', ephemeral=true, revision=0}, 1745411272335_172.20.0.5_59530
+
+2025-04-23 20:27:54,159 INFO Client connection 1745411274135_172.20.0.6_58072 connect
+
+2025-04-23 20:27:54,270 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='user', ephemeral=true, revision=0}, 1745411274135_172.20.0.6_58072
+
+2025-04-23 20:27:54,841 INFO Client connection 1745411274828_172.20.0.7_42774 connect
+
+2025-04-23 20:27:54,949 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='comments', ephemeral=true, revision=0}, 1745411274828_172.20.0.7_42774
+
+2025-04-23 20:35:05,279 INFO Client remove for service Service{namespace='public', group='DEFAULT_GROUP', name='gateway', ephemeral=true, revision=1}, 1745411264107_172.20.0.4_58048
+
+2025-04-23 20:35:05,292 INFO Client connection 1745411264107_172.20.0.4_58048 disconnect, remove instances and subscribers
+
+2025-04-23 20:35:07,697 INFO Client connection 1745411263773_172.20.0.4_58042 disconnect, remove instances and subscribers
+
+2025-04-23 20:35:07,697 INFO Client connection 1745411257884_172.20.0.4_58034 disconnect, remove instances and subscribers
+
+2025-04-23 20:35:51,134 INFO Client connection 1745411751128_172.20.0.4_55170 connect
+
+2025-04-23 20:35:51,244 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='gateway', ephemeral=true, revision=2}, 1745411751128_172.20.0.4_55170
+

@@ -1,0 +1,158 @@
+2025-04-23 15:23:19,136 INFO [dump] md5 changed, save to disk cache ,groupKey=gateway-local.yml+DEFAULT_GROUP, newMd5=fd7cdd08297d0d5c5c68b7aa9bca7a44,oldMd5=
+
+2025-04-23 15:23:19,136 INFO [dump] md5 changed, save to disk cache ,groupKey=datasource-local.yml+DEFAULT_GROUP, newMd5=dfce4d44594cd4d0708536174dc10aa8,oldMd5=
+
+2025-04-23 15:23:19,136 INFO [dump] md5 changed, save to disk cache ,groupKey=common-local.yml+DEFAULT_GROUP, newMd5=d227e163645c510172e98c3cfd898356,oldMd5=
+
+2025-04-23 15:23:19,160 INFO [dump] md5 changed, update md5 and timestamp in jvm cache ,groupKey=common-local.yml+DEFAULT_GROUP, newMd5=d227e163645c510172e98c3cfd898356,oldMd5=,lastModifiedTs=1743139264000
+
+2025-04-23 15:23:19,160 INFO [dump] md5 changed, update md5 and timestamp in jvm cache ,groupKey=datasource-local.yml+DEFAULT_GROUP, newMd5=dfce4d44594cd4d0708536174dc10aa8,oldMd5=,lastModifiedTs=1743305496000
+
+2025-04-23 15:23:19,160 INFO [dump] md5 changed, update md5 and timestamp in jvm cache ,groupKey=gateway-local.yml+DEFAULT_GROUP, newMd5=fd7cdd08297d0d5c5c68b7aa9bca7a44,oldMd5=,lastModifiedTs=1744960996000
+
+2025-04-23 15:23:19,161 INFO [dump-all-ok] common-local.yml+DEFAULT_GROUP, 1743139264000, length=299,md5UTF8=d227e163645c510172e98c3cfd898356
+
+2025-04-23 15:23:19,161 INFO [dump-all-ok] datasource-local.yml+DEFAULT_GROUP, 1743305496000, length=227,md5UTF8=dfce4d44594cd4d0708536174dc10aa8
+
+2025-04-23 15:23:19,161 INFO [dump-all-ok] gateway-local.yml+DEFAULT_GROUP, 1744960996000, length=1827,md5UTF8=fd7cdd08297d0d5c5c68b7aa9bca7a44
+
+2025-04-23 15:26:33,461 INFO [dump] md5 changed, save to disk cache ,groupKey=gateway-local.yml+DEFAULT_GROUP, newMd5=fd7cdd08297d0d5c5c68b7aa9bca7a44,oldMd5=
+
+2025-04-23 15:26:33,461 INFO [dump] md5 changed, save to disk cache ,groupKey=common-local.yml+DEFAULT_GROUP, newMd5=d227e163645c510172e98c3cfd898356,oldMd5=
+
+2025-04-23 15:26:33,461 INFO [dump] md5 changed, save to disk cache ,groupKey=datasource-local.yml+DEFAULT_GROUP, newMd5=dfce4d44594cd4d0708536174dc10aa8,oldMd5=
+
+2025-04-23 15:26:33,479 INFO [dump] md5 changed, update md5 and timestamp in jvm cache ,groupKey=datasource-local.yml+DEFAULT_GROUP, newMd5=dfce4d44594cd4d0708536174dc10aa8,oldMd5=,lastModifiedTs=1743305496000
+
+2025-04-23 15:26:33,479 INFO [dump] md5 changed, update md5 and timestamp in jvm cache ,groupKey=common-local.yml+DEFAULT_GROUP, newMd5=d227e163645c510172e98c3cfd898356,oldMd5=,lastModifiedTs=1743139264000
+
+2025-04-23 15:26:33,479 INFO [dump] md5 changed, update md5 and timestamp in jvm cache ,groupKey=gateway-local.yml+DEFAULT_GROUP, newMd5=fd7cdd08297d0d5c5c68b7aa9bca7a44,oldMd5=,lastModifiedTs=1744960996000
+
+2025-04-23 15:26:33,480 INFO [dump-all-ok] datasource-local.yml+DEFAULT_GROUP, 1743305496000, length=227,md5UTF8=dfce4d44594cd4d0708536174dc10aa8
+
+2025-04-23 15:26:33,480 INFO [dump-all-ok] common-local.yml+DEFAULT_GROUP, 1743139264000, length=299,md5UTF8=d227e163645c510172e98c3cfd898356
+
+2025-04-23 15:26:33,480 INFO [dump-all-ok] gateway-local.yml+DEFAULT_GROUP, 1744960996000, length=1827,md5UTF8=fd7cdd08297d0d5c5c68b7aa9bca7a44
+
+2025-04-23 15:54:09,467 INFO [dump] md5 changed, save to disk cache ,groupKey=datasource-local.yml+DEFAULT_GROUP, newMd5=dfce4d44594cd4d0708536174dc10aa8,oldMd5=
+
+2025-04-23 15:54:09,467 INFO [dump] md5 changed, save to disk cache ,groupKey=gateway-local.yml+DEFAULT_GROUP, newMd5=fd7cdd08297d0d5c5c68b7aa9bca7a44,oldMd5=
+
+2025-04-23 15:54:09,467 INFO [dump] md5 changed, save to disk cache ,groupKey=common-local.yml+DEFAULT_GROUP, newMd5=d227e163645c510172e98c3cfd898356,oldMd5=
+
+2025-04-23 15:54:09,475 INFO [dump] md5 changed, update md5 and timestamp in jvm cache ,groupKey=gateway-local.yml+DEFAULT_GROUP, newMd5=fd7cdd08297d0d5c5c68b7aa9bca7a44,oldMd5=,lastModifiedTs=1744960996000
+
+2025-04-23 15:54:09,475 INFO [dump] md5 changed, update md5 and timestamp in jvm cache ,groupKey=common-local.yml+DEFAULT_GROUP, newMd5=d227e163645c510172e98c3cfd898356,oldMd5=,lastModifiedTs=1743139264000
+
+2025-04-23 15:54:09,475 INFO [dump] md5 changed, update md5 and timestamp in jvm cache ,groupKey=datasource-local.yml+DEFAULT_GROUP, newMd5=dfce4d44594cd4d0708536174dc10aa8,oldMd5=,lastModifiedTs=1743305496000
+
+2025-04-23 15:54:09,476 INFO [dump-all-ok] common-local.yml+DEFAULT_GROUP, 1743139264000, length=299,md5UTF8=d227e163645c510172e98c3cfd898356
+
+2025-04-23 15:54:09,476 INFO [dump-all-ok] gateway-local.yml+DEFAULT_GROUP, 1744960996000, length=1827,md5UTF8=fd7cdd08297d0d5c5c68b7aa9bca7a44
+
+2025-04-23 15:54:09,476 INFO [dump-all-ok] datasource-local.yml+DEFAULT_GROUP, 1743305496000, length=227,md5UTF8=dfce4d44594cd4d0708536174dc10aa8
+
+2025-04-23 16:00:41,976 INFO [dump] md5 changed, save to disk cache ,groupKey=common-local.yml+DEFAULT_GROUP, newMd5=d227e163645c510172e98c3cfd898356,oldMd5=
+
+2025-04-23 16:00:41,976 INFO [dump] md5 changed, save to disk cache ,groupKey=gateway-local.yml+DEFAULT_GROUP, newMd5=fd7cdd08297d0d5c5c68b7aa9bca7a44,oldMd5=
+
+2025-04-23 16:00:41,976 INFO [dump] md5 changed, save to disk cache ,groupKey=datasource-local.yml+DEFAULT_GROUP, newMd5=dfce4d44594cd4d0708536174dc10aa8,oldMd5=
+
+2025-04-23 16:00:41,994 INFO [dump] md5 changed, update md5 and timestamp in jvm cache ,groupKey=common-local.yml+DEFAULT_GROUP, newMd5=d227e163645c510172e98c3cfd898356,oldMd5=,lastModifiedTs=1743139264000
+
+2025-04-23 16:00:41,994 INFO [dump] md5 changed, update md5 and timestamp in jvm cache ,groupKey=gateway-local.yml+DEFAULT_GROUP, newMd5=fd7cdd08297d0d5c5c68b7aa9bca7a44,oldMd5=,lastModifiedTs=1744960996000
+
+2025-04-23 16:00:41,994 INFO [dump] md5 changed, update md5 and timestamp in jvm cache ,groupKey=datasource-local.yml+DEFAULT_GROUP, newMd5=dfce4d44594cd4d0708536174dc10aa8,oldMd5=,lastModifiedTs=1743305496000
+
+2025-04-23 16:00:41,995 INFO [dump-all-ok] common-local.yml+DEFAULT_GROUP, 1743139264000, length=299,md5UTF8=d227e163645c510172e98c3cfd898356
+
+2025-04-23 16:00:41,995 INFO [dump-all-ok] datasource-local.yml+DEFAULT_GROUP, 1743305496000, length=227,md5UTF8=dfce4d44594cd4d0708536174dc10aa8
+
+2025-04-23 16:00:41,995 INFO [dump-all-ok] gateway-local.yml+DEFAULT_GROUP, 1744960996000, length=1827,md5UTF8=fd7cdd08297d0d5c5c68b7aa9bca7a44
+
+2025-04-23 16:14:59,031 INFO [dump] md5 changed, save to disk cache ,groupKey=gateway-local.yml+DEFAULT_GROUP, newMd5=fd7cdd08297d0d5c5c68b7aa9bca7a44,oldMd5=
+
+2025-04-23 16:14:59,032 INFO [dump] md5 changed, save to disk cache ,groupKey=common-local.yml+DEFAULT_GROUP, newMd5=d227e163645c510172e98c3cfd898356,oldMd5=
+
+2025-04-23 16:14:59,031 INFO [dump] md5 changed, save to disk cache ,groupKey=datasource-local.yml+DEFAULT_GROUP, newMd5=dfce4d44594cd4d0708536174dc10aa8,oldMd5=
+
+2025-04-23 16:14:59,052 INFO [dump] md5 changed, update md5 and timestamp in jvm cache ,groupKey=gateway-local.yml+DEFAULT_GROUP, newMd5=fd7cdd08297d0d5c5c68b7aa9bca7a44,oldMd5=,lastModifiedTs=1744960996000
+
+2025-04-23 16:14:59,051 INFO [dump] md5 changed, update md5 and timestamp in jvm cache ,groupKey=datasource-local.yml+DEFAULT_GROUP, newMd5=dfce4d44594cd4d0708536174dc10aa8,oldMd5=,lastModifiedTs=1743305496000
+
+2025-04-23 16:14:59,052 INFO [dump-all-ok] gateway-local.yml+DEFAULT_GROUP, 1744960996000, length=1827,md5UTF8=fd7cdd08297d0d5c5c68b7aa9bca7a44
+
+2025-04-23 16:14:59,051 INFO [dump] md5 changed, update md5 and timestamp in jvm cache ,groupKey=common-local.yml+DEFAULT_GROUP, newMd5=d227e163645c510172e98c3cfd898356,oldMd5=,lastModifiedTs=1743139264000
+
+2025-04-23 16:14:59,052 INFO [dump-all-ok] datasource-local.yml+DEFAULT_GROUP, 1743305496000, length=227,md5UTF8=dfce4d44594cd4d0708536174dc10aa8
+
+2025-04-23 16:14:59,053 INFO [dump-all-ok] common-local.yml+DEFAULT_GROUP, 1743139264000, length=299,md5UTF8=d227e163645c510172e98c3cfd898356
+
+2025-04-23 16:29:05,342 INFO [dump] add formal task. groupKey=common-dev.yml+DEFAULT_GROUP
+
+2025-04-23 16:29:05,405 INFO [dump] process formal task. groupKey=common-dev.yml+DEFAULT_GROUP
+
+2025-04-23 16:29:05,427 INFO [dump] md5 changed, save to disk cache ,groupKey=common-dev.yml+DEFAULT_GROUP, newMd5=dfab654709c62704d6ff4a5886e8b3d6,oldMd5=
+
+2025-04-23 16:29:05,428 INFO [dump] md5 changed, update md5 and timestamp in jvm cache ,groupKey=common-dev.yml+DEFAULT_GROUP, newMd5=dfab654709c62704d6ff4a5886e8b3d6,oldMd5=,lastModifiedTs=1745396949000
+
+2025-04-23 16:30:40,609 INFO [dump] add formal task. groupKey=gateway-dev.yml+DEFAULT_GROUP
+
+2025-04-23 16:30:40,695 INFO [dump] process formal task. groupKey=gateway-dev.yml+DEFAULT_GROUP
+
+2025-04-23 16:30:40,758 INFO [dump] md5 changed, save to disk cache ,groupKey=gateway-dev.yml+DEFAULT_GROUP, newMd5=988721f4b4601647560535d33fab4370,oldMd5=
+
+2025-04-23 16:30:40,760 INFO [dump] md5 changed, update md5 and timestamp in jvm cache ,groupKey=gateway-dev.yml+DEFAULT_GROUP, newMd5=988721f4b4601647560535d33fab4370,oldMd5=,lastModifiedTs=1745397045000
+
+2025-04-23 16:31:43,680 INFO [dump] add formal task. groupKey=datasource-dev.yml+DEFAULT_GROUP
+
+2025-04-23 16:31:43,766 INFO [dump] process formal task. groupKey=datasource-dev.yml+DEFAULT_GROUP
+
+2025-04-23 16:31:43,787 INFO [dump] md5 changed, save to disk cache ,groupKey=datasource-dev.yml+DEFAULT_GROUP, newMd5=b629fa52d2cd72961409021725025e74,oldMd5=
+
+2025-04-23 16:31:43,789 INFO [dump] md5 changed, update md5 and timestamp in jvm cache ,groupKey=datasource-dev.yml+DEFAULT_GROUP, newMd5=b629fa52d2cd72961409021725025e74,oldMd5=,lastModifiedTs=1745397108000
+
+2025-04-23 20:27:13,637 INFO [dump] md5 changed, save to disk cache ,groupKey=datasource-local.yml+DEFAULT_GROUP, newMd5=dfce4d44594cd4d0708536174dc10aa8,oldMd5=
+
+2025-04-23 20:27:13,637 INFO [dump] md5 changed, save to disk cache ,groupKey=gateway-dev.yml+DEFAULT_GROUP, newMd5=988721f4b4601647560535d33fab4370,oldMd5=
+
+2025-04-23 20:27:13,637 INFO [dump] md5 changed, save to disk cache ,groupKey=datasource-dev.yml+DEFAULT_GROUP, newMd5=b629fa52d2cd72961409021725025e74,oldMd5=
+
+2025-04-23 20:27:13,637 INFO [dump] md5 changed, save to disk cache ,groupKey=common-dev.yml+DEFAULT_GROUP, newMd5=dfab654709c62704d6ff4a5886e8b3d6,oldMd5=
+
+2025-04-23 20:27:13,637 INFO [dump] md5 changed, save to disk cache ,groupKey=gateway-local.yml+DEFAULT_GROUP, newMd5=fd7cdd08297d0d5c5c68b7aa9bca7a44,oldMd5=
+
+2025-04-23 20:27:13,637 INFO [dump] md5 changed, save to disk cache ,groupKey=common-local.yml+DEFAULT_GROUP, newMd5=d227e163645c510172e98c3cfd898356,oldMd5=
+
+2025-04-23 20:27:13,646 INFO [dump] md5 changed, update md5 and timestamp in jvm cache ,groupKey=datasource-local.yml+DEFAULT_GROUP, newMd5=dfce4d44594cd4d0708536174dc10aa8,oldMd5=,lastModifiedTs=1743305496000
+
+2025-04-23 20:27:13,647 INFO [dump] md5 changed, update md5 and timestamp in jvm cache ,groupKey=gateway-local.yml+DEFAULT_GROUP, newMd5=fd7cdd08297d0d5c5c68b7aa9bca7a44,oldMd5=,lastModifiedTs=1744960996000
+
+2025-04-23 20:27:13,646 INFO [dump] md5 changed, update md5 and timestamp in jvm cache ,groupKey=common-dev.yml+DEFAULT_GROUP, newMd5=dfab654709c62704d6ff4a5886e8b3d6,oldMd5=,lastModifiedTs=1745396949000
+
+2025-04-23 20:27:13,646 INFO [dump] md5 changed, update md5 and timestamp in jvm cache ,groupKey=datasource-dev.yml+DEFAULT_GROUP, newMd5=b629fa52d2cd72961409021725025e74,oldMd5=,lastModifiedTs=1745397108000
+
+2025-04-23 20:27:13,646 INFO [dump] md5 changed, update md5 and timestamp in jvm cache ,groupKey=common-local.yml+DEFAULT_GROUP, newMd5=d227e163645c510172e98c3cfd898356,oldMd5=,lastModifiedTs=1743139264000
+
+2025-04-23 20:27:13,648 INFO [dump-all-ok] datasource-dev.yml+DEFAULT_GROUP, 1745397108000, length=229,md5UTF8=b629fa52d2cd72961409021725025e74
+
+2025-04-23 20:27:13,648 INFO [dump-all-ok] common-local.yml+DEFAULT_GROUP, 1743139264000, length=299,md5UTF8=d227e163645c510172e98c3cfd898356
+
+2025-04-23 20:27:13,647 INFO [dump-all-ok] gateway-local.yml+DEFAULT_GROUP, 1744960996000, length=1827,md5UTF8=fd7cdd08297d0d5c5c68b7aa9bca7a44
+
+2025-04-23 20:27:13,647 INFO [dump] md5 changed, update md5 and timestamp in jvm cache ,groupKey=gateway-dev.yml+DEFAULT_GROUP, newMd5=988721f4b4601647560535d33fab4370,oldMd5=,lastModifiedTs=1745397045000
+
+2025-04-23 20:27:13,647 INFO [dump-all-ok] datasource-local.yml+DEFAULT_GROUP, 1743305496000, length=227,md5UTF8=dfce4d44594cd4d0708536174dc10aa8
+
+2025-04-23 20:27:13,647 INFO [dump-all-ok] common-dev.yml+DEFAULT_GROUP, 1745396949000, length=305,md5UTF8=dfab654709c62704d6ff4a5886e8b3d6
+
+2025-04-23 20:27:13,649 INFO [dump-all-ok] gateway-dev.yml+DEFAULT_GROUP, 1745397045000, length=1916,md5UTF8=988721f4b4601647560535d33fab4370
+
+2025-04-23 20:35:35,863 INFO [dump] add formal task. groupKey=gateway-dev.yml+DEFAULT_GROUP
+
+2025-04-23 20:35:35,950 INFO [dump] process formal task. groupKey=gateway-dev.yml+DEFAULT_GROUP
+
+2025-04-23 20:35:35,971 INFO [dump] md5 changed, save to disk cache ,groupKey=gateway-dev.yml+DEFAULT_GROUP, newMd5=e6597499940561039ae1a0931bb9de17,oldMd5=988721f4b4601647560535d33fab4370
+
+2025-04-23 20:35:35,972 INFO [dump] md5 changed, update md5 and timestamp in jvm cache ,groupKey=gateway-dev.yml+DEFAULT_GROUP, newMd5=e6597499940561039ae1a0931bb9de17,oldMd5=988721f4b4601647560535d33fab4370,lastModifiedTs=1745411739000
+

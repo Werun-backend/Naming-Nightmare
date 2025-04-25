@@ -1,0 +1,12 @@
+2025-04-23 15:23:18,756 WARN [master-db] jdbc:mysql://101.200.141.21:3306/nacos_config?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=UTC
+
+2025-04-23 15:26:33,104 WARN [master-db] jdbc:mysql://101.200.141.21:3306/nacos_config?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=UTC
+
+2025-04-23 15:54:09,064 WARN [master-db] jdbc:mysql://101.200.141.21:3306/nacos_config?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=UTC
+
+2025-04-23 16:00:41,607 WARN [master-db] jdbc:mysql://101.200.141.21:3306/nacos_config?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=UTC
+
+2025-04-23 16:14:58,656 WARN [master-db] jdbc:mysql://101.200.141.21:3306/nacos_config?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=UTC
+
+2025-04-23 20:27:13,242 WARN [master-db] jdbc:mysql://101.200.141.21:3306/nacos_config?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=UTC
+
