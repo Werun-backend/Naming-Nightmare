@@ -8,21 +8,16 @@ import com.werun.common.core.request.Result;
 import com.werun.posts.DTO.PageModel;
 import com.werun.posts.DTO.PostDTO;
 import com.werun.posts.VO.PostVO;
-import com.werun.posts.domain.Label;
 import com.werun.posts.domain.Posts;
 import com.werun.posts.mapper.LabelMapper;
 import com.werun.posts.mapper.PostsMapper;
 import com.werun.posts.service.IPostService;
 import com.werun.posts.utils.SecurityUtils;
-import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDateTime;
-import java.util.Base64;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -57,19 +52,25 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
 
             }
 
-        //1.3. 默认可见
-        post.setVisible(true);
-
+            //1.3. 默认可见
+            post.setVisible(true);
 
             //1.4. 获取前端传来的信息
             post.setTitle(postDTO.getTitle());
             post.setContent(postDTO.getContent());
             post.setLabelId(postDTO.getLabelId());
 
-
         //2. 放入库中
         postsMapper.insert(post);
-        return Result.ok("成功创建帖子！");
+        PostVO postVO = new PostVO();
+        postVO.setPostId(post.getPostId());
+        postVO.setTitle(post.getTitle());
+        postVO.setAuthorId(post.getAuthorId());
+        postVO.setContent(post.getContent());
+        postVO.setCreatedAt(post.getCreatedAt());
+        postVO.setLabelId(post.getLabelId());
+
+        return Result.ok(postVO,"成功创建帖子！");
     }
 
 
