@@ -1,0 +1,26 @@
+2025-04-24 13:09:55,398 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.CmdbSelectorContextBuilder) contextType(CMDB) successfully.
+
+2025-04-24 13:09:55,398 INFO [SelectorManager] Load SelectorContextBuilder(class com.alibaba.nacos.naming.selector.context.NoneSelectorContextBuilder) contextType(NONE) successfully.
+
+2025-04-24 13:09:55,399 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.LabelSelector) type(label) contextType(CMDB) successfully.
+
+2025-04-24 13:09:55,399 INFO [SelectorManager] Load Selector(class com.alibaba.nacos.naming.selector.NoneSelector) type(none) contextType(NONE) successfully.
+
+2025-04-24 13:09:55,711 INFO Load instance extension handler []
+
+2025-04-24 13:10:18,054 INFO Client connection 1745471418011_172.20.0.4_36664 connect
+
+2025-04-24 13:10:18,203 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='comments', ephemeral=true, revision=0}, 1745471418011_172.20.0.4_36664
+
+2025-04-24 13:10:21,106 INFO Client connection 1745471421087_172.20.0.5_43796 connect
+
+2025-04-24 13:10:21,216 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='gateway', ephemeral=true, revision=0}, 1745471421087_172.20.0.5_43796
+
+2025-04-24 13:10:22,878 INFO Client connection 1745471422865_172.20.0.6_57888 connect
+
+2025-04-24 13:10:22,998 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='posts', ephemeral=true, revision=0}, 1745471422865_172.20.0.6_57888
+
+2025-04-24 13:10:24,063 INFO Client connection 1745471424053_172.20.0.7_57144 connect
+
+2025-04-24 13:10:24,176 INFO Client change for service Service{namespace='public', group='DEFAULT_GROUP', name='user', ephemeral=true, revision=0}, 1745471424053_172.20.0.7_57144
+

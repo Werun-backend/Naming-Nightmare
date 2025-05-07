@@ -1,0 +1,158 @@
+2025-04-25 13:10:17,543 INFO SPI service [com.alipay.sofa.jraft.JRaftServiceFactory - com.alipay.sofa.jraft.core.DefaultJRaftServiceFactory] loading.
+
+2025-04-25 13:10:17,633 INFO SPI service [com.alipay.sofa.jraft.rpc.RaftRpcFactory - com.alipay.sofa.jraft.rpc.impl.GrpcRaftRpcFactory] loading.
+
+2025-04-25 13:10:17,747 INFO SPI service [com.alipay.sofa.jraft.util.JRaftSignalHandler - com.alipay.sofa.jraft.NodeDescribeSignalHandler] loading.
+
+2025-04-25 13:10:17,748 INFO SPI service [com.alipay.sofa.jraft.util.JRaftSignalHandler - com.alipay.sofa.jraft.NodeMetricsSignalHandler] loading.
+
+2025-04-25 13:10:17,749 INFO SPI service [com.alipay.sofa.jraft.util.JRaftSignalHandler - com.alipay.sofa.jraft.ThreadPoolMetricsSignalHandler] loading.
+
+2025-04-25 13:10:17,751 INFO SPI service [com.alipay.sofa.jraft.util.timer.RaftTimerFactory - com.alipay.sofa.jraft.util.timer.DefaultRaftTimerFactory] loading.
+
+2025-04-25 13:10:17,754 INFO The number of active nodes increment to 1.
+
+2025-04-25 13:10:17,925 INFO Truncated prefix logs in data path: /home/nacos/data/protocol/raft/naming_persistent_service/log from log index 0 to 4, cost 1 ms.
+
+2025-04-25 13:10:17,931 INFO Starts FSMCaller successfully.
+
+2025-04-25 13:10:17,939 INFO Loading snapshot, meta=last_included_index: 3
+last_included_term: 3
+peers: "172.20.0.2:7848"
+.
+
+2025-04-25 13:10:17,983 INFO Node <naming_persistent_service/172.20.0.2:7848> onSnapshotLoadDone, last_included_index: 3
+last_included_term: 3
+peers: "172.20.0.2:7848"
+
+
+2025-04-25 13:10:17,983 INFO Node <naming_persistent_service/172.20.0.2:7848> target priority value has changed from: 0, to: -1.
+
+2025-04-25 13:10:17,985 INFO Truncated prefix logs in data path: /home/nacos/data/protocol/raft/naming_persistent_service/log from log index 4 to 4, cost 0 ms.
+
+2025-04-25 13:10:17,990 INFO Node <naming_persistent_service/172.20.0.2:7848> init, term=3, lastLogId=LogId [index=3, term=3], conf=172.20.0.2:7848, oldConf=.
+
+2025-04-25 13:10:17,992 INFO Node <naming_persistent_service/172.20.0.2:7848> start vote and grant vote self, term=3.
+
+2025-04-25 13:10:18,001 INFO Save raft meta, path=/home/nacos/data/protocol/raft/naming_persistent_service/meta-data, term=4, votedFor=172.20.0.2:7848, cost time=8 ms
+
+2025-04-25 13:10:18,002 INFO Node <naming_persistent_service/172.20.0.2:7848> become leader of group, term=4, conf=172.20.0.2:7848, oldConf=.
+
+2025-04-25 13:10:18,004 INFO -Djraft.recyclers.maxCapacityPerThread: 4096.
+
+2025-04-25 13:10:18,006 WARN RPC server is not started in RaftGroupService.
+
+2025-04-25 13:10:18,006 INFO Start the RaftGroupService successfully.
+
+2025-04-25 13:10:18,012 INFO onLeaderStart: term=4.
+
+2025-04-25 13:10:18,051 INFO The number of active nodes increment to 2.
+
+2025-04-25 13:10:18,085 INFO Truncated prefix logs in data path: /home/nacos/data/protocol/raft/naming_persistent_service_v2/log from log index 0 to 4, cost 1 ms.
+
+2025-04-25 13:10:18,086 INFO Starts FSMCaller successfully.
+
+2025-04-25 13:10:18,087 INFO Loading snapshot, meta=last_included_index: 3
+last_included_term: 3
+peers: "172.20.0.2:7848"
+.
+
+2025-04-25 13:10:18,088 INFO Creating new channel to: 172.20.0.2:7848.
+
+2025-04-25 13:10:18,093 INFO Node <naming_persistent_service_v2/172.20.0.2:7848> onSnapshotLoadDone, last_included_index: 3
+last_included_term: 3
+peers: "172.20.0.2:7848"
+
+
+2025-04-25 13:10:18,093 INFO Node <naming_persistent_service_v2/172.20.0.2:7848> target priority value has changed from: 0, to: -1.
+
+2025-04-25 13:10:18,094 INFO Node <naming_persistent_service_v2/172.20.0.2:7848> init, term=3, lastLogId=LogId [index=3, term=3], conf=172.20.0.2:7848, oldConf=.
+
+2025-04-25 13:10:18,095 INFO Node <naming_persistent_service_v2/172.20.0.2:7848> start vote and grant vote self, term=3.
+
+2025-04-25 13:10:18,095 INFO Truncated prefix logs in data path: /home/nacos/data/protocol/raft/naming_persistent_service_v2/log from log index 4 to 4, cost 1 ms.
+
+2025-04-25 13:10:18,096 INFO The channel 172.20.0.2:7848 is in state: CONNECTING.
+
+2025-04-25 13:10:18,098 INFO Save raft meta, path=/home/nacos/data/protocol/raft/naming_persistent_service_v2/meta-data, term=4, votedFor=172.20.0.2:7848, cost time=2 ms
+
+2025-04-25 13:10:18,098 INFO Node <naming_persistent_service_v2/172.20.0.2:7848> become leader of group, term=4, conf=172.20.0.2:7848, oldConf=.
+
+2025-04-25 13:10:18,099 WARN RPC server is not started in RaftGroupService.
+
+2025-04-25 13:10:18,099 INFO Start the RaftGroupService successfully.
+
+2025-04-25 13:10:18,100 INFO onLeaderStart: term=4.
+
+2025-04-25 13:10:18,111 INFO The number of active nodes increment to 3.
+
+2025-04-25 13:10:18,169 INFO Truncated prefix logs in data path: /home/nacos/data/protocol/raft/naming_instance_metadata/log from log index 0 to 4, cost 1 ms.
+
+2025-04-25 13:10:18,172 INFO Starts FSMCaller successfully.
+
+2025-04-25 13:10:18,175 INFO Loading snapshot, meta=last_included_index: 3
+last_included_term: 3
+peers: "172.20.0.2:7848"
+.
+
+2025-04-25 13:10:18,180 INFO Node <naming_instance_metadata/172.20.0.2:7848> onSnapshotLoadDone, last_included_index: 3
+last_included_term: 3
+peers: "172.20.0.2:7848"
+
+
+2025-04-25 13:10:18,181 INFO Node <naming_instance_metadata/172.20.0.2:7848> target priority value has changed from: 0, to: -1.
+
+2025-04-25 13:10:18,182 INFO Node <naming_instance_metadata/172.20.0.2:7848> init, term=3, lastLogId=LogId [index=3, term=3], conf=172.20.0.2:7848, oldConf=.
+
+2025-04-25 13:10:18,183 INFO Truncated prefix logs in data path: /home/nacos/data/protocol/raft/naming_instance_metadata/log from log index 4 to 4, cost 0 ms.
+
+2025-04-25 13:10:18,183 INFO Node <naming_instance_metadata/172.20.0.2:7848> start vote and grant vote self, term=3.
+
+2025-04-25 13:10:18,187 INFO Save raft meta, path=/home/nacos/data/protocol/raft/naming_instance_metadata/meta-data, term=4, votedFor=172.20.0.2:7848, cost time=3 ms
+
+2025-04-25 13:10:18,188 INFO Node <naming_instance_metadata/172.20.0.2:7848> become leader of group, term=4, conf=172.20.0.2:7848, oldConf=.
+
+2025-04-25 13:10:18,188 WARN RPC server is not started in RaftGroupService.
+
+2025-04-25 13:10:18,188 INFO Start the RaftGroupService successfully.
+
+2025-04-25 13:10:18,190 INFO onLeaderStart: term=4.
+
+2025-04-25 13:10:18,193 INFO The number of active nodes increment to 4.
+
+2025-04-25 13:10:18,235 INFO Truncated prefix logs in data path: /home/nacos/data/protocol/raft/naming_service_metadata/log from log index 0 to 4, cost 1 ms.
+
+2025-04-25 13:10:18,236 INFO Starts FSMCaller successfully.
+
+2025-04-25 13:10:18,236 INFO Loading snapshot, meta=last_included_index: 3
+last_included_term: 3
+peers: "172.20.0.2:7848"
+.
+
+2025-04-25 13:10:18,238 INFO Node <naming_service_metadata/172.20.0.2:7848> onSnapshotLoadDone, last_included_index: 3
+last_included_term: 3
+peers: "172.20.0.2:7848"
+
+
+2025-04-25 13:10:18,238 INFO Node <naming_service_metadata/172.20.0.2:7848> target priority value has changed from: 0, to: -1.
+
+2025-04-25 13:10:18,239 INFO Node <naming_service_metadata/172.20.0.2:7848> init, term=3, lastLogId=LogId [index=3, term=3], conf=172.20.0.2:7848, oldConf=.
+
+2025-04-25 13:10:18,240 INFO Truncated prefix logs in data path: /home/nacos/data/protocol/raft/naming_service_metadata/log from log index 4 to 4, cost 0 ms.
+
+2025-04-25 13:10:18,241 INFO Node <naming_service_metadata/172.20.0.2:7848> start vote and grant vote self, term=3.
+
+2025-04-25 13:10:18,244 INFO Save raft meta, path=/home/nacos/data/protocol/raft/naming_service_metadata/meta-data, term=4, votedFor=172.20.0.2:7848, cost time=3 ms
+
+2025-04-25 13:10:18,244 INFO Node <naming_service_metadata/172.20.0.2:7848> become leader of group, term=4, conf=172.20.0.2:7848, oldConf=.
+
+2025-04-25 13:10:18,245 WARN RPC server is not started in RaftGroupService.
+
+2025-04-25 13:10:18,245 INFO Start the RaftGroupService successfully.
+
+2025-04-25 13:10:18,247 INFO onLeaderStart: term=4.
+
+2025-04-25 13:10:18,448 INFO The channel 172.20.0.2:7848 is in state: READY.
+
+2025-04-25 13:10:18,448 INFO The channel 172.20.0.2:7848 has successfully established.
+

@@ -1,0 +1,46 @@
+spring:
+  application:
+    # 应用名称
+    name: posts
+  cloud:
+    nacos:
+      discovery:
+        # 服务注册地址
+        server-addr: wenxin-nacos:8848
+      config:
+        # 配置中心地址
+        server-addr: wenxin-nacos:8848
+        # 配置文件格式
+        file-extension: yml
+        # 共享配置
+        shared-configs:
+          - common-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+          - datasource-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+    sentinel:
+      # 取消控制台懒加载
+      eager: true
+      transport:
+        # 控制台地址
+        dashboard: wenxin-nacos:8718
+      # nacos配置持久化
+      datasource:
+        ds1:
+          nacos:
+            server-addr: wenxin-nacos:8848
+            dataId: sentinel-ruoyi-gateway
+            groupId: DEFAULT_GROUP
+            data-type: json
+            rule-type: gw-flow
+#logging:
+#  level:
+#    org.mybatis: DEBUG
+#    com.werun.user.mapper: TRACE
+
+# mybatis配置
+mybatis:
+  # 搜索指定包别名
+  typeAliasesPackage: com.werun.user
+  # 配置mapper的扫描，找到所有的mapper.xml映射文件
+  mapperLocations: classpath:mapper/**/*.xml
+  configuration:
+    mapUnderscoreToCamelCase: true

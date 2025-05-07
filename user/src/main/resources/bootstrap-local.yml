@@ -23,14 +23,14 @@ spring:
         # 控制台地址
         dashboard: 101.200.141.21:8718
       # nacos配置持久化
-      datasource:
-        ds1:
-          nacos:
-            server-addr: ruoyi-nacos:8848
-            dataId: sentinel-ruoyi-gateway
-            groupId: DEFAULT_GROUP
-            data-type: json
-            rule-type: gw-flow
+#      datasource:
+#        ds1:
+#          nacos:
+#            server-addr: ruoyi-nacos:8848
+#            dataId: sentinel-ruoyi-gateway
+#            groupId: DEFAULT_GROUP
+#            data-type: json
+#            rule-type: gw-flow
 #logging:
 #  level:
 #    org.mybatis: DEBUG

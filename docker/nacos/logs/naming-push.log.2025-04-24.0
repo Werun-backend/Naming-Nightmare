@@ -1,0 +1,12 @@
+2025-04-24 13:10:21,320 INFO [PUSH] Task merge for Service{namespace='public', group='DEFAULT_GROUP', name='gateway', ephemeral=true, revision=1}
+
+2025-04-24 13:10:21,771 INFO [PUSH-SUCC] 42ms, all delay time 554ms, SLA 554ms, Service{namespace='public', group='DEFAULT_GROUP', name='gateway', ephemeral=true, revision=1}, originalSize=1, DataSize=1, target=172.20.0.5
+
+2025-04-24 13:10:21,835 INFO [PUSH-SUCC] 7ms, all delay time 519ms for subscriber 172.20.0.5, Service{namespace='public', group='DEFAULT_GROUP', name='comments', ephemeral=true, revision=1}, originalSize=1, DataSize=1
+
+2025-04-24 13:10:52,096 INFO [PUSH-SUCC] 8ms, all delay time 540ms for subscriber 172.20.0.5, Service{namespace='public', group='DEFAULT_GROUP', name='user', ephemeral=true, revision=1}, originalSize=1, DataSize=1
+
+2025-04-24 13:10:52,098 INFO [PUSH-SUCC] 10ms, all delay time 542ms for subscriber 172.20.0.5, Service{namespace='public', group='DEFAULT_GROUP', name='posts', ephemeral=true, revision=1}, originalSize=1, DataSize=1
+
+2025-04-24 19:22:36,926 INFO [PUSH-SUCC] 7ms, all delay time 513ms for subscriber 172.20.0.5, Service{namespace='public', group='DEFAULT_GROUP', name='test', ephemeral=true, revision=0}, originalSize=0, DataSize=0
+

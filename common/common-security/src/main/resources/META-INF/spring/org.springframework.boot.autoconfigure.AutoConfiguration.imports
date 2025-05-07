@@ -2,4 +2,3 @@ com.werun.common.security.config.WebMvcConfig
 com.werun.common.security.service.TokenService
 com.werun.common.security.aspect.InnerAuthAspect
 com.werun.common.security.handler.GlobalExceptionHandler
-com.werun.common.security.config.CorsConfig
