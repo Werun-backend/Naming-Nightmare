@@ -14,8 +14,7 @@ public interface ILabelService {
     /**
      * 查询所有标签
      *
-     * @param pageModel
      * @return
      */
-    public Result readAllLabels(PageModel pageModel);
+    public Result readAllLabels();
 }

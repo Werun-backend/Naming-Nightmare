@@ -8,21 +8,18 @@ import com.werun.common.core.request.Result;
 import com.werun.posts.DTO.PageModel;
 import com.werun.posts.DTO.PostDTO;
 import com.werun.posts.VO.PostVO;
-import com.werun.posts.domain.Label;
 import com.werun.posts.domain.Posts;
 import com.werun.posts.mapper.LabelMapper;
 import com.werun.posts.mapper.PostsMapper;
 import com.werun.posts.service.IPostService;
 import com.werun.posts.utils.SecurityUtils;
-import lombok.AllArgsConstructor;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDateTime;
-import java.util.Base64;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -45,25 +42,25 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
     public Result createPost(PostDTO postDTO) {
         //1. 完善帖子信息
         Posts post = new Posts();
-        //1.1. 获取当前用户信息
-        post.setAuthorId(SecurityUtils.getUserId());
+            //1.1. 获取当前用户信息
+            post.setAuthorId(SecurityUtils.getUserId());
 
-        //1.2. 获取发布时间
-        if (postDTO.isScheduled()) {
-            post.setCreatedAt(postDTO.getScheduledTime());
-        } else {
-            LocalDateTime now = LocalDateTime.now();
-            post.setCreatedAt(now);
+            //1.2. 获取发布时间
+            if (postDTO.isScheduled()) {
+                post.setCreatedAt(postDTO.getScheduledTime());
+            } else {
+                LocalDateTime now = LocalDateTime.now();
+                post.setCreatedAt(now);
 
-        }
+            }
 
-        //1.3. 默认可见
-        post.setVisible(true);
+            //1.3. 默认可见
+            post.setVisible(true);
 
-        //1.4. 获取前端传来的信息
-        post.setTitle(postDTO.getTitle());
-        post.setContent(postDTO.getContent());
-        post.setLabelId(postDTO.getLabelId());
+            //1.4. 获取前端传来的信息
+            post.setTitle(postDTO.getTitle());
+            post.setContent(postDTO.getContent());
+            post.setLabelId(postDTO.getLabelId());
 
         //2. 放入库中
         postsMapper.insert(post);
@@ -331,6 +328,33 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
 
         //3. 查询成功
         return Result.ok(postVO, "query successfully");
+    }
+
+    /**
+     * 展示所有帖子
+     *
+     * @return
+     */
+    @Override
+    public Result showAllPosts(){
+        ArrayList<Posts> posts = postsMapper.selectAllPosts();
+
+        List<PostVO> voList = posts.stream()
+                .map(post -> {
+                    PostVO vo = new PostVO();
+                    vo.setPostId(post.getPostId());
+                    vo.setTitle(post.getTitle());
+                    vo.setAuthorId(post.getAuthorId());
+                    vo.setContent(post.getContent());
+                    vo.setCreatedAt(post.getCreatedAt());
+                    vo.setLabelId(post.getLabelId());
+                    vo.setNumberOfComments(post.getNumberOfComments());
+                    vo.setNumberOfLikes(post.getNumberOfLikes());
+                    return vo;
+                })
+                .collect(Collectors.toList());
+
+        return Result.ok(voList, "query successfully!");
     }
 
     /**

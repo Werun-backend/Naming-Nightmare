@@ -1,6 +1,7 @@
 package com.werun.posts.controller;
 
 import com.werun.common.core.request.Result;
+import com.werun.posts.DTO.LabelDTO;
 import com.werun.posts.DTO.PageModel;
 import com.werun.posts.DTO.PostDTO;
 import com.werun.posts.domain.Posts;
@@ -177,14 +178,26 @@ public class PostController {
     }
 
     /**
+     * 展示所有帖子
+     *
+     * @return
+     */
+    @GetMapping("/showAllPosts")
+    @Operation(summary = "展示所有帖子", description = "展示所有帖子")
+    public Result showAllPosts() {
+        return iPostService.showAllPosts();
+    }
+
+    /**
      * 新增标签
      *
      * @return
      */
-    @GetMapping("/createLabel")
+    //TODO:
+    @PostMapping("/createLabel")
     @Operation(summary = "新增标签", description = "新增标签")
-    public Result createLabel(@RequestParam String labelContent) {
-        return iLabelService.createLabel(labelContent);
+    public Result createLabel(@RequestBody LabelDTO labelDTO) {
+        return iLabelService.createLabel(labelDTO.getLabelName());
     }
 
     /**
@@ -194,12 +207,8 @@ public class PostController {
      */
     @GetMapping("/readAllLabels")
     @Operation(summary = "查询所有标签", description = "查询所有标签")
-    public Result readAllLabels(@RequestParam(name = "pageNo", defaultValue = "1") Integer pageNo,
-                                         @RequestParam(name = "pageSize", defaultValue = "5") Integer pageSize) {
-        PageModel pageModel = new PageModel();
-        pageModel.setPageNo(pageNo);
-        pageModel.setPageSize(pageSize);
-        return iLabelService.readAllLabels(pageModel);
+    public Result readAllLabels() {
+        return iLabelService.readAllLabels();
     }
 
 //    /**

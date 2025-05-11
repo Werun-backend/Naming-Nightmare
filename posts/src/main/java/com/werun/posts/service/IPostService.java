@@ -32,6 +32,13 @@ public interface IPostService extends IService<Posts> {
     public Result deletePost(Long postId);
 
     /**
+     * 展示所有帖子
+     *
+     * @return
+     */
+    public Result showAllPosts();
+
+    /**
      * 查询个人帖子
      *
       * @param pageModel
