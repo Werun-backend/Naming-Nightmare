@@ -184,8 +184,12 @@ public class PostController {
      */
     @GetMapping("/showAllPosts")
     @Operation(summary = "展示所有帖子", description = "展示所有帖子")
-    public Result showAllPosts() {
-        return iPostService.showAllPosts();
+    public Result showAllPosts(@RequestParam(name = "pageNo", defaultValue = "1") Integer pageNo,
+                               @RequestParam(name = "pageSize", defaultValue = "5") Integer pageSize) {
+        PageModel pageModel = new PageModel();
+        pageModel.setPageNo(pageNo);
+        pageModel.setPageSize(pageSize);
+        return iPostService.showAllPosts(pageModel);
     }
 
     /**

@@ -336,25 +336,46 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
      * @return
      */
     @Override
-    public Result showAllPosts(){
+    public Result showAllPosts(PageModel pageModel){
         ArrayList<Posts> posts = postsMapper.selectAllPosts();
 
-        List<PostVO> voList = posts.stream()
-                .map(post -> {
-                    PostVO vo = new PostVO();
-                    vo.setPostId(post.getPostId());
-                    vo.setTitle(post.getTitle());
-                    vo.setAuthorId(post.getAuthorId());
-                    vo.setContent(post.getContent());
-                    vo.setCreatedAt(post.getCreatedAt());
-                    vo.setLabelId(post.getLabelId());
-                    vo.setNumberOfComments(post.getNumberOfComments());
-                    vo.setNumberOfLikes(post.getNumberOfLikes());
-                    return vo;
-                })
-                .collect(Collectors.toList());
+        //2. 查询帖子
+        QueryWrapper<Posts> wrapper = new QueryWrapper<>();
+        wrapper.eq("visible", true);
+        Page<Posts> page = new Page<>(pageModel.getPageNo(), pageModel.getPageSize());
+        IPage<Posts> postPage = this.page(page, wrapper);
 
-        return Result.ok(voList, "query successfully!");
+        //3. 转换为 PostVO 分页对象
+        List<PostVO> voList = postPage.getRecords().stream().map(post -> {
+            PostVO vo = new PostVO();
+            vo.setPostId(post.getPostId());
+            vo.setTitle(post.getTitle());
+            vo.setAuthorId(post.getAuthorId());
+            vo.setContent(post.getContent());
+            vo.setCreatedAt(post.getCreatedAt());
+            vo.setLabelId(post.getLabelId());
+            vo.setNumberOfComments(post.getNumberOfComments());
+            vo.setNumberOfLikes(post.getNumberOfLikes());
+            return vo;
+        }).collect(Collectors.toList());
+
+        //4. 构造新的分页结果
+        Page<PostVO> voPage = new Page<>();
+        voPage.setCurrent(postPage.getCurrent());
+        voPage.setSize(postPage.getSize());
+        voPage.setTotal(postPage.getTotal());
+        voPage.setPages(postPage.getPages());
+        voPage.setRecords(voList);
+
+        System.out.println("当前页: " + pageModel.getPageNo());
+        System.out.println("每页数量: " + pageModel.getPageSize());
+        System.out.println("总条数: " + postPage.getTotal());
+        System.out.println("返回条数: " + voList.size());
+        System.out.println("分页对象是否为空：" + (postPage == null));
+        System.out.println("分页结果是否有记录：" + postPage.getRecords().size());
+
+
+        return Result.ok(voPage, "query successfully!");
     }
 
     /**

@@ -29,10 +29,17 @@ public class LabelServiceImpl extends ServiceImpl<LabelMapper, Label> implements
      */
     @Override
     public Result createLabel(String labelContent) {
-        //1. 添加标签内容
+        //1. 防止重复创建
+        Label existingLabel = labelMapper.selectLabelNameByContent(labelContent);
+        if(existingLabel != null){
+            return Result.fail("标签已存在");
+        }
+
+        //2. 添加标签内容
         Label label = new Label();
         label.setLabelContent(labelContent);
-        //2. 放入库中
+
+        //3. 放入库中
         labelMapper.insert(label);
         return Result.ok("成功创建标签！");
     }
