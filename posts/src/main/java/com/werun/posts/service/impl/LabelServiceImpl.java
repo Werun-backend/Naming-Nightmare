@@ -13,6 +13,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+
 @Service
 @Slf4j
 public class LabelServiceImpl extends ServiceImpl<LabelMapper, Label> implements ILabelService {
@@ -38,16 +40,12 @@ public class LabelServiceImpl extends ServiceImpl<LabelMapper, Label> implements
     /**
      * 查询所有标签
      *
-     * @param pageModel
      * @return
      */
     @Override
-    public Result readAllLabels(PageModel pageModel) {
-        QueryWrapper<Label> wrapper = new QueryWrapper<>();
-        Page<Label> page = new Page<>(pageModel.getPageNo(), pageModel.getPageSize());
-        IPage<Label> pageList = this.page(page, wrapper);
-
+    public Result readAllLabels() {
+        ArrayList<Label> labels = labelMapper.selectAllLabels();
         //返回分页结果
-        return Result.ok(pageList,"query successfully!");
+        return Result.ok(labels,"query successfully!");
     }
 }

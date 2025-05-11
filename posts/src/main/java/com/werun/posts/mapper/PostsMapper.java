@@ -8,6 +8,8 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
+
 @Repository
 public interface PostsMapper extends BaseMapper<Posts> {
 
@@ -30,12 +32,19 @@ public interface PostsMapper extends BaseMapper<Posts> {
     public Posts selectPostByUserId(@Param("userId") Long userId);
 
     /**
-     * 点赞：将帖子点赞数加一
+     * 查询所有帖子
      *
-     * @param postId 帖子ID
-     * @return 受影响的行数
+     * @return
      */
-    @Update("UPDATE posts SET number_of_likes = number_of_likes + 1 WHERE post_id = #{postId}")
-    int incrementLikes(@Param("postId") Long postId);
+    @Select("SELECT * FROM posts WHERE visible = TRUE")
+    public ArrayList<Posts> selectAllPosts();
+//    /**
+//     * 点赞：将帖子点赞数加一
+//     *
+//     * @param postId 帖子ID
+//     * @return 受影响的行数
+//     */
+//    @Update("UPDATE posts SET number_of_likes = number_of_likes + 1 WHERE post_id = #{postId}")
+//    int incrementLikes(@Param("postId") Long postId);
 
 }

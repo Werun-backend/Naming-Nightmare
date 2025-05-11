@@ -1,6 +1,7 @@
 package com.werun.common.core.utils;
 
-import com.sun.xml.internal.ws.util.UtilException;
+
+import com.werun.common.core.exception.UtilException;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

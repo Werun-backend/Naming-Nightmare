@@ -13,11 +13,13 @@ import com.werun.posts.mapper.LabelMapper;
 import com.werun.posts.mapper.PostsMapper;
 import com.werun.posts.service.IPostService;
 import com.werun.posts.utils.SecurityUtils;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -326,6 +328,33 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
 
         //3. 查询成功
         return Result.ok(postVO, "query successfully");
+    }
+
+    /**
+     * 展示所有帖子
+     *
+     * @return
+     */
+    @Override
+    public Result showAllPosts(){
+        ArrayList<Posts> posts = postsMapper.selectAllPosts();
+
+        List<PostVO> voList = posts.stream()
+                .map(post -> {
+                    PostVO vo = new PostVO();
+                    vo.setPostId(post.getPostId());
+                    vo.setTitle(post.getTitle());
+                    vo.setAuthorId(post.getAuthorId());
+                    vo.setContent(post.getContent());
+                    vo.setCreatedAt(post.getCreatedAt());
+                    vo.setLabelId(post.getLabelId());
+                    vo.setNumberOfComments(post.getNumberOfComments());
+                    vo.setNumberOfLikes(post.getNumberOfLikes());
+                    return vo;
+                })
+                .collect(Collectors.toList());
+
+        return Result.ok(voList, "query successfully!");
     }
 
     /**

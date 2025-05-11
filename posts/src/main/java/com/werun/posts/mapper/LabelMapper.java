@@ -7,6 +7,8 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
+
 @Repository
 public interface LabelMapper extends BaseMapper<Label> {
 
@@ -18,5 +20,13 @@ public interface LabelMapper extends BaseMapper<Label> {
      */
     @Select("Select * From label Where label_content Like #{LabelContent}")
     public Label selectLabelContentByContent(String LabelContent);
+
+    /**
+     * 查询所有标签
+     *
+     * @return
+     */
+    @Select("Select * From label")
+    public ArrayList<Label> selectAllLabels();
 
 }
