@@ -45,31 +45,37 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
     public Result createPost(PostDTO postDTO) {
         //1. 完善帖子信息
         Posts post = new Posts();
-            //1.1. 获取当前用户信息
-            post.setAuthorId(SecurityUtils.getUserId());
+        //1.1. 获取当前用户信息
+        post.setAuthorId(SecurityUtils.getUserId());
 
-            //1.2. 获取发布时间
-            if (postDTO.isScheduled()) {
-                post.setCreatedAt(postDTO.getScheduledTime());
-            } else {
-                LocalDateTime now = LocalDateTime.now();
-                post.setCreatedAt(now);
+        //1.2. 获取发布时间
+        if (postDTO.isScheduled()) {
+            post.setCreatedAt(postDTO.getScheduledTime());
+        } else {
+            LocalDateTime now = LocalDateTime.now();
+            post.setCreatedAt(now);
 
-            }
+        }
 
         //1.3. 默认可见
         post.setVisible(true);
 
-
-            //1.4. 获取前端传来的信息
-            post.setTitle(postDTO.getTitle());
-            post.setContent(postDTO.getContent());
-            post.setLabelId(postDTO.getLabelId());
-
+        //1.4. 获取前端传来的信息
+        post.setTitle(postDTO.getTitle());
+        post.setContent(postDTO.getContent());
+        post.setLabelId(postDTO.getLabelId());
 
         //2. 放入库中
         postsMapper.insert(post);
-        return Result.ok("成功创建帖子！");
+        PostVO postVO = new PostVO();
+        postVO.setPostId(post.getPostId());
+        postVO.setTitle(post.getTitle());
+        postVO.setAuthorId(post.getAuthorId());
+        postVO.setContent(post.getContent());
+        postVO.setCreatedAt(post.getCreatedAt());
+        postVO.setLabelId(post.getLabelId());
+
+        return Result.ok(postVO,"成功创建帖子！");
     }
 
 

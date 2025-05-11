@@ -55,8 +55,10 @@ public class UserServiceIml implements UserService {
         {
             throw new ServiceException("用户/密码必须填写");
         }
-
-
+        // 邮箱格式 错误
+        if(!EmailUtil.isValidEmail(email)){
+            throw new ServiceException("邮箱格式错误");
+        }
         // 注册用户信息
         User newUser = new User();
         newUser.setEmail(email);
