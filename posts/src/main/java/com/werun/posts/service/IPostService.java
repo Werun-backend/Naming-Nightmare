@@ -36,7 +36,7 @@ public interface IPostService extends IService<Posts> {
      *
      * @return
      */
-    public Result showAllPosts();
+    public Result showAllPosts(PageModel pageModel);
 
     /**
      * 查询个人帖子

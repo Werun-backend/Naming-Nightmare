@@ -22,6 +22,15 @@ public interface LabelMapper extends BaseMapper<Label> {
     public Label selectLabelContentByContent(String LabelContent);
 
     /**
+     * 用标签内容查询到标签
+     *
+     * @param LabelContent
+     * @return
+     */
+    @Select("Select * From label Where label_content = #{LabelContent}")
+    public Label selectLabelNameByContent(String LabelContent);
+
+    /**
      * 查询所有标签
      *
      * @return
