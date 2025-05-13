@@ -187,13 +187,15 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
             if (postId != null) wrapper.eq("post_id", postId);
 
             //条件2：标签
-            if (LabelContent != null) {
+            if (LabelContent != null && !LabelContent.trim().isEmpty()) {
                 Long labelId = labelMapper.selectLabelContentByContent(LabelContent).getLabelId();
                 wrapper.eq("label_id", labelId);
             }
 
             //条件3：帖子内容
-            if (PostContent != null) wrapper.like("content", PostContent);
+            if (PostContent != null && !PostContent.trim().isEmpty()) wrapper.like("content", PostContent);
+        System.out.println(wrapper.getSqlSegment());
+
 
         Page<Posts> page = new Page<>(pageModel.getPageNo(), pageModel.getPageSize());
         IPage<Posts> postPage = this.page(page, wrapper);
