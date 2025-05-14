@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
  * 帖子视图对象
  */
 public class PostVO {
-    private Long postId;
+    private String postId;
     private String title;
     private Long authorId;
     private String content;
@@ -15,11 +15,10 @@ public class PostVO {
     private Long labelId;
     private Long numberOfLikes;
 
-
     public PostVO() {
     }
 
-    public PostVO(Long postId, String title, Long authorId, String content, LocalDateTime createdAt, Long numberOfComments, Long labelId, Long numberOfLikes) {
+    public PostVO(String postId, String title, Long authorId, String content, LocalDateTime createdAt, Long numberOfComments, Long labelId, Long numberOfLikes) {
         this.postId = postId;
         this.title = title;
         this.authorId = authorId;
@@ -34,7 +33,7 @@ public class PostVO {
      * 获取
      * @return postId
      */
-    public Long getPostId() {
+    public String getPostId() {
         return postId;
     }
 
@@ -42,7 +41,7 @@ public class PostVO {
      * 设置
      * @param postId
      */
-    public void setPostId(Long postId) {
+    public void setPostId(String postId) {
         this.postId = postId;
     }
 

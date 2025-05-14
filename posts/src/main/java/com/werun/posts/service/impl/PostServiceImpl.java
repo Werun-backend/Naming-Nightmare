@@ -66,7 +66,7 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
         //2. 放入库中
         postsMapper.insert(post);
         PostVO postVO = new PostVO();
-        postVO.setPostId(post.getPostId());
+        postVO.setPostId(String.valueOf(post.getPostId()));
         postVO.setTitle(post.getTitle());
         postVO.setAuthorId(post.getAuthorId());
         postVO.setContent(post.getContent());
@@ -145,7 +145,7 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
         //3. 转换为 PostVO 分页对象
         List<PostVO> voList = postPage.getRecords().stream().map(post -> {
             PostVO vo = new PostVO();
-            vo.setPostId(post.getPostId());
+            vo.setPostId(String.valueOf(post.getPostId()));
             vo.setTitle(post.getTitle());
             vo.setAuthorId(post.getAuthorId());
             vo.setContent(post.getContent());
@@ -203,7 +203,7 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
         //2. 转换为 PostVO 分页对象
         List<PostVO> voList = postPage.getRecords().stream().map(post -> {
             PostVO vo = new PostVO();
-            vo.setPostId(post.getPostId());
+            vo.setPostId(String.valueOf(post.getPostId()));
             vo.setTitle(post.getTitle());
             vo.setAuthorId(post.getAuthorId());
             vo.setContent(post.getContent());
@@ -251,7 +251,7 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
 
         //3.  生成视图对象
         PostVO postVO = new PostVO();
-        postVO.setPostId(post.getPostId());
+        postVO.setPostId(String.valueOf(post.getPostId()));
         postVO.setTitle(post.getTitle());
         postVO.setAuthorId(post.getAuthorId());
         postVO.setContent(post.getContent());
@@ -270,18 +270,16 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
      */
     @Override
     public Result showAllPosts(PageModel pageModel) {
-        ArrayList<Posts> posts = postsMapper.selectAllPosts();
-
-        //2. 查询帖子
+        //1. 查询帖子
         QueryWrapper<Posts> wrapper = new QueryWrapper<>();
         wrapper.eq("visible", true);
         Page<Posts> page = new Page<>(pageModel.getPageNo(), pageModel.getPageSize());
         IPage<Posts> postPage = this.page(page, wrapper);
 
-        //3. 转换为 PostVO 分页对象
+        //2. 转换为 PostVO 分页对象
         List<PostVO> voList = postPage.getRecords().stream().map(post -> {
             PostVO vo = new PostVO();
-            vo.setPostId(post.getPostId());
+            vo.setPostId(String.valueOf(post.getPostId()));
             vo.setTitle(post.getTitle());
             vo.setAuthorId(post.getAuthorId());
             vo.setContent(post.getContent());
@@ -292,7 +290,7 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
             return vo;
         }).collect(Collectors.toList());
 
-        //4. 构造新的分页结果
+        //3. 构造新的分页结果
         Page<PostVO> voPage = new Page<>();
         voPage.setCurrent(postPage.getCurrent());
         voPage.setSize(postPage.getSize());
@@ -325,7 +323,7 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
         //3. 转换为 PostVO 分页对象
         List<PostVO> voList = postPage.getRecords().stream().map(post -> {
             PostVO vo = new PostVO();
-            vo.setPostId(post.getPostId());
+            vo.setPostId(String.valueOf(post.getPostId()));
             vo.setTitle(post.getTitle());
             vo.setAuthorId(post.getAuthorId());
             vo.setContent(post.getContent());
