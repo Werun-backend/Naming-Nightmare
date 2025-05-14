@@ -22,6 +22,10 @@ public class CommentsVO {
      */
     private String sendUsername;
     /**
+     * 评论者头像
+     */
+    private byte[] sendAvatar;
+    /**
      * 被评论者id
      */
     private Long parentUserId;
@@ -29,5 +33,9 @@ public class CommentsVO {
      * 被评论者用户名
      */
     private String parentUsername;
+    /**
+     * 被评论者头像
+     */
+    private byte[] parentAvatar;
 
 }
