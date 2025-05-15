@@ -247,6 +247,10 @@
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
+                    <compilerArgs>
+                        <arg>-XDignore.symbol.file</arg>
+                    </compilerArgs>
+                    <fork>true</fork>
                     <encoding>${project.build.sourceEncoding}</encoding>
                     <basedir/>
                     <mainOutputDirectory/>

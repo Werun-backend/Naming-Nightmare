@@ -132,6 +132,7 @@ public class CommentsServiceImpl implements CommentsService {
             commentsVO.setCommentsPO(commentList.get(i));
             commentsVO.setSendUsername(userPO1.getNickName());
             commentsVO.setSendUserId(userPO1.getUserId());
+            commentsVO.setSendAvatar(userPO1.getAvatar());
 
             Integer parentId = commentList.get(i).getParentId();
             if (parentId == 0) {
@@ -153,6 +154,7 @@ public class CommentsServiceImpl implements CommentsService {
             UserPO userPO2 = result2.getData();
             commentsVO.setParentUsername(userPO2.getNickName());
             commentsVO.setParentUserId(userPO2.getUserId());
+            commentsVO.setParentAvatar(userPO2.getAvatar());
             commentsVOS.add(commentsVO);
 
         }
