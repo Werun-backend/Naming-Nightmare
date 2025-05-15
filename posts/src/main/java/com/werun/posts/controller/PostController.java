@@ -118,13 +118,13 @@ public class PostController {
      */
     @GetMapping("/readPostByConditions")
     @Operation(summary = "条件查询帖子", description = "条件查询帖子")
-    public Result readPostByConditions(@RequestParam(name = "postId", defaultValue = "") Long postId, @RequestParam(name = "LabelContent", defaultValue = "") String LabelContent,
-                                       @RequestParam(name = "PostContent", defaultValue = "") String PostContent, @RequestParam(name = "pageNo", defaultValue = "1") Integer pageNo,
+    public Result readPostByConditions(@RequestParam(name = "postId", defaultValue = "") Long postId, @RequestParam(name = "postContent", defaultValue = "") String postContent,
+                                       @RequestParam(name = "labelId", defaultValue = "")Long labelId,  @RequestParam(name = "pageNo", defaultValue = "1") Integer pageNo,
                                        @RequestParam(name = "pageSize", defaultValue = "5") Integer pageSize) {
         PageModel pageModel = new PageModel();
         pageModel.setPageNo(pageNo);
         pageModel.setPageSize(pageSize);
-        return iPostService.readPostByConditions(postId,LabelContent,PostContent,pageModel);
+        return iPostService.readPostByConditions(postId,labelId,postContent,pageModel);
     }
 
     /**

@@ -171,13 +171,13 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
      * 条件查询
      *
      * @param postId
-     * @param LabelContent
+     * @param labelId
      * @param PostContent
      * @param pageModel
      * @return
      */
     @Override
-    public Result readPostByConditions(Long postId, String LabelContent, String PostContent, PageModel pageModel) {
+    public Result readPostByConditions(Long postId, Long labelId, String PostContent, PageModel pageModel) {
         //1. 设置查询条件
         QueryWrapper<Posts> wrapper = new QueryWrapper<>();
             wrapper.eq("visible", true);
@@ -187,8 +187,7 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
             if (postId != null) wrapper.eq("post_id", postId);
 
             //条件2：标签
-            if (LabelContent != null && !LabelContent.trim().isEmpty()) {
-                Long labelId = labelMapper.selectLabelContentByContent(LabelContent).getLabelId();
+            if (labelId != null) {
                 wrapper.eq("label_id", labelId);
             }
 

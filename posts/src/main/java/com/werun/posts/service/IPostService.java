@@ -51,12 +51,12 @@ public interface IPostService extends IService<Posts> {
      * 条件查询（id、标签、内容）
      *
      * @param postId
-     * @param LabelContent
+     * @param labelId,
      * @param PostContent
      * @param pageModel
      * @return
      */
-    public Result readPostByConditions(Long postId,String LabelContent,String PostContent,PageModel pageModel);
+    public Result readPostByConditions(Long postId, Long labelId, String PostContent,PageModel pageModel);
 
     /**
      * 编辑帖子

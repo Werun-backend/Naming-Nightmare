@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public interface LabelMapper extends BaseMapper<Label> {
 
     /**
-     * 用标签内容查询到标签
+     * 用标签内容查询到标签（模糊）
      *
      * @param LabelContent
      * @return
