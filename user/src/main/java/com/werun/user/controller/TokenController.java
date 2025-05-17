@@ -95,8 +95,8 @@ public class TokenController {
 
     @GetMapping("selectUserMessage")
     @Operation(summary = "查询个人信息", description = "查询个人信息")
-    public Result<UserPO> selectUserMessage(@RequestParam Long userId) {
-        UserPO userPO = userService.selectUserMessage(userId);
+    public Result<UserPO> selectUserMessage() {
+        UserPO userPO = userService.selectUserMessage();
         return Result.ok(userPO);
     }
 
