@@ -1,8 +1,10 @@
 package com.werun.posts.controller;
 
 import com.werun.common.core.request.Result;
+import com.werun.posts.DTO.LabelDTO;
 import com.werun.posts.DTO.PageModel;
 import com.werun.posts.DTO.PostDTO;
+import com.werun.posts.DTO.PostUpdateDTO;
 import com.werun.posts.domain.Posts;
 import com.werun.posts.mapper.PostsMapper;
 import com.werun.posts.service.ILabelService;
@@ -59,9 +61,9 @@ public class PostController {
      */
     @PostMapping("/uploadPicture")
     @Operation(summary = "上传图片", description = "上传图片")
-    public Result uploadPicture(@RequestParam Long postId,@RequestParam MultipartFile picture) throws IOException {
-        byte[] pictureData =picture.getBytes();
-        return iPostService.uploadPicture(postId,pictureData);
+    public Result uploadPicture(@RequestParam Long postId, @RequestParam MultipartFile picture) throws IOException {
+        byte[] pictureData = picture.getBytes();
+        return iPostService.uploadPicture(postId, pictureData);
     }
 
     /**
@@ -88,9 +90,9 @@ public class PostController {
      *
      * @return
      */
-    @GetMapping("/deletePost")
+    @DeleteMapping("/deletePost/{postId}")
     @Operation(summary = "删除帖子", description = "删除帖子")
-    public Result deletePost(@RequestParam Long postId) {
+    public Result deletePost(@PathVariable Long postId) {
         return iPostService.deletePost(postId);
     }
 
@@ -102,7 +104,7 @@ public class PostController {
     @GetMapping("/readPostByAuthor")
     @Operation(summary = "查询个人帖子", description = "查询个人帖子")
     public Result readPostByAuthor(@RequestParam(name = "pageNo", defaultValue = "1") Integer pageNo,
-                                         @RequestParam(name = "pageSize", defaultValue = "5") Integer pageSize) {
+                                   @RequestParam(name = "pageSize", defaultValue = "5") Integer pageSize) {
         PageModel pageModel = new PageModel();
         pageModel.setPageNo(pageNo);
         pageModel.setPageSize(pageSize);
@@ -110,33 +112,19 @@ public class PostController {
     }
 
     /**
-     * 用标签查询帖子
+     * 条件查询帖子
      *
      * @return
      */
-    @GetMapping("/readPostByLabel")
-    @Operation(summary = "用标签查询帖子", description = "用标签查询帖子")
-    public Result readPostByLabel(@RequestParam String LabelContent,@RequestParam(name = "pageNo", defaultValue = "1") Integer pageNo,
-                                         @RequestParam(name = "pageSize", defaultValue = "5") Integer pageSize) {
+    @GetMapping("/readPostByConditions")
+    @Operation(summary = "条件查询帖子", description = "条件查询帖子")
+    public Result readPostByConditions(@RequestParam(name = "postId", defaultValue = "") Long postId, @RequestParam(name = "postContent", defaultValue = "") String postContent,
+                                       @RequestParam(name = "labelId", defaultValue = "")Long labelId,  @RequestParam(name = "pageNo", defaultValue = "1") Integer pageNo,
+                                       @RequestParam(name = "pageSize", defaultValue = "5") Integer pageSize) {
         PageModel pageModel = new PageModel();
         pageModel.setPageNo(pageNo);
         pageModel.setPageSize(pageSize);
-        return iPostService.readPostByLabel(LabelContent,pageModel);
-    }
-
-    /**
-     * 用帖子内容查询帖子
-     *
-     * @return
-     */
-    @GetMapping("/readPostByContent")
-    @Operation(summary = "用帖子内容查询帖子", description = "用帖子内容查询帖子")
-    public Result readPostByContent(@RequestParam String PostContent,@RequestParam(name = "pageNo", defaultValue = "1") Integer pageNo,
-                                         @RequestParam(name = "pageSize", defaultValue = "5") Integer pageSize) {
-        PageModel pageModel = new PageModel();
-        pageModel.setPageNo(pageNo);
-        pageModel.setPageSize(pageSize);
-        return iPostService.readPostByContent(PostContent,pageModel);
+        return iPostService.readPostByConditions(postId,labelId,postContent,pageModel);
     }
 
     /**
@@ -147,7 +135,7 @@ public class PostController {
     @GetMapping("/push")
     @Operation(summary = "推送", description = "推送")
     public Result push(@RequestParam(name = "pageNo", defaultValue = "1") Integer pageNo,
-                                         @RequestParam(name = "pageSize", defaultValue = "5") Integer pageSize) {
+                       @RequestParam(name = "pageSize", defaultValue = "5") Integer pageSize) {
         PageModel pageModel = new PageModel();
         pageModel.setPageNo(pageNo);
         pageModel.setPageSize(pageSize);
@@ -159,21 +147,25 @@ public class PostController {
      *
      * @return
      */
-    @GetMapping("/updatePost")
+    @PutMapping("/updatePost")
     @Operation(summary = "编辑帖子", description = "编辑帖子")
-    public Result updatePost(@RequestParam Long postId,@RequestParam String typeName,@RequestParam String newParam) {
-        return iPostService.updatePost(postId,typeName,newParam);
+    public Result updatePost(@RequestBody PostUpdateDTO postUpdateDTO) {
+        return iPostService.updatePost(postUpdateDTO);
     }
 
     /**
-     * 根据postId查询帖子
+     * 展示所有帖子
      *
      * @return
      */
-    @GetMapping("/readPostByPostId")
-    @Operation(summary = "根据postId查询帖子", description = "根据postId查询帖子")
-    public Result readPostByPostId(@RequestParam Long postId) {
-        return iPostService.readPostByPostId(postId);
+    @GetMapping("/showAllPosts")
+    @Operation(summary = "展示所有帖子", description = "展示所有帖子")
+    public Result showAllPosts(@RequestParam(name = "pageNo", defaultValue = "1") Integer pageNo,
+                               @RequestParam(name = "pageSize", defaultValue = "5") Integer pageSize) {
+        PageModel pageModel = new PageModel();
+        pageModel.setPageNo(pageNo);
+        pageModel.setPageSize(pageSize);
+        return iPostService.showAllPosts(pageModel);
     }
 
     /**
@@ -181,10 +173,10 @@ public class PostController {
      *
      * @return
      */
-    @GetMapping("/createLabel")
+    @PostMapping("/createLabel")
     @Operation(summary = "新增标签", description = "新增标签")
-    public Result createLabel(@RequestParam String labelContent) {
-        return iLabelService.createLabel(labelContent);
+    public Result createLabel(@RequestBody LabelDTO labelDTO) {
+        return iLabelService.createLabel(labelDTO.getLabelName());
     }
 
     /**
@@ -194,12 +186,8 @@ public class PostController {
      */
     @GetMapping("/readAllLabels")
     @Operation(summary = "查询所有标签", description = "查询所有标签")
-    public Result readAllLabels(@RequestParam(name = "pageNo", defaultValue = "1") Integer pageNo,
-                                         @RequestParam(name = "pageSize", defaultValue = "5") Integer pageSize) {
-        PageModel pageModel = new PageModel();
-        pageModel.setPageNo(pageNo);
-        pageModel.setPageSize(pageSize);
-        return iLabelService.readAllLabels(pageModel);
+    public Result readAllLabels() {
+        return iLabelService.readAllLabels();
     }
 
 //    /**
@@ -212,4 +200,4 @@ public class PostController {
 //    public Result<?> likePost(@RequestParam Long postId) {
 //        return iPostService.likePost(postId);
 //    }
- }
+}

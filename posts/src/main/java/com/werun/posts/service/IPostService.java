@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.werun.common.core.request.Result;
 import com.werun.posts.DTO.PageModel;
 import com.werun.posts.DTO.PostDTO;
+import com.werun.posts.DTO.PostUpdateDTO;
 import com.werun.posts.domain.Posts;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -32,6 +33,13 @@ public interface IPostService extends IService<Posts> {
     public Result deletePost(Long postId);
 
     /**
+     * 展示所有帖子
+     *
+     * @return
+     */
+    public Result showAllPosts(PageModel pageModel);
+
+    /**
      * 查询个人帖子
      *
       * @param pageModel
@@ -40,37 +48,23 @@ public interface IPostService extends IService<Posts> {
     public Result readPostByAuthor(PageModel pageModel);
 
     /**
-     * 用帖子id查询帖子
+     * 条件查询（id、标签、内容）
      *
-     * @return
-     */
-    public Result readPostByPostId(Long postId);
-
-    /**
-     * 用标签查询帖子
-     *
-     * @param LabelContent
-     * @return
-     */
-    public Result readPostByLabel(String LabelContent,PageModel pageModel);
-
-    /**
-     * 用帖子内容查询帖子
-     *
+     * @param postId
+     * @param labelId,
      * @param PostContent
      * @param pageModel
      * @return
      */
-    public Result readPostByContent(String PostContent,PageModel pageModel);
-
+    public Result readPostByConditions(Long postId, Long labelId, String PostContent,PageModel pageModel);
 
     /**
      * 编辑帖子
      *
-     * @param postId
+     * @param postUpdateDTO
      * @return
      */
-    public Result updatePost(Long postId,String typeName,String newParam);
+    public Result updatePost(PostUpdateDTO postUpdateDTO);
 
     /**
      * 推送

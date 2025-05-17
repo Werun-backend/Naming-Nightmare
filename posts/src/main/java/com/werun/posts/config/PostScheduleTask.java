@@ -11,6 +11,9 @@ import javax.annotation.Resource;
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * 定时发送扫描器
+ */
 @Component // 让 Spring 扫描并管理
 public class PostScheduleTask {
 
@@ -26,6 +29,7 @@ public class PostScheduleTask {
                         .eq("visible", false)
         );
 
+        //到达发送时间后，更改可见状态
         for (Posts post : postsToPublish) {
             post.setVisible(true);
             post.setScheduled(false);

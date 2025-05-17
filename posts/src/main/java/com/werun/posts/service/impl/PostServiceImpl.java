@@ -7,22 +7,20 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.werun.common.core.request.Result;
 import com.werun.posts.DTO.PageModel;
 import com.werun.posts.DTO.PostDTO;
+import com.werun.posts.DTO.PostUpdateDTO;
 import com.werun.posts.VO.PostVO;
-import com.werun.posts.domain.Label;
 import com.werun.posts.domain.Posts;
 import com.werun.posts.mapper.LabelMapper;
 import com.werun.posts.mapper.PostsMapper;
 import com.werun.posts.service.IPostService;
 import com.werun.posts.utils.SecurityUtils;
-import lombok.AllArgsConstructor;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDateTime;
-import java.util.Base64;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -68,14 +66,14 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
         //2. 放入库中
         postsMapper.insert(post);
         PostVO postVO = new PostVO();
-        postVO.setPostId(post.getPostId());
+        postVO.setPostId(String.valueOf(post.getPostId()));
         postVO.setTitle(post.getTitle());
         postVO.setAuthorId(post.getAuthorId());
         postVO.setContent(post.getContent());
         postVO.setCreatedAt(post.getCreatedAt());
         postVO.setLabelId(post.getLabelId());
 
-        return Result.ok(postVO,"成功创建帖子！");
+        return Result.ok(postVO, "成功创建帖子！");
     }
 
 
@@ -86,7 +84,7 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
      * @return
      */
     @Override
-    public Result uploadPicture(Long postId,byte[] picture){
+    public Result uploadPicture(Long postId, byte[] picture) {
         //1. 校验身份
         Posts post = postsMapper.selectPostByPostId(postId);
         if (!post.getAuthorId().equals(SecurityUtils.getUserId())) {
@@ -100,7 +98,6 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
     }
 
 
-
     /**
      * 删除帖子
      *
@@ -108,24 +105,23 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
      */
     @Override
     public Result deletePost(Long postId) {
-        //1. 校验身份
+        //1. 身份、可见状态鉴权
         Posts post = postsMapper.selectPostByPostId(postId);
+        if (post == null || !post.isVisible()) {
+            //找不到帖子
+            return Result.fail("Post not Found！");
+        }
         if (!post.getAuthorId().equals(SecurityUtils.getUserId())) {
-            //1.1. 无删除权限
+            //无删除权限
             return Result.fail("Delete failed！");
         }
 
-        LocalDateTime now = LocalDateTime.now();
-        if(now.isBefore(post.getCreatedAt())){
-            return Result.fail("未找到该帖子！");
-        }
-
-
         //2. 更改状态
         post.setVisible(false);
+        postsMapper.updateById(post);
 
         //3. 删除成功
-        return Result.ok("Delete successfully！");
+        return Result.ok("The post has been successfully deleted!");
     }
 
     /**
@@ -142,14 +138,14 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
         QueryWrapper<Posts> wrapper = new QueryWrapper<>();
         wrapper.eq("visible", true);
         wrapper.eq("author_id", userId);
-        wrapper.lt("created_at",LocalDateTime.now());
+        wrapper.lt("created_at", LocalDateTime.now());
         Page<Posts> page = new Page<>(pageModel.getPageNo(), pageModel.getPageSize());
         IPage<Posts> postPage = this.page(page, wrapper);
 
         //3. 转换为 PostVO 分页对象
         List<PostVO> voList = postPage.getRecords().stream().map(post -> {
             PostVO vo = new PostVO();
-            vo.setPostId(post.getPostId());
+            vo.setPostId(String.valueOf(post.getPostId()));
             vo.setTitle(post.getTitle());
             vo.setAuthorId(post.getAuthorId());
             vo.setContent(post.getContent());
@@ -172,78 +168,41 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
     }
 
     /**
-     * 用标签查询帖子
+     * 条件查询
      *
-     * @param LabelContent
-     * @return
-     */
-    @Override
-    public Result readPostByLabel(String LabelContent, PageModel pageModel) {
-        //1. 模糊查询到帖子id
-        Long labelId = labelMapper.selectLabelContentByContent(LabelContent).getLabelId();
-
-        //2. 查询帖子
-        QueryWrapper<Posts> wrapper = new QueryWrapper<>();
-        wrapper.eq("visible", true);
-        wrapper.eq("label_id", labelId);
-        wrapper.lt("created_at",LocalDateTime.now());
-        Page<Posts> page = new Page<>(pageModel.getPageNo(), pageModel.getPageSize());
-        IPage<Posts> postPage = this.page(page, wrapper);
-
-        //3. 转换为 PostVO 分页对象
-        List<PostVO> voList = postPage.getRecords().stream().map(post -> {
-            PostVO vo = new PostVO();
-            vo.setPostId(post.getPostId());
-            vo.setTitle(post.getTitle());
-            vo.setAuthorId(post.getAuthorId());
-            vo.setContent(post.getContent());
-            vo.setCreatedAt(post.getCreatedAt());
-            vo.setLabelId(post.getLabelId());
-            vo.setNumberOfComments(post.getNumberOfComments());
-            vo.setNumberOfLikes(post.getNumberOfLikes());
-//            vo.setPictureBase64("data:image/jpeg;base64,"+ Base64.getEncoder().encodeToString(post.getPicture()));
-            return vo;
-        }).collect(Collectors.toList());
-
-        //4. 构造新的分页结果
-        Page<PostVO> voPage = new Page<>();
-        voPage.setCurrent(postPage.getCurrent());
-        voPage.setSize(postPage.getSize());
-        voPage.setTotal(postPage.getTotal());
-        voPage.setPages(postPage.getPages());
-        voPage.setRecords(voList);
-
-        System.out.println("当前页: " + pageModel.getPageNo());
-        System.out.println("每页数量: " + pageModel.getPageSize());
-        System.out.println("总条数: " + postPage.getTotal());
-        System.out.println("返回条数: " + voList.size());
-        System.out.println("分页对象是否为空：" + (postPage == null));
-        System.out.println("分页结果是否有记录：" + postPage.getRecords().size());
-
-
-        return Result.ok(voPage, "query successfully!");
-    }
-
-    /**
-     * 用帖子内容查询帖子
-     *
+     * @param postId
+     * @param labelId
      * @param PostContent
+     * @param pageModel
      * @return
      */
     @Override
-    public Result readPostByContent(String PostContent, PageModel pageModel) {
-        //1. 查询帖子
+    public Result readPostByConditions(Long postId, Long labelId, String PostContent, PageModel pageModel) {
+        //1. 设置查询条件
         QueryWrapper<Posts> wrapper = new QueryWrapper<>();
-        wrapper.eq("visible", true);
-        wrapper.like("content", PostContent);
-        wrapper.lt("created_at",LocalDateTime.now());
+            wrapper.eq("visible", true);
+            wrapper.lt("created_at", LocalDateTime.now());
+
+            //条件1：帖子id
+            if (postId != null) wrapper.eq("post_id", postId);
+
+            //条件2：标签
+            if (labelId != null) {
+                wrapper.eq("label_id", labelId);
+            }
+
+            //条件3：帖子内容
+            if (PostContent != null && !PostContent.trim().isEmpty()) wrapper.like("content", PostContent);
+        System.out.println(wrapper.getSqlSegment());
+
+
         Page<Posts> page = new Page<>(pageModel.getPageNo(), pageModel.getPageSize());
         IPage<Posts> postPage = this.page(page, wrapper);
 
         //2. 转换为 PostVO 分页对象
         List<PostVO> voList = postPage.getRecords().stream().map(post -> {
             PostVO vo = new PostVO();
-            vo.setPostId(post.getPostId());
+            vo.setPostId(String.valueOf(post.getPostId()));
             vo.setTitle(post.getTitle());
             vo.setAuthorId(post.getAuthorId());
             vo.setContent(post.getContent());
@@ -251,7 +210,82 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
             vo.setLabelId(post.getLabelId());
             vo.setNumberOfComments(post.getNumberOfComments());
             vo.setNumberOfLikes(post.getNumberOfLikes());
-//            vo.setPictureBase64("data:image/jpeg;base64,"+ Base64.getEncoder().encodeToString(post.getPicture()));
+            return vo;
+        }).collect(Collectors.toList());
+
+        //3. 找不到对应结果
+        if (postPage.getTotal() == 0) {
+            return Result.fail(404, "not Found");
+        }
+
+        //4. 构造新的分页结果
+        Page<PostVO> voPage = new Page<>();
+        voPage.setCurrent(postPage.getCurrent());
+        voPage.setSize(postPage.getSize());
+        voPage.setTotal(postPage.getTotal());
+        voPage.setPages(postPage.getPages());
+        voPage.setRecords(voList);
+        return Result.ok(voPage, "query successfully!");
+    }
+
+    /**
+     * 编辑帖子
+     *
+     * @param postUpdateDTO
+     * @return
+     */
+    @Override
+    public Result updatePost(PostUpdateDTO postUpdateDTO) {
+        //1. 查询到原贴
+        Posts post = postsMapper.selectPostByPostId(postUpdateDTO.getPostId());
+        if (!post.isVisible()) {
+            return Result.fail("not found");
+        }
+
+        //2. 编辑帖子
+        post.setTitle(postUpdateDTO.getTitle());
+        post.setContent(postUpdateDTO.getContent());
+        post.setLabelId(postUpdateDTO.getLabelId());
+        postsMapper.updateById(post);
+
+        //3.  生成视图对象
+        PostVO postVO = new PostVO();
+        postVO.setPostId(String.valueOf(post.getPostId()));
+        postVO.setTitle(post.getTitle());
+        postVO.setAuthorId(post.getAuthorId());
+        postVO.setContent(post.getContent());
+        postVO.setCreatedAt(post.getCreatedAt());
+        postVO.setLabelId(post.getLabelId());
+        postVO.setNumberOfComments(post.getNumberOfComments());
+        postVO.setNumberOfLikes(post.getNumberOfLikes());
+
+        return Result.ok(postVO, "update successfully!");
+    }
+
+    /**
+     * 展示所有帖子
+     *
+     * @return
+     */
+    @Override
+    public Result showAllPosts(PageModel pageModel) {
+        //1. 查询帖子
+        QueryWrapper<Posts> wrapper = new QueryWrapper<>();
+        wrapper.eq("visible", true);
+        Page<Posts> page = new Page<>(pageModel.getPageNo(), pageModel.getPageSize());
+        IPage<Posts> postPage = this.page(page, wrapper);
+
+        //2. 转换为 PostVO 分页对象
+        List<PostVO> voList = postPage.getRecords().stream().map(post -> {
+            PostVO vo = new PostVO();
+            vo.setPostId(String.valueOf(post.getPostId()));
+            vo.setTitle(post.getTitle());
+            vo.setAuthorId(post.getAuthorId());
+            vo.setContent(post.getContent());
+            vo.setCreatedAt(post.getCreatedAt());
+            vo.setLabelId(post.getLabelId());
+            vo.setNumberOfComments(post.getNumberOfComments());
+            vo.setNumberOfLikes(post.getNumberOfLikes());
             return vo;
         }).collect(Collectors.toList());
 
@@ -264,73 +298,6 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
         voPage.setRecords(voList);
 
         return Result.ok(voPage, "query successfully!");
-    }
-
-    /**
-     * 编辑帖子
-     *
-     * @param postId
-     * @param typeName
-     * @param newParam
-     * @return
-     */
-    @Override
-    public Result updatePost(Long postId, String typeName, String newParam) {
-        //1. 查询到原贴
-        Posts post = postsMapper.selectPostByPostId(postId);
-        if (!post.isVisible()) {
-            return Result.fail("not found");
-        }
-
-        //2. 编辑帖子
-        if (typeName.equals("title")) {
-            post.setTitle(newParam);
-        }
-        if (typeName.equals("content")) {
-            post.setContent(newParam);
-        }
-        if (typeName.equals("label_id")) {
-            post.setLabelId(Long.valueOf(newParam));
-        }
-        postsMapper.updateById(post);
-
-        //3. 提示编辑成功
-        return Result.ok(post, "update successfully!");
-    }
-
-    /**
-     * 根据postId查询帖子
-     *
-     * @param postId
-     * @return
-     */
-    @Override
-    public Result readPostByPostId(Long postId) {
-        //1. 查询贴子
-        Posts post = postsMapper.selectPostByPostId(postId);
-        if (!post.isVisible()) {
-            return Result.fail("not found");
-        }
-        LocalDateTime now = LocalDateTime.now();
-        if(now.isBefore(post.getCreatedAt())){
-            return Result.fail("未找到该帖子！");
-        }
-
-        //2. 生成视图对象
-        PostVO postVO = new PostVO();
-        postVO.setPostId(post.getPostId());
-        postVO.setTitle(post.getTitle());
-        postVO.setAuthorId(post.getAuthorId());
-        postVO.setContent(post.getContent());
-        postVO.setCreatedAt(post.getCreatedAt());
-        postVO.setLabelId(post.getLabelId());
-        postVO.setNumberOfComments(post.getNumberOfComments());
-        postVO.setNumberOfLikes(post.getNumberOfLikes());
-//        postVO.setPictureBase64("data:image/jpeg;base64,"+ Base64.getEncoder().encodeToString(post.getPicture()));
-
-
-        //3. 查询成功
-        return Result.ok(postVO, "query successfully");
     }
 
     /**
@@ -347,7 +314,7 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
         //2. 分页展示发表5分钟内的所有帖子
         QueryWrapper<Posts> wrapper = new QueryWrapper<>();
         wrapper.eq("visible", true);
-        wrapper.between("created_at", now.minusMinutes(5),now);
+        wrapper.between("created_at", now.minusMinutes(5), now);
 //        wrapper.orderByDesc("number_of_likes");
         Page<Posts> page = new Page<>(pageModel.getPageNo(), pageModel.getPageSize());
         IPage<Posts> postPage = this.page(page, wrapper);
@@ -355,7 +322,7 @@ public class PostServiceImpl extends ServiceImpl<PostsMapper, Posts> implements 
         //3. 转换为 PostVO 分页对象
         List<PostVO> voList = postPage.getRecords().stream().map(post -> {
             PostVO vo = new PostVO();
-            vo.setPostId(post.getPostId());
+            vo.setPostId(String.valueOf(post.getPostId()));
             vo.setTitle(post.getTitle());
             vo.setAuthorId(post.getAuthorId());
             vo.setContent(post.getContent());

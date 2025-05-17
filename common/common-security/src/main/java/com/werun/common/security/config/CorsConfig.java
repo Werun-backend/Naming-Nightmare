@@ -17,6 +17,7 @@ import reactor.core.publisher.Mono;
 /**
  * 配置跨域
  */
+
 public class CorsConfig implements WebFilter {
 
     private static final String ALL = "*";
