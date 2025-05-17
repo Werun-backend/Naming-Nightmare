@@ -23,11 +23,6 @@ public class UserPO {
     private String phone;
 
     /**
-     * 密码
-     */
-    private String password;
-
-    /**
      * 性别
      */
     private Integer sex;

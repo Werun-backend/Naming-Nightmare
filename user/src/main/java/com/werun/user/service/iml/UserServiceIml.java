@@ -82,8 +82,7 @@ public class UserServiceIml implements UserService {
     }
 
     @Override
-    public UserPO selectUserMessage() {
-        Long userId = SecurityUtils.getUserId();
+    public UserPO selectUserMessage(Long userId) {
         UserPO userPO = userMapper.selectUserMessage(userId);
         return userPO;
     }

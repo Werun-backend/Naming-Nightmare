@@ -95,9 +95,15 @@ public class TokenController {
 
     @GetMapping("selectUserMessage")
     @Operation(summary = "查询个人信息", description = "查询个人信息")
-    public Result<UserPO> selectUserMessage() {
-        UserPO userPO = userService.selectUserMessage();
-        return Result.ok(userPO);
+    public Result<UserPO> selectUserMessage(@RequestParam(required = false) Long userId) {
+        if(userId == null){
+            UserPO userPO = userService.selectUserMessage(SecurityUtils.getUserId());
+            return Result.ok(userPO);
+        }else if(userId != null){
+            UserPO userPO = userService.selectUserMessage(userId);
+            return Result.ok(userPO);
+        }
+        return Result.fail();
     }
 
     @PostMapping("uploadAvatar")
@@ -112,13 +118,12 @@ public class TokenController {
 
     /**
      * 头像展示
-     *
-     * @param userId
      * @return
      */
     @GetMapping("/postPicture")
     @Operation(summary = "预览头像", description = "根据ID获取头像")
-    public ResponseEntity<byte[]> previewPicture(@RequestParam Long userId) {
+    public ResponseEntity<byte[]> previewPicture() {
+        Long userId = SecurityUtils.getUserId();
         UserPO userPO = userMapper.selectUserMessage(userId);
         if (userPO == null || userPO.getAvatar() == null) {
             return ResponseEntity.notFound().build();
